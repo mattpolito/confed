@@ -18,6 +18,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'awesome_print', :require => 'ap'
+  gem 'remarkable_mongoid', :require => 'remarkable/mongoid'
 end
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
