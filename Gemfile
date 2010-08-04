@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.rc'
 gem 'mongoid', :git => 'git://github.com/durran/mongoid.git'
+gem 'bson_ext', '1.0.4'
 gem 'flutie'
 gem 'simple_form'
 gem 'haml'

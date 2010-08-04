@@ -143,6 +143,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bson_ext (= 1.0.4)
   capybara
   cucumber-rails
   factory_girl_rails
