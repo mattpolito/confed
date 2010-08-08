@@ -1,0 +1,38 @@
+==
+story_type:
+  feature
+name:
+  Presentation show page with video
+description:
+  In order to learn about a particular subject
+  As a site viewer
+  I want to see a presentation video embedded into the page
+
+  - I should see
+  -- presentation title
+  -- presenter's name
+  -- embedded video
+  -- event name
+
+labels:
+  
+==
+story_type:
+  feature
+name:
+  Presentation show page with slideshow
+description:
+  In order to learn about a particular subject
+  As a site viewer
+  I want to see presentation slides embedded into the page
+
+  - I should see
+  -- presentation title
+  -- presenter's name
+  -- embedded slideshow
+  -- event name
+  - I should not see
+  -- embedded video
+
+labels:
+  
