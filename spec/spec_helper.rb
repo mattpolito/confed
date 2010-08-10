@@ -24,9 +24,4 @@ RSpec.configure do |config|
   # examples within a transaction, comment the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-  config.after :suite do
-    Mongoid.master.collection.select do |collection|
-      collection.name !~ /system/
-    end.each(&:drop)
-  end
 end
