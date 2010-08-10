@@ -20,3 +20,4 @@ config/database.yml
 .rspec
 .bundle
 .rvmrc
+Gemfile.lock
