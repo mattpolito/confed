@@ -19,4 +19,4 @@ config/database.yml
 *.swp
 .rspec
 .bundle
-
+.rvmrc
