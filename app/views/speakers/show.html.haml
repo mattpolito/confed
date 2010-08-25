@@ -1,0 +1,34 @@
+%p
+  %b Name:
+  = @speaker.name
+%p
+  %b Title:
+  = @speaker.title
+%p
+  %b Location:
+  = @speaker.location
+%p
+  %b Bio:
+  = @speaker.bio
+%p
+  %b Company name:
+  = @speaker.company_name
+%p
+  %b Company url:
+  = @speaker.company_url
+%p
+  %b Email:
+  = @speaker.email
+%p
+  %b Twitter:
+  = @speaker.twitter
+%p
+  %b Blog url:
+  = @speaker.blog_url
+%p
+  %b Speakerrate url:
+  = @speaker.speakerrate_url
+
+= link_to 'Edit', edit_speaker_path(@speaker)
+\|
+= link_to 'Back', speakers_path
