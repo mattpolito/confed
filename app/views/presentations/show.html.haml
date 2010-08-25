@@ -1,0 +1,7 @@
+.presentation
+  .title= @presentation.title
+  .description= @presentation.description
+  - if @presentation.video
+    .video= @presentation.video_html
+  .presenter.name= @presentation.presenter_name
+  .event.name= @presentation.event_name
