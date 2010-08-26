@@ -1,5 +1,5 @@
 ConferenceEducation::Application.routes.draw do
-  resources :presentations
+  resources :presentations, :only => [:index, :show]
   resources :speakers
   # The priority is based upon order of creation:
   # first created -> highest priority.
