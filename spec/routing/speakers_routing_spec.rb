@@ -2,12 +2,11 @@ require "spec_helper"
 
 describe SpeakersController do
   describe "routing" do
-
-        it "recognizes and generates #index" do
+    it "recognizes and generates #index" do
       { :get => "/speakers" }.should route_to(:controller => "speakers", :action => "index")
     end
 
-        it "recognizes and generates #new" do
+    it "recognizes and generates #new" do
       { :get => "/speakers/new" }.should route_to(:controller => "speakers", :action => "new")
     end
 
@@ -30,6 +29,5 @@ describe SpeakersController do
     it "recognizes and generates #destroy" do
       { :delete => "/speakers/1" }.should route_to(:controller => "speakers", :action => "destroy", :id => "1")
     end
-
   end
 end
