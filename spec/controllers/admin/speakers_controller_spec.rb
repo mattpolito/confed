@@ -1,6 +1,13 @@
 require 'spec_helper'
 
-describe SpeakersController do
+describe Admin::SpeakersController do
+
+  before(:each) do
+    # If this is used again, pull it out into helper module to include where needed
+    user = Admin::SpeakersController::USER_ID
+    pw = Admin::SpeakersController::PASSWORD
+    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(user,pw)
+  end
 
   def mock_speaker(stubs={})
     @mock_speaker ||= mock_model(Speaker, stubs).as_null_object
@@ -50,7 +57,7 @@ describe SpeakersController do
       it "redirects to the created speaker" do
         Speaker.stub(:new) { mock_speaker(:save => true) }
         post :create, :speaker => {}
-        response.should redirect_to(speaker_url(mock_speaker))
+        response.should redirect_to(admin_speaker_url(mock_speaker))
       end
     end
 
@@ -88,7 +95,7 @@ describe SpeakersController do
       it "redirects to the speaker" do
         Speaker.stub(:find) { mock_speaker(:update_attributes => true) }
         put :update, :id => "1"
-        response.should redirect_to(speaker_url(mock_speaker))
+        response.should redirect_to(admin_speaker_url(mock_speaker))
       end
     end
 
@@ -118,7 +125,7 @@ describe SpeakersController do
     it "redirects to the speakers list" do
       Speaker.stub(:find) { mock_speaker }
       delete :destroy, :id => "1"
-      response.should redirect_to(speakers_url)
+      response.should redirect_to(admin_speakers_url)
     end
   end
 

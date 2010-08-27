@@ -28,10 +28,10 @@
       %td= speaker.twitter
       %td= speaker.blog_url
       %td= speaker.speakerrate_url
-      %td= link_to 'Show', speaker
-      %td= link_to 'Edit', edit_speaker_path(speaker)
-      %td= link_to 'Destroy', speaker, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', admin_speaker_path(speaker)
+      %td= link_to 'Edit', edit_admin_speaker_path(speaker)
+      %td= link_to 'Destroy', admin_speaker_path(speaker), :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New speaker', new_speaker_path
+= link_to 'New speaker', new_admin_speaker_path
