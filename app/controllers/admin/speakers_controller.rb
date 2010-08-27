@@ -1,4 +1,8 @@
-class SpeakersController < ApplicationController
+class Admin::SpeakersController < ApplicationController
+  USER_ID, PASSWORD = 'admin', 'reactioncontrol'
+
+  before_filter :authenticate
+
   # GET /speakers
   # GET /speakers.xml
   def index
@@ -44,7 +48,7 @@ class SpeakersController < ApplicationController
 
     respond_to do |format|
       if @speaker.save
-        format.html { redirect_to(@speaker, :notice => 'Speaker was successfully created.') }
+        format.html { redirect_to(admin_speaker_path(@speaker), :notice => 'Speaker was successfully created.') }
         format.xml  { render :xml => @speaker, :status => :created, :location => @speaker }
       else
         format.html { render :action => "new" }
@@ -60,7 +64,7 @@ class SpeakersController < ApplicationController
 
     respond_to do |format|
       if @speaker.update_attributes(params[:speaker])
-        format.html { redirect_to(@speaker, :notice => 'Speaker was successfully updated.') }
+        format.html { redirect_to(admin_speaker_path(@speaker), :notice => 'Speaker was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,8 +80,15 @@ class SpeakersController < ApplicationController
     @speaker.destroy
 
     respond_to do |format|
-      format.html { redirect_to(speakers_url) }
+      format.html { redirect_to(admin_speakers_url) }
       format.xml  { head :ok }
+    end
+  end
+
+private
+  def authenticate
+    authenticate_or_request_with_http_basic do |id, password| 
+      id == USER_ID && password == PASSWORD
     end
   end
 end
