@@ -11,7 +11,7 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
     when /the presentation page/
-      presentation_path(1)
+      presentation_path(@presentation)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
