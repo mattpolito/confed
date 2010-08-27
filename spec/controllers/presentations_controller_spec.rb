@@ -3,15 +3,25 @@ require 'spec_helper'
 describe PresentationsController do
 
   describe "GET index" do
+    let(:presentations) { [mock_model(Presentation)] }
+
+    before(:each) do
+      Presentation.stub_chain(:order, :limit).and_return(presentations)
+    end
+
     it "should be successful" do
-      pending
       get :index
       response.should be_success
+    end
+
+    it "should find presentations and assign for the view" do
+      get :index
+      assigns[:presentations].should == presentations
     end
   end
 
   describe "GET show" do
-    let(:presentation) { Factory(:presentation) }
+    let(:presentation) { mock_model(Presentation) }
 
     before(:each) do
       Presentation.should_receive(:find).with("37").and_return(presentation)
