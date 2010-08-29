@@ -10,11 +10,17 @@
 %p
   %b Bio:
   = @speaker.bio
-%p
-  = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'
-%p
-  = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
-%p
-  = link_to 'Blog', @speaker.blog_url, :target => '_blank'
+
+- if @speaker.company_url
+  %p
+    = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'
+
+-if @speaker.twitter
+  %p
+    = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
+
+-if @speaker.blog_url
+  %p
+    = link_to 'Blog', @speaker.blog_url, :target => '_blank'
 
 = link_to 'Back', admin_speakers_path
