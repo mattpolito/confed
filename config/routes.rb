@@ -1,6 +1,6 @@
 ConferenceEducation::Application.routes.draw do
   resources :presentations, :only => [:index, :show]
-  resources :speakers
+  resources :speakers, :only => [:show]
 
   namespace :admin do
     resources :speakers
