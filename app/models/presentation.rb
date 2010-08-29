@@ -1,4 +1,6 @@
 class Presentation < ActiveRecord::Base
+  belongs_to :presentation
+
   # Extensions
   include AutoHtmlFor
   auto_html_for :video do

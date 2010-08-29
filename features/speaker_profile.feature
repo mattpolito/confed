@@ -4,7 +4,7 @@ Feature: Speaker Profile
   I want to view a profile page for a speaker
 
   Scenario: Viewing a speaker with all information provided
-    Given a speaker with the following fields:
+    Given a speaker with the following:
       | Name            | Adam                                     |
       | Title           | Software Craftsman                       |
       | Location        | Chicago, IL                              |
@@ -28,7 +28,7 @@ Feature: Speaker Profile
 
   # This test feels unnecessary/overkill...but i already wrote it :-/
   Scenario: Hide missing external links
-    Given a speaker with the following fields:
+    Given a speaker with the following:
       | Name            | Adam               |
       | Title           | Software Craftsman |
       | Location        | Chicago, IL        |
@@ -36,3 +36,11 @@ Feature: Speaker Profile
     Then I should not see links:
       | Twitter |
       | Blog    |
+
+  Scenario: Link to presentations
+    Given a speaker
+    And the speaker has a presentation with the following:
+      | Title | BDD in Ruby |
+    And I am on the speaker information page
+    When I follow "BDD in Ruby"
+    Then I should be on the presentation page
