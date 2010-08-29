@@ -23,4 +23,12 @@
   %p
     = link_to 'Blog', @speaker.blog_url, :target => '_blank'
 
+%p
+  %b 
+    Presentations
+    - if @speaker.presentations.present?
+      %ul
+        - @speaker.presentations.each do |presentation|
+          %li= link_to presentation.title, presentation
+
 = link_to 'Back', admin_speakers_path
