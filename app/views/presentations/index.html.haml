@@ -3,5 +3,5 @@
     %li.presentation
       = link_to presentation.title, presentation_path(presentation), :class => 'title'
       .description= presentation.description
-      .presenter= presentation.presenter_name
+      .presenter= presentation.speaker.name
       .took_place_on= presentation.took_place_on

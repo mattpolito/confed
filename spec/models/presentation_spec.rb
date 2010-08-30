@@ -3,11 +3,15 @@ require 'spec_helper'
 describe Presentation do
   it { should have_db_column(:title).of_type(:string) }
   it { should have_db_column(:description).of_type(:text) }
+  it { should have_db_column(:speaker_id).of_type(:integer) }
+
+  it { should belong_to(:speaker) }
 
   before(:each) do
     @valid_attributes = {
       :title => 'title',
-      :description => 'description'
+      :description => 'description',
+      :speaker_id => 1
     }
   end
 
@@ -23,5 +27,6 @@ describe Presentation do
     subject { Presentation.new }
 
     it { should have(1).error_on(:title) }
+    it { should have(2).errors_on(:speaker_id) }
   end
 end
