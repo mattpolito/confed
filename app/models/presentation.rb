@@ -1,6 +1,4 @@
 class Presentation < ActiveRecord::Base
-  belongs_to :presentation
-
   # Extensions
   include AutoHtmlFor
   auto_html_for :video do
@@ -8,6 +6,10 @@ class Presentation < ActiveRecord::Base
     youtube
   end
 
+  # Associations
+  belongs_to :speaker
+
   # Validations
   validates :title, :presence => true
+  validates :speaker_id, :presence => true, :numericality => true
 end
