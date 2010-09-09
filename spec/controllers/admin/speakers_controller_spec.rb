@@ -1,12 +1,11 @@
 require 'spec_helper'
 
 describe Admin::SpeakersController do
+  let(:user) { mock_model(User) }
 
-  before(:each) do
-    # If this is used again, pull it out into helper module to include where needed
-    user = Admin::SpeakersController::USER_ID
-    pw = Admin::SpeakersController::PASSWORD
-    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(user,pw)
+  before do
+    User.stub(:find).and_return(user)
+    sign_in user
   end
 
   def mock_speaker(stubs={})
@@ -126,6 +125,47 @@ describe Admin::SpeakersController do
       Speaker.stub(:find) { mock_speaker }
       delete :destroy, :id => "1"
       response.should redirect_to(admin_speakers_url)
+    end
+  end
+
+  describe "unauthenticated users get redirected when" do
+    before do
+      sign_out user
+    end
+
+    it "GET index" do
+      get :index
+      response.should be_redirect
+    end
+
+    it "GET show" do
+      get :show, :id => "37"
+      response.should be_redirect
+    end
+    
+    it "GET new" do
+      get :new
+      response.should be_redirect
+    end
+
+    it "GET edit" do
+      get :edit, :id => "37"
+      response.should be_redirect
+    end
+
+    it "POST create" do
+      post :create
+      response.should be_redirect
+    end
+
+    it "PUT update" do
+      put :update, :id => "37"
+      response.should be_redirect
+    end
+
+    it "DELETE destroy" do
+      delete :destroy, :id => "37"
+      response.should be_redirect
     end
   end
 

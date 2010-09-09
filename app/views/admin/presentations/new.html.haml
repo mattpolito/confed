@@ -1,0 +1,13 @@
+= form_for @presentation, :url => admin_presentations_path do |f|
+  = render "shared/error_messages", :target => @presentation
+  %p
+    = f.label :title
+    = f.text_field :title
+  %p
+    = f.label :description
+    = f.text_area :description
+  %p
+    = f.label :speaker_id
+    = f.collection_select :speaker_id, @speakers, :id, :name
+  %p
+    = f.submit

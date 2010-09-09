@@ -1,8 +1,4 @@
-class Admin::SpeakersController < ApplicationController
-  USER_ID, PASSWORD = 'admin', 'reactioncontrol'
-
-  before_filter :authenticate
-
+class Admin::SpeakersController < AdminController
   def index
     @speakers = Speaker.all
 
@@ -69,13 +65,6 @@ class Admin::SpeakersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(admin_speakers_url) }
       format.xml  { head :ok }
-    end
-  end
-
-private
-  def authenticate
-    authenticate_or_request_with_http_basic do |id, password| 
-      id == USER_ID && password == PASSWORD
     end
   end
 end

@@ -7,19 +7,19 @@ gem 'flutie'
 gem 'simple_form'
 gem 'haml'
 gem 'auto_html'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails', '2.0.0.beta.20'
   gem "haml-rails"
   gem 'awesome_print', :require => 'ap'
+  gem 'factory_girl_rails'
 end
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'shoulda'
   gem 'capybara'
   gem 'launchy'
   gem 'cucumber-rails'
   gem 'awesome_print', :require => 'ap'
 end
-gem 'devise'
