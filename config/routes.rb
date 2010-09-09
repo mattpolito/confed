@@ -1,8 +1,15 @@
 ConferenceEducation::Application.routes.draw do
+  devise_for :users do
+    get  "login",  :to => "devise/sessions#new"
+    post "login",  :to => "devise/sessions#create"
+    get  "logout", :to => "devise/sessions#destroy"
+  end
+  
   resources :presentations, :only => [:index, :show]
   resources :speakers, :only => [:show]
 
   namespace :admin do
+    resources :presentations
     resources :speakers
   end
 
