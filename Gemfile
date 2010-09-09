@@ -22,3 +22,4 @@ group :test do
   gem 'cucumber-rails'
   gem 'awesome_print', :require => 'ap'
 end
+gem 'devise'
