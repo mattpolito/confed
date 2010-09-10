@@ -8,6 +8,7 @@ gem 'simple_form'
 gem 'haml'
 gem 'auto_html'
 gem 'devise'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'rspec-rails', '2.0.0.beta.20'
