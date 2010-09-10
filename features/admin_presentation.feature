@@ -30,6 +30,6 @@ Feature: Presentation Administration
       | Event Name    | My Awesome Conference |
     When  I am on the admin presentations page
     Then  I should see 1 presentation listing
-    And   I should see "How I built this app" within ".presentation a.title"
-    And   I should see "Jeffery Lebowski" within ".presentation .presenter"
-    And   I should see "My Awesome Conference" within ".presentation .event"
+    And   I should see "How I built this app"
+    And   I should see "Jeffery Lebowski"
+    And   I should see "My Awesome Conference"
