@@ -6,6 +6,8 @@ class Presentation < ActiveRecord::Base
     youtube
   end
 
+  acts_as_taggable
+
   # Associations
   belongs_to :speaker
 

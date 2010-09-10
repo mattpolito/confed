@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Presentation do
   it { should have_db_column(:title).of_type(:string) }
@@ -28,5 +28,12 @@ describe Presentation do
 
     it { should have(1).error_on(:title) }
     it { should have(2).errors_on(:speaker_id) }
+  end
+
+  describe "tagging" do
+    subject{ Presentation.new }
+
+    it{ should be_a_kind_of(ActsAsTaggableOn::Taggable::Core) }
+    it{ should respond_to('tag_list') }
   end
 end
