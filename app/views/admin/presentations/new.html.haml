@@ -7,6 +7,9 @@
     = f.label :description
     = f.text_area :description
   %p
+    = f.label :tag_list, "Tags (comma seperated)"
+    = f.text_field :tag_list
+  %p
     = f.label :speaker_id
     = f.collection_select :speaker_id, @speakers, :id, :name
   %p
