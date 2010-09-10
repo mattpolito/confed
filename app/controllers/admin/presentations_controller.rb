@@ -1,6 +1,6 @@
 class Admin::PresentationsController < AdminController
   def index
-
+    @presentations = Presentation.all
   end
 
   def new
