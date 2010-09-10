@@ -1,6 +1,11 @@
 class Admin::PresentationsController < AdminController
   def index
+    @presentations = Presentation.all
 
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @speakers }
+    end
   end
 
   def new
