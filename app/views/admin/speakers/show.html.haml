@@ -1,33 +1,35 @@
-%p
-  %b Name:
-  = @speaker.name
-%p
-  %b Title:
-  = @speaker.title
-%p
-  %b Location:
-  = @speaker.location
-%p
-  %b Bio:
-  = @speaker.bio
-%p
-  %b Company name:
-  = @speaker.company_name
-%p
-  %b Company url:
-  = @speaker.company_url
-%p
-  %b Email:
-  = @speaker.email
-%p
-  %b Twitter:
-  = @speaker.twitter
-%p
-  %b Blog url:
-  = @speaker.blog_url
-%p
-  %b Speakerrate url:
-  = @speaker.speakerrate_url
+%fieldset
+  %ol
+    %li
+      %b Name:
+      = @speaker.name
+    %li
+      %b Title:
+      = @speaker.title
+    %li
+      %b Location:
+      = @speaker.location
+    %li
+      %b Bio:
+      = @speaker.bio
+    %li
+      %b Company name:
+      = @speaker.company_name
+    %li
+      %b Company url:
+      = @speaker.company_url
+    %li
+      %b Email:
+      = @speaker.email
+    %li
+      %b Twitter:
+      = @speaker.twitter
+    %li
+      %b Blog url:
+      = @speaker.blog_url
+    %li
+      %b Speakerrate url:
+      = @speaker.speakerrate_url
 
 = link_to 'Edit', edit_admin_speaker_path(@speaker)
 \|

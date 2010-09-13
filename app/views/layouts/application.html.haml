@@ -1,10 +1,18 @@
 !!! html5
 %html
   %head
+    %meta{ :charset => 'utf-8' }
     %title Conference Education
+    %meta{ :name => 'viewport', :content => 'width=device-width; initial-scale=1.0; maximum-scale=1.0;' }
+    //%link{ :rel => 'shortcut icon', :href => '/favicon.ico' }
+    //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
     = stylesheet_link_tag :flutie, 'application'
     = javascript_include_tag :defaults
     = csrf_meta_tag
-  %body.content
-    = flash_messages
-    = yield
+  %body
+    #container
+      %header
+      = render 'shared/navigation'
+      = flash_messages
+      = yield
+      %footer
