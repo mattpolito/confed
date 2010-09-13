@@ -1,16 +1,18 @@
 = form_for @presentation, :url => admin_presentations_path do |f|
-  = render "shared/error_messages", :target => @presentation
-  %p
-    = f.label :title
-    = f.text_field :title
-  %p
-    = f.label :description
-    = f.text_area :description
-  %p
-    = f.label :tag_list, "Tags (comma seperated)"
-    = f.text_field :tag_list
-  %p
-    = f.label :speaker_id
-    = f.collection_select :speaker_id, @speakers, :id, :name
-  %p
-    = f.submit
+  %fieldset
+    = render "shared/error_messages", :target => @presentation
+    %ol
+      %li
+        = f.label :title
+        = f.text_field :title
+      %li
+        = f.label :description
+        = f.text_area :description
+      %li
+        = f.label :tag_list, "Tags (comma seperated)"
+        = f.text_field :tag_list
+      %li
+        = f.label :speaker_id
+        = f.collection_select :speaker_id, @speakers, :id, :name
+      %li
+        = f.submit
