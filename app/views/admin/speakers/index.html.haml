@@ -1,37 +1,36 @@
 %h1 Listing speakers
 
-%table
-  %tr
-    %th Name
-    %th Title
-    %th Location
-    %th Bio
-    %th Company name
-    %th Company url
-    %th Email
-    %th Twitter
-    %th Blog url
-    %th Speakerrate url
-    %th
-    %th
-    %th
-
-  - @speakers.each do |speaker|
+%fieldset
+  %table
     %tr
-      %td= speaker.name
-      %td= speaker.title
-      %td= speaker.location
-      %td= speaker.bio
-      %td= speaker.company_name
-      %td= speaker.company_url
-      %td= speaker.email
-      %td= speaker.twitter
-      %td= speaker.blog_url
-      %td= speaker.speakerrate_url
-      %td= link_to 'Show', admin_speaker_path(speaker)
-      %td= link_to 'Edit', edit_admin_speaker_path(speaker)
-      %td= link_to 'Destroy', admin_speaker_path(speaker), :confirm => 'Are you sure?', :method => :delete
+      %th Name
+      %th Title
+      %th Location
+      %th Bio
+      %th Company name
+      %th Company url
+      %th Email
+      %th Twitter
+      %th Blog url
+      %th Speakerrate url
+      %th
+      %th
+      %th
 
-%br
+    - @speakers.each do |speaker|
+      %tr
+        %td= speaker.name
+        %td= speaker.title
+        %td= speaker.location
+        %td= speaker.bio
+        %td= speaker.company_name
+        %td= speaker.company_url
+        %td= speaker.email
+        %td= speaker.twitter
+        %td= speaker.blog_url
+        %td= speaker.speakerrate_url
+        %td= link_to 'Show', admin_speaker_path(speaker)
+        %td= link_to 'Edit', edit_admin_speaker_path(speaker)
+        %td= link_to 'Destroy', admin_speaker_path(speaker), :confirm => 'Are you sure?', :method => :delete
 
 = link_to 'New speaker', new_admin_speaker_path
