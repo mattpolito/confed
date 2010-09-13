@@ -1,4 +1,4 @@
-%h1 Listing presentations
+%h1 All Presentations
 
 %fieldset
   %table#presentations
@@ -18,12 +18,12 @@
       - @presentations.each do |presentation|
         %tr.presentation
           %td= link_to presentation.title, admin_presentation_path(presentation)
-          %td= presentation.video
+          %td= presentation.video ? "X" : nil
           %td= presentation.event_name
           %td= presentation.took_place_on
           %td= link_to presentation.speaker, admin_speaker_path(presentation.speaker)
           %td= presentation.tag_list
-          %td= link_to 'Edit', edit_admin_presentation_path(presentation)
-          %td= link_to 'Destroy', admin_presentation_path(presentation), :confirm => 'Are you sure?', :method => :delete
+          %td=# link_to 'Edit', edit_admin_presentation_path(presentation)
+          %td=# link_to 'Destroy', admin_presentation_path(presentation), :confirm => 'Are you sure?', :method => :delete
 
 = link_to 'New Presentation', new_admin_presentation_path
