@@ -1,0 +1,3 @@
+class Video < ExternalEmbed
+
+end
