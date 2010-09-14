@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+# Create dummy Speakers
+['Matt Polito', 'Adam Walters', 
+  'Stephen Korecky', 'Chris Hallendy'].each do |speaker|
+  Speaker.create!(
+    :name => speaker,
+    :email => "#{speaker.parameterize('_')}@example.net"
+  )
+end
+
+# Create dummy presentations
+Speaker.all.each_with_index do |speaker, i|
+  Presentation.create!(
+    :title => "Presentation Title ##{i+1}",
+    :speaker => speaker,
+    :event_name => "WindyCityRails 2010"
+  )
+end
