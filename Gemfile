@@ -6,9 +6,9 @@ gem 'texticle', '~> 1.0.0'
 gem 'flutie'
 gem 'simple_form'
 gem 'haml'
-gem 'auto_html'
 gem 'devise'
 gem 'acts-as-taggable-on'
+gem 'httparty'
 
 group :development, :test do
   gem 'rspec-rails', '2.0.0.beta.20'
@@ -23,4 +23,5 @@ group :test do
   gem 'launchy'
   gem 'cucumber-rails'
   gem 'awesome_print', :require => 'ap'
+  gem 'fakeweb'
 end

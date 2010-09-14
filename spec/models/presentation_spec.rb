@@ -6,6 +6,8 @@ describe Presentation do
   it { should have_db_column(:speaker_id).of_type(:integer) }
 
   it { should belong_to(:speaker) }
+  it { should have_many(:videos) }
+  it { should have_many(:slideshows) }
 
   before(:each) do
     @valid_attributes = {
