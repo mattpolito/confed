@@ -1,40 +1,36 @@
 = form_for [:admin, @speaker] do |f|
-  -if @speaker.errors.any?
-    #errorExplanation
-      %h2= "#{pluralize(@speaker.errors.count, "error")} prohibited this speaker from being saved:"
-      %ul
-        - @speaker.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :location
-    = f.text_field :location
-  .field
-    = f.label :bio
-    = f.text_field :bio
-  .field
-    = f.label :company_name
-    = f.text_field :company_name
-  .field
-    = f.label :company_url
-    = f.text_field :company_url
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :twitter
-    = f.text_field :twitter
-  .field
-    = f.label :blog_url
-    = f.text_field :blog_url
-  .field
-    = f.label :speakerrate_url
-    = f.text_field :speakerrate_url
-  .actions
-    = f.submit 'Save'
+  %fieldset
+    = render 'shared/error_messages', :target => @speaker
+    %ol
+      %li
+        = f.label :name
+        = f.text_field :name
+      %li
+        = f.label :title
+        = f.text_field :title
+      %li
+        = f.label :location
+        = f.text_field :location
+      %li
+        = f.label :bio
+        = f.text_field :bio
+      %li
+        = f.label :company_name
+        = f.text_field :company_name
+      %li
+        = f.label :company_url
+        = f.text_field :company_url
+      %li
+        = f.label :email
+        = f.text_field :email
+      %li
+        = f.label :twitter
+        = f.text_field :twitter
+      %li
+        = f.label :blog_url
+        = f.text_field :blog_url
+      %li
+        = f.label :speakerrate_url
+        = f.text_field :speakerrate_url
+      .actions
+        = f.submit

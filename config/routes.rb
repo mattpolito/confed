@@ -5,8 +5,13 @@ ConferenceEducation::Application.routes.draw do
     get  "logout", :to => "devise/sessions#destroy"
   end
   
-  resources :presentations, :only => [:index, :show]
-  resources :speakers, :only => [:show]
+  resources :presentations, :only => [:index, :show] do
+    collection do
+      get :search
+    end
+  end
+
+  resources :speakers, :only => [:index, :show]
 
   namespace :admin do
     resources :presentations
