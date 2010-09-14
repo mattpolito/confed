@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'pg'
 gem 'rails', '3.0.0'
+gem 'pg', '~> 0.9'
+gem 'texticle', '~> 1.0.0'
 gem 'flutie'
 gem 'simple_form'
 gem 'haml'
