@@ -1,0 +1,8 @@
+%li.presentation
+  = link_to presentation.title, presentation_path(presentation), :class => 'title'
+  .tags= presentation.tag_list
+  .description= presentation.description
+  .presenter= link_to presentation.speaker.name, speaker_path(presentation.speaker)
+  .took_place_on= presentation.took_place_on
+  .event= presentation.event_name
+

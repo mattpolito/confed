@@ -13,14 +13,24 @@ describe Admin::PresentationsController do
     @mock_presentation ||= mock_model(Presentation, stubs).as_null_object
   end
 
-# describe "GET index" do
-#   it "assigns all presentations as @presentations" do
-#     Presentation.stub(:all) { [mock_presentation] }
-#     get :index
-#     assigns(:presentations).should eq([mock_presentation])
-#   end
-# end
-#
+  describe "GET index" do
+    it "succeeds" do
+      get :index
+      response.should be_success
+    end
+
+    it "assigns all presentations as @presentations" do
+      Presentation.stub(:all) { [mock_presentation] }
+      get :index
+      assigns(:presentations).should eq([mock_presentation])
+    end
+
+    it "renders index template" do
+      get :index
+      response.should render_template(:index)
+    end
+  end
+ 
 # describe "GET show" do
 #   it "assigns the requested presentation as @presentation" do
 #     Presentation.stub(:find).with("37") { mock_presentation }
@@ -45,6 +55,11 @@ describe Admin::PresentationsController do
       Speaker.stub(:find).and_return([speaker])
       get :new
       assigns[:speakers].should == [speaker]
+    end
+
+    it "renders new template" do
+      get :new
+      response.should render_template(:new)
     end
   end
 
@@ -151,6 +166,10 @@ describe Admin::PresentationsController do
   describe "unauthenticated users get redirected when" do
     before do
       sign_out user
+    end
+    it "GET index" do
+      get :index
+      response.should be_redirect
     end
 
     it "GET new" do

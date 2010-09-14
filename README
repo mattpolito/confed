@@ -1,5 +1,30 @@
 Conference Education
 
+Development Environment Setup:
+* Requires PostgreSQL database (full-text searching)
+  - brew install postgres
+    - follow homebrew instructions to initialize database
+    - database.yml exmaple:
+        development:
+          adapter: postgresql
+          host: localhost
+          port: 5432
+          database: confed_development
+          schema_search_path: public
+          encoding: utf8
+
+        test:
+          adapter: postgresql
+          host: localhost
+          port: 5432
+          database: confed_test
+          schema_search_path: public
+          encoding: utf8
+    - you need to build your initial indexes using:
+        rake texticle:create_indexes
+        - run this rake command anytime an index is added or the indexes change
+
+
 Goal:
 Have a main source for video/presentation slides of conferences
 
