@@ -13,7 +13,7 @@ Feature: Presentation Administration
       | Title       | Presentation Title |
       | Description | Description        |
     And  I select "Adam" from "Speaker"
-    And  I press "Create"
+    And  I press "Create Presentation"
     Then I should see "Presentation created!" 
 
   Scenario: Presentation list view
