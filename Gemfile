@@ -11,7 +11,7 @@ gem 'acts-as-taggable-on'
 gem 'httparty'
 
 group :development, :test do
-  gem 'rspec-rails', '2.0.0.beta.20'
+  gem 'rspec-rails', '2.0.0.beta.22'
   gem "haml-rails"
   gem 'awesome_print', :require => 'ap'
   gem 'factory_girl_rails'
