@@ -1,22 +1,20 @@
 ConferenceEducation::Application.routes.draw do
+
   devise_for :users do
     get  "login",  :to => "devise/sessions#new"
     post "login",  :to => "devise/sessions#create"
     get  "logout", :to => "devise/sessions#destroy"
   end
   
-  resources :presentations, :only => [:index, :show] do
-    collection do
-      get :search
-    end
-  end
-
+  resources :presentations, :only => [:index, :show]
   resources :speakers, :only => [:index, :show]
 
   namespace :admin do
     resources :presentations
     resources :speakers
   end
+
+  match 'search' => 'search#search'
 
   root :to => "presentations#index"
   # The priority is based upon order of creation:
