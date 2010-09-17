@@ -18,7 +18,9 @@ class Admin::PresentationsController < AdminController
   end
 
   def create
+    external_embed = params[:presentation].delete(:external_embed)
     @presentation = Presentation.new(params[:presentation])
+    @presentation.create_embedded_content(external_embed)
 
     if @presentation.save
       flash[:success] = "Presentation created!"

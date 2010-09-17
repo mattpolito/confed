@@ -2,8 +2,12 @@
   .title= @presentation.title
   .tags= @presentation.tag_list
   .description= @presentation.description
-  - if @presentation.video
-    .video= @presentation.video_html
+  - if @presentation.videos
+    - @presentation.videos.each do |video|
+      .video= raw video.content
+  - if @presentation.slideshows
+    - @presentation.slideshows.each do |slideshow|
+      .slideshow= raw slideshow.content
   .presenter
     .name= @presentation.speaker.name
   .event
