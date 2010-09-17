@@ -1,18 +1,23 @@
-= form_for [:admin, @presentation] do |f|
-  %fieldset
-    = render "shared/error_messages", :target => @presentation
-    %ol
-      %li
-        = f.label :title
-        = f.text_field :title
-      %li
-        = f.label :description
-        = f.text_area :description
-      %li
-        = f.label :tag_list, "Tags (comma seperated)"
-        = f.text_field :tag_list
-      %li
-        = f.label :speaker_id
-        = f.collection_select :speaker_id, @speakers, :id, :name
-      %li
-        = f.submit
+%fieldset
+  = render "shared/error_messages", :target => presentation
+  %ol
+    %li
+      = f.label :title
+      = f.text_field :title
+    %li
+      = f.label :description
+      = f.text_area :description
+    %li
+      = f.label :tag_list, "Tags (comma seperated)"
+      = f.text_field :tag_list
+    %li
+      = f.label :speaker_id
+      = f.collection_select :speaker_id, speakers, :id, :name
+    %li
+      = label_tag "presentation[external_embed][video]", "Video URI"
+      = text_field_tag "presentation[external_embed][video]"
+    %li
+      = label_tag "presentation[external_embed][slideshow]", "Slideshow URI"
+      = text_field_tag "presentation[external_embed][slideshow]"
+    %li
+      = f.submit

@@ -3,7 +3,7 @@ class ExternalEmbed < ActiveRecord::Base
   belongs_to :presentation
 
   # Validations
-  validates :url,             :presence => true
+  #validates :url,             :presence => true
   validates :content,         :presence => true
   validates :presentation_id, :presence => true, :numericality => true
 end
