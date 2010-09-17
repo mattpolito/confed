@@ -1,0 +1,7 @@
+%h1= "Search results for #{@search_value}:"
+
+%ul#presentations
+  = render :partial => 'presentations/presentation', :collection => @presentations
+
+%ul#speakers
+  = render :partial => 'speakers/speaker', :collection => @speakers
