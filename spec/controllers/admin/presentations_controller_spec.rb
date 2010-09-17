@@ -72,25 +72,30 @@ describe Admin::PresentationsController do
 # end
 
   describe "POST create" do
+    let(:external_embed_params) do
+      {'external_embed' => {'video' => '', 'slideshow' => ''}}
+    end
+
+    def do_post
+      post :create, :presentation => {'these' => 'params'}.merge(external_embed_params)  
+    end
  
     describe "with valid params" do
       it "assigns a newly created presentation as @presentation" do
-        Presentation.stub(:new).with({'these' => 'params'}) { 
-          mock_presentation(:save => true) 
-        }
-        post :create, :presentation => {'these' => 'params'}
+        Presentation.stub(:new) { mock_presentation(:save => true) }
+        do_post
         assigns(:presentation).should be(mock_presentation)
       end
 
       it "sets flash message to be displayed" do
         Presentation.stub(:new) { mock_presentation(:save => true) }
-        post:create, :presentation => {}
+        do_post
         flash[:success].should == "Presentation created!"
       end
  
       it "redirects to the presentation index" do
         Presentation.stub(:new) { mock_presentation(:save => true) }
-        post :create, :presentation => {}
+        do_post
         response.should redirect_to(admin_presentations_url)
       end
     end
@@ -98,13 +103,13 @@ describe Admin::PresentationsController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved presentation as @presentation" do
         Presentation.stub(:new).with({'these' => 'params'}) { mock_presentation(:save => false) }
-        post :create, :presentation => {'these' => 'params'}
+        do_post
         assigns(:presentation).should be(mock_presentation)
       end
  
       it "re-renders the 'new' template" do
         Presentation.stub(:new) { mock_presentation(:save => false) }
-        post :create, :presentation => {}
+        do_post
         response.should render_template("new")
       end
     end
