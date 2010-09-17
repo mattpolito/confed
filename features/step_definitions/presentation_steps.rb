@@ -11,8 +11,8 @@ Given /^there is a presentation with the following:$/ do |table|
 end
 
 Given /^has video content$/ do
-  @presentation.update_attributes(
-    :video => 'http://www.youtube.com/watch?v=WdsGihou8J4'
+  @presentation.videos.create!(
+    :content => '<object type=\"application/x-shockwave-flash\" data=\"http://vimeo.com/moogaloop.swf\" width=\"320\" height=\"240\"><param name=\"allowscriptaccess\" value=\"always\"><param name=\"allowfullscreen\" value=\"true\"><param name=\"movie\" value=\"http://vimeo.com/moogaloop.swf\"><param name=\"flashvars\" value=\"clip_id=12224199&color=00adef&fullscreen=1&server=vimeo.com&show_byline=1&show_portrait=1&show_title=1\"></object>'
   )
 end
 
