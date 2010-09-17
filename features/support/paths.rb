@@ -14,6 +14,8 @@ module NavigationHelpers
       presentation_path(@presentation)
     when /the speaker information page/
       speaker_path(@speaker)
+    when /the admin edit presentation page/
+      edit_admin_presentation_path(@presentation)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

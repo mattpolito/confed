@@ -34,15 +34,12 @@ class Admin::PresentationsController < AdminController
 
   def update
     @presentation = Presentation.find(params[:id])
+    external_embed = params[:presentation].delete(:external_embed)
 
-    respond_to do |format|
-      if @presentation.update_attributes(params[:presentation])
-        format.html { redirect_to(admin_presentation_path(@presentation), :notice => 'Presentation was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @presentation.errors, :status => :unprocessable_entity }
-      end
+    if @presentation.update_attributes(params[:presentation])
+      redirect_to(admin_presentations_path, :notice => 'Presentation updated!')
+    else
+      render :edit
     end
   end
 end
