@@ -1,7 +1,8 @@
-%h1 Editing presentation
+%h1 Editing #{@presentation.title}
 
-= render 'form'
+= form_for [:admin, @presentation] do |f|
+  = render 'form', :f => f, :presentation => @presentation, :speakers => @speakers
 
 = link_to 'Show', @presentation
 \|
-= link_to 'Back', admin_presentations_path
+= link_to 'Back', admin_speakers_path
