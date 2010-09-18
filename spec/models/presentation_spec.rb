@@ -4,6 +4,7 @@ describe Presentation do
   it { should have_db_column(:title).of_type(:string) }
   it { should have_db_column(:description).of_type(:text) }
   it { should have_db_column(:speaker_id).of_type(:integer) }
+  it { should have_db_column(:tag_cache).of_type(:string) }
 
   it { should belong_to(:speaker) }
   it { should have_many(:videos) }
@@ -37,6 +38,18 @@ describe Presentation do
 
     it{ should be_a_kind_of(ActsAsTaggableOn::Taggable::Core) }
     it{ should respond_to('tag_list') }
+
+    describe 'tag cache' do
+      it 'updates a tag cache on save' do
+        subject.attributes = valid_attributes
+        subject.tag_list = "foo, bar"
+        subject.save!
+        subject.tag_cache.should == subject.tag_list
+        subject.tag_list = "foo, baz"
+        subject.save!
+        subject.tag_cache.should == subject.tag_list
+      end
+    end
   end
 
   describe "requests and stores embed code from uri via an api" do
