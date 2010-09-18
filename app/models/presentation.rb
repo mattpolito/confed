@@ -7,8 +7,9 @@ class Presentation < ActiveRecord::Base
   
   # Full Text Searching
   index do
-    title
-    description
+    tag_cache   'A'
+    title       'B'
+    description 'C'
   end
 
   # Associations
@@ -19,6 +20,12 @@ class Presentation < ActiveRecord::Base
   # Validations
   validates :title, :presence => true
   validates :speaker_id, :presence => true, :numericality => true
+
+  # Hooks
+  before_save :update_tag_cache
+
+  # Attributes
+  attr_protected :tag_cache
 
   # Logic
   def request_embed_code(uris)
@@ -39,6 +46,11 @@ class Presentation < ActiveRecord::Base
       )
       embed
     end
+  end
+
+private
+  def update_tag_cache
+    self.tag_cache = self.tag_list
   end
 
 end
