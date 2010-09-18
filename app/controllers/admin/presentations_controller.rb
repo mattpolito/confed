@@ -7,6 +7,15 @@ class Admin::PresentationsController < AdminController
     end
   end
 
+  def show
+    @presentation = Presentation.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @presentation }
+    end
+  end
+
   def new
     @presentation = Presentation.new    
     @speakers     = Speaker.all :order => 'name'

@@ -1,3 +1,20 @@
+%fieldset
+  %ol
+    %li
+      %b Title:
+      = @presentation.title
+    %li
+      %b Speaker:
+      = link_to @presentation.speaker, admin_speaker_path(@presentation.speaker)
+    %li
+      %b Description:
+      = @presentation.description
+    %li
+      %b Tags:
+      = @presentation.tag_list
+    %li
+      %b Video:
+      = @presentation.video
 
 = link_to 'Edit', edit_admin_presentation_path(@presentation)
 \|
