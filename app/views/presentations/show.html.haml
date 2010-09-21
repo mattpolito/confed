@@ -4,11 +4,12 @@
   .description= @presentation.description
   - if @presentation.videos
     - @presentation.videos.each do |video|
-      .video= raw video.content
+      .video= link_to 'Video', video.url, :class => 'oembed'
   - if @presentation.slideshows
-    - @presentation.slideshows.each do |slideshow|
-      .slideshow= raw slideshow.content
-  .presenter
+    #slideshows
+      - @presentation.slideshows.each do |slideshow|
+        = link_to 'Slideshow', slideshow.url, :class => 'oembed'
+  .speaker
     .name= @presentation.speaker.name
   .event
     .name= @presentation.event_name

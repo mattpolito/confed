@@ -13,5 +13,5 @@ Feature: Presentation show with video In order to learn about a particular subje
     Then  I should see "How I built this app" within ".presentation .title"
     And   I should see "Description" within ".presentation .description"
     And   I should see the presentation video
-    And   I should see "Jeffery Lebowski" within ".presentation .presenter .name"
+    And   I should see "Jeffery Lebowski" within ".presentation .speaker .name"
     And   I should see "My Awesome Conference" within ".presentation .event .name"

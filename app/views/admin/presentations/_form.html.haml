@@ -13,11 +13,17 @@
     %li
       = f.label :speaker_id
       = f.collection_select :speaker_id, speakers, :id, :name
-    %li
-      = label_tag "presentation[external_embed][video]", "Video URI"
-      = text_field_tag "presentation[external_embed][video]"
-    %li
-      = label_tag "presentation[external_embed][slideshow]", "Slideshow URI"
-      = text_field_tag "presentation[external_embed][slideshow]"
+    
+    = f.fields_for :videos do |v|
+      %li
+        = v.label :url, "Video URI"
+        = v.text_field :url
+        = v.hidden_field :content
+
+    = f.fields_for :slideshows do |s|
+      %li
+        = s.label :url, "Slideshow URI"
+        = s.text_field :url
+        = s.hidden_field :content
     %li
       = f.submit

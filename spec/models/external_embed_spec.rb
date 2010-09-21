@@ -29,8 +29,8 @@ describe ExternalEmbed do
     describe "with invalid attributes" do
       subject { ExternalEmbed.new }
 
+      it { should have(2).error_on(:url) }
       it { should have(1).error_on(:content) }
-      it { should have(2).error_on(:presentation_id) }
     end
   end
 end

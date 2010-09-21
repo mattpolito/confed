@@ -7,7 +7,6 @@
     //%link{ :rel => 'shortcut icon', :href => '/favicon.ico' }
     //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
     = stylesheet_link_tag :flutie, 'application'
-    = javascript_include_tag :defaults
     = csrf_meta_tag
   %body
     #container
@@ -22,3 +21,7 @@
       = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     - else
       = javascript_include_tag 'jquery'
+
+    = javascript_include_tag 'plugins/embedly-jquery/jquery.embedly'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'presentations/show'

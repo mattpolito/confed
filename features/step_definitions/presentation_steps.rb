@@ -11,9 +11,11 @@ Given /^there is a presentation with the following:$/ do |table|
 end
 
 Given /^has video content$/ do
-  @presentation.videos.create!(
-    :content => '<object type=\"application/x-shockwave-flash\" data=\"http://vimeo.com/moogaloop.swf\" width=\"320\" height=\"240\"><param name=\"allowscriptaccess\" value=\"always\"><param name=\"allowfullscreen\" value=\"true\"><param name=\"movie\" value=\"http://vimeo.com/moogaloop.swf\"><param name=\"flashvars\" value=\"clip_id=12224199&color=00adef&fullscreen=1&server=vimeo.com&show_byline=1&show_portrait=1&show_title=1\"></object>'
-  )
+ Video.new(
+    :url => 'http://vimeo.com/14787998',
+    :content => '<iframe src=\"http://player.vimeo.com/video/14787998\" width=\"640\" height=\"480\" frameborder=\"0\"></iframe>',
+    :presentation => @presentation
+  ).save(:validate => false)
 end
 
 Given /^the speaker has a presentation with the following:$/ do |table|
@@ -54,7 +56,7 @@ Then /^it should display description$/ do
 end
 
 Then /^it should display presenter's name$/ do
-  page.should have_css('.presentation .presenter')
+  page.should have_css('.presentation .speaker')
 end
 
 Then /^it should display date it took place$/ do
