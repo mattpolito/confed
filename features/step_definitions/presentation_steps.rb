@@ -18,6 +18,14 @@ Given /^has video content$/ do
   ).save(:validate => false)
 end
 
+Given /^has slideshow content$/ do
+ Slideshow.new(
+    :url => 'http://www.slideshare.net/heidimiller/social-media-for-branding',
+    :content => '<object id=\"__sse5227313\" width=\"425\" height=\"355\"><param name=\"movie\" value=\"http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=personalbranding-100917221643-phpapp01&amp;stripped_title=social-media-for-branding&amp;userName=heidimiller\"><param name=\"allowFullScreen\" value=\"true\"><param name=\"allowScriptAccess\" value=\"always\"><embed name=\"__sse5227313\" src=\"http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=personalbranding-100917221643-phpapp01&amp;stripped_title=social-media-for-branding&amp;userName=heidimiller\" type=\"application/x-shockwave-flash\" allowscriptaccess=\"always\" allowfullscreen=\"true\" width=\"425\" height=\"355\"></embed></object>',
+    :presentation => @presentation
+  ).save(:validate => false)
+end
+
 Given /^the speaker has a presentation with the following:$/ do |table|
   new_table = table.transpose
   new_table.map_headers!{ |header| header.downcase.gsub(/\s+/, "_") }
@@ -30,6 +38,10 @@ end
 
 Then /^I should see the presentation video$/ do
   page.should have_css('.presentation .video')
+end
+
+Then /^I should see the presentation slideshow$/ do
+  page.should have_css('.presentation .slideshow')
 end
 
 Then /^I should see the event name$/ do

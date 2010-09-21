@@ -2,6 +2,12 @@ class Presentation < ActiveRecord::Base
   # Constants
   EMBED_SERVICE_URL = "http://api.embed.ly/v1/api/oembed?maxwidth=250&urls="
 
+  # Callbacks
+  before_save :update_tag_cache
+
+  # Attributes
+  attr_protected :tag_cache
+
   # Extensions
   acts_as_taggable
   
@@ -23,12 +29,6 @@ class Presentation < ActiveRecord::Base
   # Validations
   validates :title, :presence => true
   validates :speaker_id, :presence => true, :numericality => true
-
-  # Hooks
-  before_save :update_tag_cache
-
-  # Attributes
-  attr_protected :tag_cache
 
   # Logic
   private
