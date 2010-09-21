@@ -18,7 +18,9 @@ class Admin::PresentationsController < AdminController
 
   def new
     @presentation = Presentation.new    
-    @speakers     = Speaker.all :order => 'name'
+    @presentation.videos.build
+    @presentation.slideshows.build
+    find_speakers
   end
 
   def edit
@@ -27,16 +29,13 @@ class Admin::PresentationsController < AdminController
   end
 
   def create
-    external_embed = params[:presentation].delete(:external_embed)
     @presentation = Presentation.new(params[:presentation])
-    unless external_embed.each(&:blank?)
-      @presentation.create_embedded_content(external_embed)
-    end
 
     if @presentation.save
       flash[:success] = "Presentation created!"
       redirect_to admin_presentations_path
     else
+      find_speakers
       render :new
     end
   end
@@ -51,4 +50,9 @@ class Admin::PresentationsController < AdminController
       render :edit
     end
   end
+
+  private
+    def find_speakers
+      @speakers     = Speaker.all :order => 'name'
+    end
 end

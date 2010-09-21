@@ -102,7 +102,7 @@ describe Admin::PresentationsController do
  
     describe "with invalid params" do
       it "assigns a newly created but unsaved presentation as @presentation" do
-        Presentation.stub(:new).with({'these' => 'params'}) { mock_presentation(:save => false) }
+        Presentation.stub(:new) { mock_presentation(:save => false) }
         do_post
         assigns(:presentation).should be(mock_presentation)
       end
