@@ -5,16 +5,19 @@ describe Presentation do
   it { should have_db_column(:description).of_type(:text) }
   it { should have_db_column(:speaker_id).of_type(:integer) }
   it { should have_db_column(:tag_cache).of_type(:string) }
+  it { should have_db_column(:event_id).of_type(:integer) }
 
+  it { should belong_to(:event) }
   it { should belong_to(:speaker) }
   it { should have_many(:videos) }
   it { should have_many(:slideshows) }
 
   let(:valid_attributes) do
     {
-      :title => 'title',
+      :title       => 'title',
       :description => 'description',
-      :speaker_id => 1
+      :speaker_id  => 1,
+      :event_id    => 1
     }
   end
 
@@ -31,6 +34,7 @@ describe Presentation do
 
     it { should have(1).error_on(:title) }
     it { should have(2).errors_on(:speaker_id) }
+    it { should have(2).errors_on(:event_id) }
   end
 
   describe "tagging" do
