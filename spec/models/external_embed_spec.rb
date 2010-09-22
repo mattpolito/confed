@@ -3,7 +3,8 @@ require 'spec_helper'
 describe ExternalEmbed do
   it { should have_db_column(:url).of_type(:string) }
   it { should have_db_column(:content).of_type(:text).with_options(:null => false) }
-  it { should have_db_column(:presentation_id).of_type(:integer).with_options(:null => false) }
+  it { should have_db_column(:presentation_id).of_type(:integer).
+    with_options(:null => false) }
   it { should have_db_column(:type).of_type(:string).with_options(:null => false) }
 
   it { should belong_to(:presentation) }
@@ -29,7 +30,7 @@ describe ExternalEmbed do
     describe "with invalid attributes" do
       subject { ExternalEmbed.new }
 
-      it { should have(2).error_on(:url) }
+      it { should have(2).errors_on(:url) }
       it { should have(1).error_on(:content) }
     end
   end
