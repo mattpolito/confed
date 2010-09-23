@@ -8,11 +8,14 @@ Feature: Presentation Administration
     And   a speaker with the following:
       | Name  | Adam         |
       | Email | adam@foo.com |
+    And   an event with the following:
+      | Name  | WindyCityRails 2010 |
     And   I am on the new admin presentation page
     When  I fill in the following:
       | Title       | Presentation Title |
       | Description | Description        |
     And  I select "Adam" from "Speaker"
+    And  I select "WindyCityRails 2010" from "Event"
     And  I press "Create Presentation"
     Then I should see "Presentation created!" 
 

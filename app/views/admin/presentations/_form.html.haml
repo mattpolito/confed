@@ -2,6 +2,9 @@
   = render "shared/error_messages", :target => presentation
   %ol
     %li
+      = f.label :event_id
+      = f.collection_select :event_id, events, :id, :name
+    %li
       = f.label :title
       = f.text_field :title
     %li
