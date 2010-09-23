@@ -20,12 +20,12 @@ class Admin::PresentationsController < AdminController
     @presentation = Presentation.new    
     @presentation.videos.build
     @presentation.slideshows.build
-    find_speakers
+    find_extra_needed_info
   end
 
   def edit
     @presentation = Presentation.find(params[:id])
-    @speakers     = Speaker.all :order => 'name'
+    find_extra_needed_info
   end
 
   def create
@@ -35,7 +35,7 @@ class Admin::PresentationsController < AdminController
       flash[:success] = "Presentation created!"
       redirect_to admin_presentations_path
     else
-      find_speakers
+      find_extra_needed_info
       render :new
     end
   end
@@ -47,12 +47,22 @@ class Admin::PresentationsController < AdminController
     if @presentation.update_attributes(params[:presentation])
       redirect_to(admin_presentations_path, :notice => 'Presentation updated!')
     else
+      find_extra_needed_info
       render :edit
     end
   end
 
   private
+    def find_extra_needed_info
+      find_events
+      find_speakers
+    end
+
+    def find_events
+      @events = Event.all :order => 'name'
+    end
+
     def find_speakers
-      @speakers     = Speaker.all :order => 'name'
+      @speakers = Speaker.all :order => 'name'
     end
 end

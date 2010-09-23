@@ -1,4 +1,7 @@
 = form_for [:admin, @presentation] do |f|
-  = render 'form', :f => f, :presentation => @presentation, :speakers => @speakers
+  = render 'form', :f => f, :presentation => @presentation, 
+    :presentation => @presentation, 
+    :speakers     => @speakers, 
+    :events       => @events
 
 = link_to 'Back', admin_speakers_path

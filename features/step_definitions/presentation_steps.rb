@@ -5,6 +5,7 @@ Given /^there is a presentation with the following:$/ do |table|
     @presentation = Presentation.new(
       Factory.attributes_for(:presentation, attributes)
     )
+    @presentation.event   = Factory(:event)
     @presentation.speaker = Factory(:speaker)
     @presentation.save!
   end
@@ -50,7 +51,12 @@ Then /^I should see the event name$/ do
 end
 
 Given /^there (are|is) (\d+) presentation(s)?$/ do |arg1, number, arg3|
-  number.to_i.times { Factory(:presentation, :speaker => Factory(:speaker)) }
+  number.to_i.times do
+    Factory(:presentation, 
+            :speaker => Factory(:speaker),
+            :event   => Factory(:event)
+    )
+  end
 end
 
 Then /^I should see (\d+) presentation listing(s)?$/ do |number, arg2|
