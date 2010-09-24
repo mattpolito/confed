@@ -5,15 +5,20 @@ class Speaker < ActiveRecord::Base
   # Validations
   validates :name, :presence => true
 
-  def to_s
-    name
-  end
-
   # Full Text Searching
   index do
     name         'A'
     company_name 'B'
     location     'C'
     # Contemplating adding twitter to index...
+  end
+
+  # Logic
+  def to_s
+    name
+  end
+
+  def to_param
+    "#{id}-#{name.parameterize}"
   end
 end
