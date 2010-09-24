@@ -6,6 +6,7 @@ describe Event do
   it { should have_db_column(:ended_on).of_type(:datetime) }
 
   it { should have_many(:presentations) }
+  it { should have_many(:speakers).through(:presentations) }
 
   let(:valid_attributes) do
     {
