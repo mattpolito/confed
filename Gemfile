@@ -9,6 +9,7 @@ gem 'haml'
 gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'httparty'
+gem 'gravatarify'
 
 group :development, :test do
   gem 'rspec-rails', '2.0.0.beta.22'

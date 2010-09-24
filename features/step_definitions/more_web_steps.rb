@@ -13,3 +13,7 @@ Then /^I should not see links:$/ do |links|
   end
 end
 
+Then /^I should see gravatar image$/ do
+  page.should have_css('img.gravatar')
+end
+ 
