@@ -1,3 +1,6 @@
+# Clean database
+[Speaker, Event, Presentation, User, ExternalEmbed].each(&:delete_all)
+
 # Create dummy Speakers
 ['Matt Polito', 'Adam Walters', 
   'Stephen Korecky', 'Chris Hallendy'].each do |speaker|
@@ -8,14 +11,23 @@
   p "Speaker #{speaker.name} created"
 end
 
+# Create dummy events
+['WindyCityRails 2010', 'WindyCityRails 2009',
+  'RailsConf 2010', 'Future of Webapps'].each do |event|
+  event = Event.create!(:name => event)
+  p "Event #{event.name} created"
+end
+
 # Create dummy presentations
-Speaker.all.each_with_index do |speaker, i|
+events = Event.all
+speakers = Speaker.all
+20.times do |i|
   presentation = Presentation.create!(
-    :title => "Presentation Title ##{i+1}",
-    :speaker => speaker,
-    :event_name => "WindyCityRails 2010"
+    :title   => "Title ##{i+1}",
+    :speaker => speakers[rand(speakers.size)],
+    :event   => events[rand(events.size)]
   )
-  p "Presentation #{presentation.title} created"
+  p "Presentation #{presentation.title} by #{presentation.speaker.name} @ #{presentation.event.name}"
 end
 
 # Create dummy user
