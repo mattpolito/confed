@@ -8,7 +8,6 @@ Feature: Presentation show
     Given there is a presentation with the following:
       | Title       | How I built this app  |
       | Description | Description           |
-      | Event Name  | My Awesome Conference |
     And   has video content
     When  I am on the presentation page
     Then  I should see "How I built this app" within ".presentation .title"
@@ -21,7 +20,6 @@ Feature: Presentation show
     Given there is a presentation with the following:
       | Title       | How I built this app  |
       | Description | Description           |
-      | Event Name  | My Awesome Conference |
     And   has slideshow content
     When  I am on the presentation page
     Then  I should see "How I built this app" within ".presentation .title"
@@ -34,7 +32,6 @@ Feature: Presentation show
     Given there is a presentation with the following:
       | Title       | How I built this app  |
       | Description | Description           |
-      | Event Name  | My Awesome Conference |
     And   has video content
     And   has slideshow content
     When  I am on the presentation page
