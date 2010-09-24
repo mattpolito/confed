@@ -29,9 +29,9 @@ Feature: Speaker Profile
   # This test feels unnecessary/overkill...but i already wrote it :-/
   Scenario: Hide missing external links
     Given a speaker with the following:
-      | Name            | Adam               |
-      | Title           | Software Craftsman |
-      | Location        | Chicago, IL        |
+      | Name     | Adam               |
+      | Title    | Software Craftsman |
+      | Location | Chicago, IL        |
     When I am on the speaker information page
     Then I should not see links:
       | Twitter |
@@ -44,3 +44,8 @@ Feature: Speaker Profile
     And I am on the speaker information page
     When I follow "BDD in Ruby"
     Then I should be on the presentation page
+
+  Scenario: Has a gravatar image
+    Given a speaker
+    When  I am on the speaker information page
+    Then  I should see gravatar image
