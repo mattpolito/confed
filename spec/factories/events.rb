@@ -1,3 +1,3 @@
 Factory.define :event do |f|
-  f.name "WindyCityRails 2010"
+  f.name "My Awesome Conference"
 end

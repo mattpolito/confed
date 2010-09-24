@@ -41,7 +41,6 @@ Feature: Speaker Profile
     Given a speaker
     And the speaker has a presentation with the following:
       | Title    | BDD in Ruby |
-      | Event Id | 1           |
     And I am on the speaker information page
     When I follow "BDD in Ruby"
     Then I should be on the presentation page

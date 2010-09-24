@@ -30,7 +30,6 @@ Feature: Presentation Administration
     And   there is a presentation with the following:
       | Title       | How I built this app  |
       | Description | Description           |
-      | Event Name  | My Awesome Conference |
     When  I am on the admin presentations page
     Then  I should see 1 presentation listing
     And   I should see "How I built this app"
@@ -42,7 +41,6 @@ Feature: Presentation Administration
     And   there is a presentation with the following:
       | Title       | How I built this app  |
       | Description | Description           |
-      | Event Name  | My Awesome Conference |
     When I am on the admin edit presentation page
     And  I fill in "An updated title" for "Title"
     And  I press "Update Presentation"
