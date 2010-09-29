@@ -9,3 +9,15 @@ end
 Given /^a speaker$/ do
   @speaker = Factory(:speaker)
 end
+
+Given /^there (are|is) (\d+) speaker(s)?$/ do |arg1, number, arg3|
+  number.to_i.times do
+    Factory(:speaker)
+  end
+end
+
+Then /^I should see (\d+) speaker listing(s)?$/ do |number, arg2|
+  within(:css, '#speakers') do
+    page.should have_css('.speaker', :count => number.to_i)
+  end
+end
