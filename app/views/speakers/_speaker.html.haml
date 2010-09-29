@@ -1,4 +1,8 @@
 %li.speaker
-  .name= speaker.name
-  .comapny= speaker.company_name
-  .location= speaker.location
+  .name= link_to speaker.name, speaker
+  - if speaker.title
+    .title= speaker.title
+  - if speaker.company_name
+    .company= speaker.company_name
+  - if speaker.location
+    .location= speaker.location
