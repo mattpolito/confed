@@ -9,11 +9,14 @@ Feature: Presentation Home page
     Then I should see 10 presentation listings
 
   Scenario: Presentation listing
-    Given there is 1 presentation
+    Given there is a presentation with the following:
+      | Title       | How I built this app  |
+      | Description | Description           |
     When I am on the homepage
     Then I should see 1 presentation listing
-    And  it should display title as a link
-    And  it should display description
-    And  it should display presenter's name
+    And  I should see "How I built this app" within "a"
+    And  I should see "Description"
+    And  I should see "Jeffery Lebowski" within "a"
+    And  I should see "My Awesome Conference" 
     And  it should display date it took place
 
