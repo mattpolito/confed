@@ -5,6 +5,9 @@
       = f.label :event_id
       = f.collection_select :event_id, events, :id, :name
     %li
+      = f.label :speaker_id
+      = f.collection_select :speaker_id, speakers, :id, :name
+    %li
       = f.label :title
       = f.text_field :title
     %li
@@ -13,9 +16,6 @@
     %li
       = f.label :tag_list, "Tags (comma seperated)"
       = f.text_field :tag_list
-    %li
-      = f.label :speaker_id
-      = f.collection_select :speaker_id, speakers, :id, :name
     
     = f.fields_for :videos do |v|
       %li
