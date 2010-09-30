@@ -3,10 +3,10 @@
   %ol
     %li
       = f.label :event_id
-      = f.collection_select :event_id, events, :id, :name
+      = f.collection_select :event_id, events, :id, :name, :prompt => true
     %li
       = f.label :speaker_id
-      = f.collection_select :speaker_id, speakers, :id, :name
+      = f.collection_select :speaker_id, speakers, :id, :name, :prompt => true
     %li
       = f.label :title
       = f.text_field :title
