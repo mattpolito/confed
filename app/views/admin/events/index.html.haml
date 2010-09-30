@@ -1,18 +1,25 @@
-%h1 Listing events
+%h1 All Events
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+%fieldset
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Started On
+        %th Ended On
+        %th
+        %th
+        %th
 
-  - @events.each do |event|
-    %tr
-      %td= event.name
-      %td= link_to 'Show', [:admin, event]
-      %td= link_to 'Edit', edit_admin_event_path(event)
-      %td= link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete
+    %tbody
+      - @events.each do |event|
+        %tr
+          %td= event.name
+          %td= event.started_on
+          %td= event.ended_on
+          %td= link_to 'Show', [:admin, event]
+          %td= link_to 'Edit', edit_admin_event_path(event)
+          %td= link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
