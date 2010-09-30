@@ -12,6 +12,7 @@ ConferenceEducation::Application.routes.draw do
   namespace :admin do
     resources :presentations
     resources :speakers
+    resources :events
   end
 
   match 'search' => 'search#search'
