@@ -1,0 +1,15 @@
+= form_for [:admin, @event] do |f|
+  %fieldset
+    = render "shared/error_messages", :target => @event
+    %ol
+      %li
+        = f.label :name
+        = f.text_field :name
+      %li
+        = f.label :started_on
+        = f.date_select :started_on
+      %li
+        = f.label :ended_on
+        = f.date_select :ended_on
+      %li
+        = f.submit
