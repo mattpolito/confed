@@ -15,6 +15,8 @@ ConferenceEducation::Application.routes.draw do
     resources :events
   end
 
+  match 'admin' => 'admin#index'
+
   match 'search' => 'search#search'
 
   root :to => "presentations#index"
