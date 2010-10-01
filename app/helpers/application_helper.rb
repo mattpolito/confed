@@ -8,4 +8,7 @@ module ApplicationHelper
       raw output
     end
   end
+  def active_state(path)
+    current_page?(path) ? { :class => 'active' } : {}
+  end
 end
