@@ -12,6 +12,7 @@ body {
 
 header {
   background:#CCC;
+  padding:10px;
   h1 {
     font-size:18px;
     font-weight:bold;
@@ -51,19 +52,37 @@ nav {
   background:#FFF;
   border-radius:3px;
   -moz-border-radius:3px;
+  overflow:hidden;
 }
 
 #presentations {
-  li {
+  margin:10px;
+  li.presentation {
+    border-bottom:1px solid #EEE;
+    margin:0 0 20px;
+    overflow:hidden;
+    width:600px;
+    ul {
+      font-size:12px;
+      float:right;
+      text-align:right;
+      width:150px;
+    }
     h2 {
+      background:#EEE;
       clear:both;
       font-size:16px;
+      font-weight:bold;
+      padding:2px;
+      a {
+        color:#222;
+        text-decoration:none; 
+      }
     }
-    .about {
+    .description {
+      font-size:12px;
       float:left;
-    }
-    ul {
-      float:right;
+      width:425px;
     }
   }
 }

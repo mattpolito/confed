@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def active_class(path)
+    URI.parse(request.path_info).path =~ /#{path}/ ? 'active' : nil
+  end
+  
   def flash_messages
     content_tag(:div, :id => 'flash_messages') do
       output = ""
@@ -7,8 +11,5 @@ module ApplicationHelper
       end
       raw output
     end
-  end
-  def active_state(path)
-    current_page?(path) ? { :class => 'active' } : {}
   end
 end
