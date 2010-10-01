@@ -16,6 +16,8 @@ group :development, :test do
   gem "haml-rails"
   gem 'awesome_print', :require => 'ap'
   gem 'factory_girl_rails'
+  gem 'hpricot'
+  gem 'ruby_parser'
 end
 
 group :test do
