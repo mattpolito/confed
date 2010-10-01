@@ -1,7 +1,7 @@
 @import "reset";
 
 body {
-  background:#FFF;
+  background:#EEE;
   font:normal 62.5%/1.5 "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -19,14 +19,23 @@ header {
 }
 
 nav {
+  margin:10px 0 0;
   overflow:hidden;
   li {
     float:left;
     a {
       color:#333;
+      display:block;
       font-size:14px;
       padding:5px 10px;
       text-decoration:none;
+      &.active,
+      &.active:hover {
+        background:#FFF;
+        border-top:1px solid #CCC;
+        color:#222;
+        font-weight:bold;
+      }
       &:hover {
         background:#333;
         color:#FFF;
@@ -39,7 +48,22 @@ nav {
 }
 
 #content {
-  background:#EEE;
+  background:#FFF;
   border-radius:3px;
   -moz-border-radius:3px;
+}
+
+#presentations {
+  li {
+    h2 {
+      clear:both;
+      font-size:16px;
+    }
+    .about {
+      float:left;
+    }
+    ul {
+      float:right;
+    }
+  }
 }
