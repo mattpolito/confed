@@ -1,35 +1,34 @@
-= gravatar_tag @speaker
-%p
-  %b Name:
-  = @speaker.name
-%p
-  %b Title:
-  = @speaker.title
-%p
-  %b Location:
-  = @speaker.location
-%p
-  %b Bio:
-  = @speaker.bio
-
-- if @speaker.company_url
+= link_to 'Go Back & View All Speakers', :back
+#speaker_info
+  = gravatar_tag @speaker
+  %ul
+    %li
+      %strong Name:
+      = @speaker.name
+    %li
+      %strong Title:
+      = @speaker.title
+    %li
+      %strong Location:
+      = @speaker.location
   %p
-    = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'
+    %b Bio:
+    = @speaker.bio
 
--if @speaker.twitter
-  %p
-    = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
+  - if @speaker.company_url
+    %p
+      = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'
 
--if @speaker.blog_url
-  %p
-    = link_to 'Blog', @speaker.blog_url, :target => '_blank'
+  -if @speaker.twitter
+    %p
+      = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
 
-%p
-  %b 
-    Presentations
-    - if @speaker.presentations.present?
-      %ul
-        - @speaker.presentations.each do |presentation|
-          %li= link_to presentation.title, presentation
+  -if @speaker.blog_url
+    %p
+      = link_to 'Blog', @speaker.blog_url, :target => '_blank'
 
-= link_to 'Back', :back
+%h3 Presentations
+- if @speaker.presentations.present?
+  %ul
+    - @speaker.presentations.each do |presentation|
+      %li= link_to presentation.title, presentation

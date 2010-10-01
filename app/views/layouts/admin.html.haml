@@ -13,9 +13,9 @@
   %body
     #container
       %header
-        %h1 Conference Education
-      = render 'shared/navigation'
+        %h1 Conference Education <span>Admin</span>
       = flash_messages
+      = render 'shared/navigation'
       #content
         = yield
       %footer

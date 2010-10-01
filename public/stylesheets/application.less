@@ -5,6 +5,19 @@ body {
   font:normal 62.5%/1.5 "Helvetica Neue", Helvetica, sans-serif;
 }
 
+#flash_messages {
+  .message {
+    color:#222;
+    font-size:14px;
+    margin:10px 0;
+    padding:5px;
+  }
+  .notice {
+    background:#CFFFCA;
+    border:2px solid #6B9957;
+  }
+}
+
 #container {
   margin:0 auto;
   width:960px;
@@ -16,6 +29,10 @@ header {
   h1 {
     font-size:18px;
     font-weight:bold;
+    a {
+      color:#222;
+      text-decoration:none;
+    }
   }
 }
 
@@ -58,6 +75,38 @@ nav {
 #presentations {
   margin:10px;
   li.presentation {
+    border-bottom:1px solid #EEE;
+    margin:0 0 20px;
+    overflow:hidden;
+    width:600px;
+    ul {
+      font-size:12px;
+      float:right;
+      text-align:right;
+      width:150px;
+    }
+    h2 {
+      background:#EEE;
+      clear:both;
+      font-size:16px;
+      font-weight:bold;
+      padding:2px;
+      a {
+        color:#222;
+        text-decoration:none; 
+      }
+    }
+    .description {
+      font-size:12px;
+      float:left;
+      width:425px;
+    }
+  }
+}
+
+#speakers {
+  margin:10px;
+  li.speaker {
     border-bottom:1px solid #EEE;
     margin:0 0 20px;
     overflow:hidden;
