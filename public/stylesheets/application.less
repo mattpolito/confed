@@ -1,0 +1,45 @@
+@import "reset";
+
+body {
+  background:#FFF;
+  font:normal 62.5%/1.5 "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#container {
+  margin:0 auto;
+  width:960px;
+}
+
+header {
+  background:#CCC;
+  h1 {
+    font-size:18px;
+    font-weight:bold;
+  }
+}
+
+nav {
+  overflow:hidden;
+  li {
+    float:left;
+    a {
+      color:#333;
+      font-size:14px;
+      padding:5px 10px;
+      text-decoration:none;
+      &:hover {
+        background:#333;
+        color:#FFF;
+      }
+    }
+    &#search {
+      float:right;
+    }
+  }
+}
+
+#content {
+  background:#EEE;
+  border-radius:3px;
+  -moz-border-radius:3px;
+}
