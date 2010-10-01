@@ -7,16 +7,18 @@
     %meta{ :name => 'viewport', :content => 'width=device-width; initial-scale=1.0; maximum-scale=1.0;' }
     //%link{ :rel => 'shortcut icon', :href => '/favicon.ico' }
     //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
-    = stylesheet_link_tag :flutie, 'application'
+    %link{:rel => "stylesheet/less", :href => "/stylesheets/application.less", :type => "text/css"}
+    = javascript_include_tag 'less'
   %body
     #container
       %header
+        %h1 Conference Education
       = render 'shared/navigation'
       = flash_messages
-
-      = render :partial => 'shared/search_form'
-      = yield
+      #content
+        = yield
       %footer
+        %p Copyright &copy; #{Time.now.strftime("%Y")}, All Rights Reserved.
     - if Rails.env.production?
       = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     - else
