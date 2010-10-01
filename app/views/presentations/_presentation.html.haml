@@ -1,8 +1,7 @@
-%li
+%li.presentation
   %h2= link_to presentation.title, presentation_path(presentation), :class => 'title'
-  .about
-    %p.tags= presentation.tag_list
-    %p.description= presentation.description
+  %p.tags= presentation.tag_list
+  %p.description= truncate(presentation.description, :length => 200)
   %ul
     %li.speaker= link_to presentation.speaker.name, speaker_path(presentation.speaker)
     %li.took_place_on= presentation.took_place_on
