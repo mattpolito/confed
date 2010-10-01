@@ -12,9 +12,9 @@
   %body
     #container
       %header
-        %h1 Conference Education
-      = render 'shared/navigation'
+        %h1= link_to "Conference Education", "/"
       = flash_messages
+      = render 'shared/navigation'
       #content
         = yield
       %footer
