@@ -29,4 +29,4 @@
 
     = javascript_include_tag :defaults
     = javascript_include_tag 'presentations/show'
-    = render 'shared/reinvigorate' Rails.env.production?
+    = render 'shared/reinvigorate' if Rails.env.production?

@@ -11,7 +11,7 @@ Feature: Searching for presentation
     And there is a presentation with the following:
       | Title       | Rails 3                         |
       | Description | Talk about what's new in Rails  |
-    When I fill in "Search" with "document"
+    When I search for "document"
     And press "Search"
     Then I should see "MongoDB"
     But I should not see "Rails 3"
@@ -24,7 +24,7 @@ Feature: Searching for presentation
     And a speaker with the following:
       | Name       | Matt  |
       | Location   | Elgin |
-    When I fill in "Search" with "Elgin"
+    When I search for "Elgin"
     And press "Search"
     Then I should see "Matt"
     But I should not see "Adam"
