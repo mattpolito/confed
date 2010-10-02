@@ -23,9 +23,9 @@
     %p
       = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
 
-  -if @speaker.blog_url
+  -if @speaker.website
     %p
-      = link_to 'Blog', @speaker.blog_url, :target => '_blank'
+      = link_to 'Website', @speaker.website, :target => '_blank'
 
 %h3 Presentations
 - if @speaker.presentations.present?

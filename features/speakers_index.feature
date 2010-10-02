@@ -18,7 +18,7 @@ Feature: Speakers Index
       | Company URL     | http://foo.com                           |
       | Email           | adam@foo.com                             |
       | Twitter         | adamfoo                                  |
-      | Blog URL        | http://blog.com                          |
+      | Website         | http://blog.com                          |
       | Speakerrate URL | http://speakerrate.com/speakers/111-adam |
     When  I am on the speakers index page
     Then  I should see 1 speaker listing
