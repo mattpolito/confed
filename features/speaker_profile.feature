@@ -13,7 +13,7 @@ Feature: Speaker Profile
       | Company URL     | http://foo.com                           |
       | Email           | adam@foo.com                             |
       | Twitter         | adamfoo                                  |
-      | Blog URL        | http://blog.com                          |
+      | Website         | http://blog.com                          |
       | Speakerrate URL | http://speakerrate.com/speakers/111-adam |
     When I am on the speaker information page
     Then I should see "Adam"
@@ -21,7 +21,7 @@ Feature: Speaker Profile
     Then I should see "Chicago, IL"
     Then I should see "Too much to put in a test"
     Then I should see an external link "Foo Inc." to "http://foo.com"
-    Then I should see an external link "Blog" to "http://blog.com"
+    Then I should see an external link "Website" to "http://blog.com"
     Then I should see an external link "Twitter" to "http://twitter.com/adamfoo"
     Then I should not see "adam@foo.com"
     Then I should not see "http://speakerrate.com/speakers/111-adam"
@@ -35,7 +35,7 @@ Feature: Speaker Profile
     When I am on the speaker information page
     Then I should not see links:
       | Twitter |
-      | Blog    |
+      | Website |
 
   Scenario: Link to presentations
     Given a speaker

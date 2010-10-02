@@ -9,7 +9,7 @@ describe Speaker do
   it { should have_db_column(:company_url).of_type(:string) }
   it { should have_db_column(:email).of_type(:string) }
   it { should have_db_column(:twitter).of_type(:string) }
-  it { should have_db_column(:blog_url).of_type(:string) }
+  it { should have_db_column(:website).of_type(:string) }
   it { should have_db_column(:speakerrate_url).of_type(:string) }
 
   it { should have_many(:presentations) }
@@ -24,7 +24,7 @@ describe Speaker do
       :company_url => 'http://companyurl.com',
       :email => 'test@email.com',
       :twitter => 'testguy',
-      :blog_url => 'http://myblog.com',
+      :website => 'http://myblog.com',
       :speakerrate_url => 'http://speakerrate.com/speakers/0101-some-guy'
     }
   end
