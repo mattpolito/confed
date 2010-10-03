@@ -14,6 +14,17 @@ describe Speaker do
 
   it { should have_many(:presentations) }
 
+  [ 'http://speakerrate.com/speakers/1-adam-walters',
+    'http://speakerrate.com/speakers/2-matt-polito' ].each do |url|
+    it { should allow_value(url).for(:speakerrate_url) }
+  end
+
+  [ 'http://google.com/speakers/1-adam-walters',
+    'http://speakerrate.com/talks/1-ruby',
+    'http://speakerrate.com/speakers/2-matt-polito.xml'].each do |url|
+    it { should_not allow_value(url).for(:speakerrate_url) }
+  end
+
   before(:each) do
     @valid_attributes = {
       :name => 'Name',
@@ -42,4 +53,5 @@ describe Speaker do
 
     it { should have(1).error_on(:name) }
   end
+
 end
