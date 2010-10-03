@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Admin::PresentationsController do
   let(:user) { mock_model(User) } 
-  let(:speaker) { Factory(:speaker) }
+  let(:speaker) { Factory.build(:speaker) }
 
   before do
     User.stub(:find).and_return(user)
@@ -52,7 +52,7 @@ describe Admin::PresentationsController do
     end
 
     it "assigns speakers for the view" do
-      Speaker.stub(:find).and_return([speaker])
+      Speaker.stub(:all).and_return([speaker])
       get :new
       assigns[:speakers].should == [speaker]
     end
