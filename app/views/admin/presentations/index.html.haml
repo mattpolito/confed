@@ -2,27 +2,27 @@
   All Presentations | 
   = link_to 'New Presentation', new_admin_presentation_path
 
-%fieldset
-  %table#presentations
-    %thead
-      %tr
-        %th Title
-        %th Speaker
-        %th Video
-        %th Event Name
-        %th Took Place On
-        %th Tags
-        %th
-        %th
+%table#presentations
+  %thead
+    %tr
+      %th
+      %th Title
+      %th Speaker
+      %th Video
+      %th Event Name
+      %th Took Place On
+      %th Tags
 
-    %tbody
-      - @presentations.each do |presentation|
-        %tr.presentation
-          %td= link_to presentation.title, admin_presentation_path(presentation)
-          %td= link_to presentation.speaker, admin_speaker_path(presentation.speaker)
-          %td= presentation.video ? "X" : nil
-          %td= presentation.event.name
-          %td= presentation.took_place_on
-          %td= presentation.tag_list
-          %td= link_to 'Edit', edit_admin_presentation_path(presentation)
-          %td=# link_to 'Destroy', admin_presentation_path(presentation), :confirm => 'Are you sure?', :method => :delete
+  %tbody
+    - @presentations.each do |presentation|
+      %tr.presentation
+        %td
+          %ul.actions
+            %li= link_to 'Edit', edit_admin_presentation_path(presentation), :class => "edit"
+            %li=# link_to 'Destroy', admin_presentation_path(presentation), :confirm => 'Are you sure?', :method => :delete
+        %td= link_to presentation.title, admin_presentation_path(presentation)
+        %td= link_to presentation.speaker, admin_speaker_path(presentation.speaker)
+        %td= presentation.video ? "X" : nil
+        %td= presentation.event.name
+        %td= presentation.took_place_on
+        %td= presentation.tag_list

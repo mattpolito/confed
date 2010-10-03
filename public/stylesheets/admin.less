@@ -27,11 +27,12 @@ table {
   }
   tbody {
     tr {
-      &:nth-child(odd) td {
-        background:#CCC;
-      }
       &:hover .actions{
         display:block;
+      }
+      td {
+        border-bottom:1px solid #EEE;
+        padding:4px;
       }
     }
   }
@@ -42,12 +43,12 @@ table {
 
 ul.actions {
   background:#FFF;
-  -moz-border-radius-topleft: 10px;
-  -webkit-border-top-left-radius: 10px;
-  -moz-border-radius-bottomleft: 10px;
-  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-topleft: 15px;
+  -webkit-border-top-left-radius: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  -webkit-border-bottom-left-radius: 15px;
   display:none;
-  margin:-14px 0 0 -24px;
+  margin:-13px 0 0 -28px;
   padding:4px 0 4px 5px;
   position:absolute;
   li {
@@ -66,6 +67,29 @@ ul.actions {
       }
       &:hover {
         background-position:0 -19px;
+      }
+    }
+  }
+}
+
+fieldset {
+  margin:10px;
+  ul {
+    li {
+      background:#EEE;
+      border-left:5px solid #CCC;
+      margin:4px 0;
+      padding:4px;
+      label {
+        display:inline-block;
+        font-size:14px;
+        font-weight:bold;
+        width:120px;
+      }
+      input[type="text"] {
+        border:1px solid #999;
+        font-size:14px;
+        padding:4px;
       }
     }
   }
