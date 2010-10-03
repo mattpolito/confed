@@ -4,7 +4,7 @@ class Speaker < ActiveRecord::Base
 
   # Validations
   validates :name, :presence => true
-  validates_format_of :speakerrate_url, :with => /http:\/\/speakerrate.com\/speakers\/\d+-[a-z-]+$/
+  validates_format_of :speaker_rate_id, :with => /\d+-[a-z-]+$/
 
   # Full Text Searching
   index do

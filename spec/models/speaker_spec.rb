@@ -10,19 +10,19 @@ describe Speaker do
   it { should have_db_column(:email).of_type(:string) }
   it { should have_db_column(:twitter).of_type(:string) }
   it { should have_db_column(:website).of_type(:string) }
-  it { should have_db_column(:speakerrate_url).of_type(:string) }
+  it { should have_db_column(:speaker_rate_id).of_type(:string) }
 
   it { should have_many(:presentations) }
 
-  [ 'http://speakerrate.com/speakers/1-adam-walters',
-    'http://speakerrate.com/speakers/2-matt-polito' ].each do |url|
-    it { should allow_value(url).for(:speakerrate_url) }
+  [ '1-adam-walters',
+    '2-matt-polito' ].each do |id|
+    it { should allow_value(id).for(:speaker_rate_id) }
   end
 
-  [ 'http://google.com/speakers/1-adam-walters',
-    'http://speakerrate.com/talks/1-ruby',
-    'http://speakerrate.com/speakers/2-matt-polito.xml'].each do |url|
-    it { should_not allow_value(url).for(:speakerrate_url) }
+  [ 'adam-walters',
+    '1-adam-walters.json',
+    '2-matt-polito.xml'].each do |id|
+    it { should_not allow_value(id).for(:speaker_rate_id) }
   end
 
   before(:each) do
@@ -36,7 +36,7 @@ describe Speaker do
       :email => 'test@email.com',
       :twitter => 'testguy',
       :website => 'http://myblog.com',
-      :speakerrate_url => 'http://speakerrate.com/speakers/0101-some-guy'
+      :speaker_rate_id => '101-some-guy'
     }
   end
 
