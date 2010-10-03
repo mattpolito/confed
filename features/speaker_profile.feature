@@ -14,7 +14,7 @@ Feature: Speaker Profile
       | Email           | adam@foo.com                             |
       | Twitter         | adamfoo                                  |
       | Website         | http://blog.com                          |
-      | Speakerrate URL | http://speakerrate.com/speakers/111-adam |
+      | Speaker Rate Id | 111-adam                                 |
     When I am on the speaker information page
     Then I should see "Adam"
     Then I should see "Software Craftsman"
@@ -24,7 +24,7 @@ Feature: Speaker Profile
     Then I should see an external link "Website" to "http://blog.com"
     Then I should see an external link "Twitter" to "http://twitter.com/adamfoo"
     Then I should not see "adam@foo.com"
-    Then I should not see "http://speakerrate.com/speakers/111-adam"
+    Then I should not see "111-adam"
 
   # This test feels unnecessary/overkill...but i already wrote it :-/
   Scenario: Hide missing external links

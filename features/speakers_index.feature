@@ -19,7 +19,7 @@ Feature: Speakers Index
       | Email           | adam@foo.com                             |
       | Twitter         | adamfoo                                  |
       | Website         | http://blog.com                          |
-      | Speakerrate URL | http://speakerrate.com/speakers/111-adam |
+      | Speaker Rate Id | 111-adam                                 |
     When  I am on the speakers index page
     Then  I should see 1 speaker listing
     And   I should see "Adam" within "a"

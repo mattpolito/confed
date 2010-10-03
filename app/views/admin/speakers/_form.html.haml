@@ -3,6 +3,9 @@
     = render 'shared/error_messages', :target => @speaker
     %ul
       %li
+        = f.label :speaker_rate_id
+        = f.text_field :speaker_rate_id
+      %li
         = f.label :name
         = f.text_field :name
       %li
@@ -29,9 +32,6 @@
       %li
         = f.label :website
         = f.text_field :website
-      %li
-        = f.label :speakerrate_url
-        = f.text_field :speakerrate_url
     %p.actions
       = f.submit
       =# link_to 'Show', @presentation - not working
