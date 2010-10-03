@@ -13,11 +13,13 @@ ConferenceEducation::Application.routes.draw do
     resources :presentations
     resources :speakers
     resources :events
+    match 'speaker_rate/:action/:id' => 'speaker_rate', :as => 'speaker_rate_speaker'
   end
 
   match 'admin' => 'admin#index'
 
   match 'search' => 'search#search'
+
 
   root :to => "presentations#index"
   # The priority is based upon order of creation:
