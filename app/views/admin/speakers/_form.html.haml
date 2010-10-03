@@ -1,7 +1,7 @@
 = form_for [:admin, @speaker] do |f|
   %fieldset
     = render 'shared/error_messages', :target => @speaker
-    %ol
+    %ul
       %li
         = f.label :name
         = f.text_field :name
@@ -32,5 +32,8 @@
       %li
         = f.label :speakerrate_url
         = f.text_field :speakerrate_url
-      .actions
-        = f.submit
+    %p.actions
+      = f.submit
+      =# link_to 'Show', @presentation - not working
+      \|
+      = link_to 'Cancel & Go Back', admin_speakers_path

@@ -1,7 +1,7 @@
 = form_for [:admin, @event] do |f|
   %fieldset
     = render "shared/error_messages", :target => @event
-    %ol
+    %ul
       %li
         = f.label :name
         = f.text_field :name
@@ -11,5 +11,8 @@
       %li
         = f.label :ended_on
         = f.date_select :ended_on
-      %li
-        = f.submit
+    %p.actions
+      = f.submit
+      = link_to 'Show', [:admin, @event]
+      \|
+      = link_to 'Cancel & Go Back', admin_events_path

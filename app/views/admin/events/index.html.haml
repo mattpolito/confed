@@ -15,8 +15,8 @@
       %tr
         %td
           %ul.actions
-            %li= link_to 'Edit', edit_admin_event_path(event), :class => "edit"
             %li= link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete, :class => "delete"
+            %li= link_to 'Edit', edit_admin_event_path(event), :class => "edit"
         %td= link_to event.name, [:admin, event]
         %td= event.started_on
         %td= event.ended_on
