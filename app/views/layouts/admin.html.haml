@@ -15,7 +15,11 @@
       %header
         %h1 Conference Education <span>Admin</span>
       = flash_messages
-      = render 'shared/navigation'
+      %nav
+        %li= link_to 'Presentations', admin_presentations_path, :class => "#{active_class('presentations')}"
+        %li= link_to 'Speakers', admin_speakers_path, :class => "#{active_class('speakers')}"
+        %li= link_to 'Events', admin_events_path, :class => "#{active_class('events')}"
+
       #content
         = yield
       %footer
@@ -25,6 +29,8 @@
       = javascript_include_tag 'jquery'
 
     = javascript_include_tag :defaults
-    = javascript_include_tag 'plugins/embedly-jquery/jquery.embedly'
-    = javascript_include_tag 'presentations/show'
+    =# these guys are causing errors.
+    =# javascript_include_tag 'plugins/embedly-jquery/jquery.embedly'
+    =# javascript_include_tag 'presentations/show'
+    = javascript_include_tag 'admin'
 
