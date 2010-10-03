@@ -1,26 +1,23 @@
-%h1 All Events
+%h2 
+  All Events
+  = link_to 'New event', new_admin_event_path
 
-%fieldset
-  %table
-    %thead
+%table
+  %thead
+    %tr
+      %th Name
+      %th Started On
+      %th Ended On
+      %th
+      %th
+      %th
+
+  %tbody
+    - @events.each do |event|
       %tr
-        %th Name
-        %th Started On
-        %th Ended On
-        %th
-        %th
-        %th
-
-    %tbody
-      - @events.each do |event|
-        %tr
-          %td= event.name
-          %td= event.started_on
-          %td= event.ended_on
-          %td= link_to 'Show', [:admin, event]
-          %td= link_to 'Edit', edit_admin_event_path(event)
-          %td= link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New event', new_admin_event_path
+        %td= event.name
+        %td= event.started_on
+        %td= event.ended_on
+        %td= link_to 'Show', [:admin, event]
+        %td= link_to 'Edit', edit_admin_event_path(event)
+        %td= link_to 'Destroy', [:admin, event], :confirm => 'Are you sure?', :method => :delete

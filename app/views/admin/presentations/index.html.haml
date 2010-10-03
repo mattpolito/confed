@@ -1,4 +1,6 @@
-%h1 All Presentations
+%h2 
+  All Presentations | 
+  = link_to 'New Presentation', new_admin_presentation_path
 
 %fieldset
   %table#presentations
@@ -24,5 +26,3 @@
           %td= presentation.tag_list
           %td= link_to 'Edit', edit_admin_presentation_path(presentation)
           %td=# link_to 'Destroy', admin_presentation_path(presentation), :confirm => 'Are you sure?', :method => :delete
-
-= link_to 'New Presentation', new_admin_presentation_path
