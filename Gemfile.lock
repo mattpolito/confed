@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/pivotal/jasmine-gem.git
+  revision: 0523f64d6f4ef8fd8ee5549c2872188f6b08a7b0
+  branch: rspec2-rails3
+  specs:
+    jasmine (1.0.0)
+      json_pure (>= 1.4.3)
+      rack (>= 1.0.0)
+      rake (>= 0.8.7)
+      rspec (>= 1.1.5)
+      selenium-client (>= 1.2.17)
+      selenium-rc (>= 2.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -126,6 +139,9 @@ GEM
     ruby_parser (2.0.5)
       sexp_processor (~> 3.0)
     rubyzip (0.9.4)
+    selenium-client (1.2.18)
+    selenium-rc (2.2.4)
+      selenium-client (>= 1.2.18)
     selenium-webdriver (0.0.28)
       ffi (>= 0.6.1)
       json_pure
@@ -160,6 +176,7 @@ DEPENDENCIES
   haml-rails
   hpricot
   httparty
+  jasmine!
   launchy
   pg (~> 0.9)
   rails (= 3.0.0)
