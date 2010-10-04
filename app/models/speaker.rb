@@ -4,7 +4,7 @@ class Speaker < ActiveRecord::Base
 
   # Validations
   validates :name, :presence => true
-  validates_format_of :speaker_rate_id, :with => /\d+-[a-z-]+$/
+  validates :speaker_rate_id, :format => {:with => /\d+-[a-z-]+$/}, :allow_blank => true
 
   # Full Text Searching
   index do

@@ -25,6 +25,6 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'cucumber-rails'
-  gem 'awesome_print', :require => 'ap'
   gem 'fakeweb'
+  gem 'jasmine', :path => 'vendor/gems/jasmine'
 end
