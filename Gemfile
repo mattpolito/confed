@@ -26,5 +26,5 @@ group :test do
   gem 'launchy'
   gem 'cucumber-rails'
   gem 'fakeweb'
-  # gem 'jasmine', :path => 'vendor/gems/jasmine'
+  gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git', :branch => 'rspec2-rails3'
 end
