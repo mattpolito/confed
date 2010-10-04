@@ -33,4 +33,7 @@
     =# javascript_include_tag 'plugins/embedly-jquery/jquery.embedly'
     =# javascript_include_tag 'presentations/show'
     = javascript_include_tag 'admin'
+    = yield :javascript_includes
+    %script{:type => "text/javascript"}
+      = yield :javascripts
 
