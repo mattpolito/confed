@@ -1,5 +1,5 @@
-= form_for [:admin, @presentation] do |f|
-  = render 'form', :f => f, :presentation => @presentation, 
-    :presentation => @presentation, 
-    :speakers     => @speakers, 
-    :events       => @events
+= render 'form', :presentation => @presentation, 
+  :speakers     => @speakers, 
+  :events       => @events
+#new_speaker{ :style => { :display => 'none' } }
+#new_event{ :style => { :display => 'none' } }
