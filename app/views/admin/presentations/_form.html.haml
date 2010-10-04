@@ -11,7 +11,7 @@
       = f.label :title
       = f.text_field :title
     %li
-      = f.label :description
+      = f.label :description, :class => 'textarea'
       = f.text_area :description
     %li
       = f.label :tag_list, "Tags (comma seperated)"
@@ -32,4 +32,4 @@
     = f.submit
     = link_to 'Show', @presentation
     \|
-    = link_to 'Cancel & Go Back', admin_speakers_path
+    = link_to 'Cancel & Go Back', :back
