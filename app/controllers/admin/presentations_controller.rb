@@ -1,4 +1,7 @@
 class Admin::PresentationsController < AdminController
+  before_filter :find_events, :except => [:index, :show]
+  before_filter :find_speakers, :except => [:index, :show]
+
   def index
     @presentations = Presentation.all
     respond_to do |format|
@@ -20,12 +23,12 @@ class Admin::PresentationsController < AdminController
     @presentation = Presentation.new    
     @presentation.videos.build
     @presentation.slideshows.build
-    find_extra_needed_info
   end
 
   def edit
     @presentation = Presentation.find(params[:id])
-    find_extra_needed_info
+    @presentation.videos.build unless @presentation.videos.present?
+    @presentation.slideshows.build unless @presentation.slideshows.present?
   end
 
   def create
@@ -35,7 +38,6 @@ class Admin::PresentationsController < AdminController
       flash[:success] = "Presentation created!"
       redirect_to admin_presentations_path
     else
-      find_extra_needed_info
       render :new
     end
   end
@@ -47,17 +49,11 @@ class Admin::PresentationsController < AdminController
     if @presentation.update_attributes(params[:presentation])
       redirect_to(admin_presentations_path, :notice => 'Presentation updated!')
     else
-      find_extra_needed_info
       render :edit
     end
   end
 
   private
-    def find_extra_needed_info
-      find_events
-      find_speakers
-    end
-
     def find_events
       @events = Event.all :order => 'name'
     end
@@ -66,3 +62,4 @@ class Admin::PresentationsController < AdminController
       @speakers = Speaker.all :order => 'name'
     end
 end
+
