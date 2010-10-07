@@ -1,31 +1,15 @@
 = link_to 'Go Back & View All Speakers', :back
+%h2#speaker_title #{@speaker.name} <span>#{@speaker.title}</span> <span id="location">#{@speaker.location}</span>
 #speaker_info
-  = gravatar_tag @speaker
-  %ul
-    %li
-      %strong Name:
-      = @speaker.name
-    %li
-      %strong Title:
-      = @speaker.title
-    %li
-      %strong Location:
-      = @speaker.location
-  %p
-    %b Bio:
-    = @speaker.bio
-
-  - if @speaker.company_url
-    %p
-      = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'
-
-  -if @speaker.twitter
-    %p
-      = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
-
-  -if @speaker.website
-    %p
-      = link_to 'Website', @speaker.website, :target => '_blank'
+  #avatar= gravatar_tag @speaker  
+  %p#bio= @speaker.bio
+  %p#links
+    - if @speaker.company_url
+      = link_to @speaker.company_name, @speaker.company_url
+    -if @speaker.twitter
+      = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}"
+    -if @speaker.website
+      = link_to 'Website', @speaker.website
 
 %h3 Presentations
 - if @speaker.presentations.present?

@@ -6,6 +6,35 @@ body {
   padding:0 100px;
 }
 
+h2#speaker_title {
+  background:#222;
+  color:#FFF;
+  font-size:15px;
+  font-weight:bold;
+  margin:10px 0;
+  padding:5px;
+  span {
+    font-weight:200;
+    margin:0 5px;
+  }
+  span#location {
+    background:#444;
+    border-radius:2px;
+    -moz-border-radius:2px;
+    float:right;
+    font-weight:100;
+    letter-spacing:1px;
+    padding:0 5px;
+  }
+}
+
+h3 {
+  border-bottom:1px solid #EEE;
+  font-size:18px;
+  font-weight:200;
+  margin:10px;
+}
+
 #flash_messages {
   .message {
     color:#222;
@@ -138,5 +167,22 @@ nav {
       float:left;
       width:425px;
     }
+  }
+}
+
+#speaker_info {
+  margin:10px;
+  overflow:hidden;
+  #avatar {
+    float:left;
+  }
+  #bio {
+    float:left;
+    font-size:14px;
+  }
+  #links {
+    border-top:1px solid #EEE;
+    clear:both;
+    font-size:12px;
   }
 }
