@@ -10,7 +10,8 @@ $(function(){
     title : 'speaker_title'
   });
 
-  $('#speaker_rate_link').click(function(){
+  $('#speaker_rate_link').live('click', function(e){
+    e.preventDefault();
     var speakerRateId = $('#speaker_speaker_rate_id').val();
     if(speakerRateId == ''){
       return;
