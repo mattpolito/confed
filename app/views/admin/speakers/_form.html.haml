@@ -1,9 +1,10 @@
 - content_for :javascript_includes do
   = javascript_include_tag 'speaker_rate'
   = javascript_include_tag 'admin/speakers/form'
-= form_for [:admin, @speaker] do |f|
+
+= form_for [:admin, speaker] do |f|
   %fieldset
-    = render 'shared/error_messages', :target => @speaker
+    = render 'shared/error_messages', :target => speaker
     %ul
       %li
         = f.label :speaker_rate_id
