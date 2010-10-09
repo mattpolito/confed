@@ -35,4 +35,9 @@
       \|
       = link_to 'Cancel & Go Back', :back
 
+#speaker_form{ :style => 'display:none;' }
+  = render 'admin/speakers/form', :speaker => Speaker.new
+#event_form{ :style => 'display:none;' }
+  = render 'admin/events/form', :event => Event.new
+
 

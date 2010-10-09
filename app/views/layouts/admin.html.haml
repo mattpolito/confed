@@ -8,6 +8,7 @@
     //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
     %link{:rel => "stylesheet/less", :href => "/stylesheets/application.less", :type => "text/css"}
     %link{:rel => "stylesheet/less", :href => "/stylesheets/admin.less", :type => "text/css"}
+    = stylesheet_link_tag 'facebox'
     = javascript_include_tag 'less'
     = csrf_meta_tag
   %body
@@ -32,6 +33,7 @@
     =# these guys are causing errors.
     =# javascript_include_tag 'plugins/embedly-jquery/jquery.embedly'
     =# javascript_include_tag 'presentations/show'
+    = javascript_include_tag 'facebox'
     = javascript_include_tag 'admin'
     = yield :javascript_includes
     %script{:type => "text/javascript"}

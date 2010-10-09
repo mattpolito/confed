@@ -46,9 +46,11 @@ class Admin::EventsController < AdminController
       if @event.save
         format.html { redirect_to([:admin, @event], :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
+        format.js   { render :json => @event }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
+        format.js   { render :partial => 'admin/events/form', :locals => { :event => @event }, :status => "409" }
       end
     end
   end

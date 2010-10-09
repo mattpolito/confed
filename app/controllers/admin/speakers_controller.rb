@@ -37,9 +37,11 @@ class Admin::SpeakersController < AdminController
       if @speaker.save
         format.html { redirect_to(admin_speaker_path(@speaker), :notice => 'Speaker was successfully created.') }
         format.xml  { render :xml => @speaker, :status => :created, :location => @speaker }
+        format.js   { render :json => @speaker }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @speaker.errors, :status => :unprocessable_entity }
+        format.js   { render :partial => "admin/speakers/form", :locals => { :speaker => @speaker }, :status => "409" }
       end
     end
   end

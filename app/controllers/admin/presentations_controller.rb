@@ -23,6 +23,13 @@ class Admin::PresentationsController < AdminController
     @presentation = Presentation.new    
     @presentation.videos.build
     @presentation.slideshows.build
+    
+    respond_to do |format|
+      format.html
+      format.js do
+        render 'form', :speaker => Speaker.new
+      end
+    end
   end
 
   def edit
