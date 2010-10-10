@@ -48,10 +48,10 @@ describe Presentation do
         subject.attributes = valid_attributes
         subject.tag_list = "foo, bar"
         subject.save!
-        subject.tag_cache.should == subject.tag_list
+        subject.tag_cache.should == "foo, bar"
         subject.tag_list = "foo, baz"
         subject.save!
-        subject.tag_cache.should == subject.tag_list
+        subject.tag_cache.should == "foo, baz"
       end
     end
   end

@@ -35,6 +35,6 @@ class Presentation < ActiveRecord::Base
   # Logic
   private
     def update_tag_cache
-      self.tag_cache = self.tag_list
+      self.tag_cache = self.tag_list.to_s
     end
 end
