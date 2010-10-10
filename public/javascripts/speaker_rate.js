@@ -7,6 +7,10 @@ SpeakerRate.init = function(inputs){
 SpeakerRate.getSpeaker = function(speakerId){
   var url = '/admin/speaker_rate/speakers/'+ speakerId;
   var that = this;
+  var selectorBase = '';
+  if($('#facebox').length > 0){
+    selectorBase = '#facebox ';
+  }
   $.get(url, function(data){
     for(key in that.inputs){
       var value = data[key];
@@ -14,8 +18,8 @@ SpeakerRate.getSpeaker = function(speakerId){
       if(key == 'biography'){
         value = value['text'];
       }
-
-      $('#'+ that.inputs[key]).val(value);
+      var selector = (selectorBase + '#' + that.inputs[key]);
+      $(selector).val(value);
     }
   }, 'json');
 };
