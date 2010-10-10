@@ -11,7 +11,6 @@ jQuery(document).ready( function() {
       $("form#new_event").live('submit', function(e) {
         e.preventDefault();
         var url = $(this).attr('action');
-        console.log(url);
         $.ajax({
           type: 'POST',
           url: url,
