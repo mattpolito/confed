@@ -12,7 +12,11 @@ $(function(){
 
   $('#speaker_rate_link').live('click', function(e){
     e.preventDefault();
-    var speakerRateId = $('#speaker_speaker_rate_id').val();
+    var selectorBase = '';
+    if($('#facebox').length > 0){
+      selectorBase = '#facebox ';
+    }
+    var speakerRateId = $(selectorBase + '#speaker_speaker_rate_id').val();
     if(speakerRateId == ''){
       return;
     }
