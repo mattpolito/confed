@@ -4,7 +4,7 @@ describe Speaker do
   it { should have_db_column(:name).of_type(:string) }
   it { should have_db_column(:title).of_type(:string) }
   it { should have_db_column(:location).of_type(:string) }
-  it { should have_db_column(:bio).of_type(:string) }
+  it { should have_db_column(:bio).of_type(:text) }
   it { should have_db_column(:company_name).of_type(:string) }
   it { should have_db_column(:company_url).of_type(:string) }
   it { should have_db_column(:email).of_type(:string) }
