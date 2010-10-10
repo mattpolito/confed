@@ -5,11 +5,11 @@
   %p#bio= @speaker.bio
   %p#links
     - if @speaker.company_url
-      = link_to @speaker.company_name, @speaker.company_url
+      = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'
     -if @speaker.twitter
-      = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}"
+      = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
     -if @speaker.website
-      = link_to 'Website', @speaker.website
+      = link_to 'Website', @speaker.website, :target => '_blank'
 
 %h3 Presentations
 - if @speaker.presentations.present?
