@@ -15,4 +15,4 @@
 - if @speaker.presentations.present?
   %ul
     - @speaker.presentations.each do |presentation|
-      %li= link_to presentation.title, presentation
+      %li #{link_to presentation.title, presentation} (#{presentation.event.name})
