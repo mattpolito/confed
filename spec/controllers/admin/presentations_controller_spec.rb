@@ -61,6 +61,13 @@ describe Admin::PresentationsController do
       get :new
       response.should render_template(:new)
     end
+
+    it 'assigns the previously used event from a cookie' do
+      pending("need to remember how to set cookies in a request")
+      cookies[:event_id] = 2
+      get :new
+      response
+    end
   end
 
 # describe "GET edit" do
@@ -76,27 +83,33 @@ describe Admin::PresentationsController do
       {'external_embed' => {'video' => '', 'slideshow' => ''}}
     end
 
-    def do_post
-      post :create, :presentation => {'these' => 'params'}.merge(external_embed_params)  
+    def do_post(args={'foo' => 'bar'})
+
+      post :create, :presentation => args.merge(external_embed_params)  
     end
  
     describe "with valid params" do
-      it "assigns a newly created presentation as @presentation" do
-        Presentation.stub(:new) { mock_presentation(:save => true) }
+      before do
+        Presentation.stub(:new) { mock_presentation(:save => true, :event_id => 1) }
         do_post
+      end
+
+      it "assigns a newly created presentation as @presentation" do
         assigns(:presentation).should be(mock_presentation)
       end
 
       it "sets flash message to be displayed" do
-        Presentation.stub(:new) { mock_presentation(:save => true) }
-        do_post
         flash[:success].should == "Presentation created!"
       end
  
       it "redirects to the presentation index" do
+        response.should redirect_to(admin_presentations_url)
+      end
+
+      it 'assigns the event in a cookie' do
         Presentation.stub(:new) { mock_presentation(:save => true) }
         do_post
-        response.should redirect_to(admin_presentations_url)
+        cookies['last_event_id'].should == '1'
       end
     end
  

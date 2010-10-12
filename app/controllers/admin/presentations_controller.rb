@@ -23,6 +23,7 @@ class Admin::PresentationsController < AdminController
     @presentation = Presentation.new    
     @presentation.videos.build
     @presentation.slideshows.build
+    @presentation.event_id = cookies[:last_event_id]
     
     respond_to do |format|
       format.html
@@ -40,8 +41,8 @@ class Admin::PresentationsController < AdminController
 
   def create
     @presentation = Presentation.new(params[:presentation])
-
     if @presentation.save
+      cookies[:last_event_id] = @presentation.event_id
       flash[:success] = "Presentation created!"
       redirect_to admin_presentations_path
     else
