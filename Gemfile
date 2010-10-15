@@ -10,9 +10,10 @@ gem 'devise'
 gem 'acts-as-taggable-on'
 gem 'httparty'
 gem 'gravatarify'
+gem 'will_paginate', '3.0.pre2'
 
 group :development, :test do
-  gem 'rspec-rails', '2.0.0.beta.22'
+  gem 'rspec-rails'
   gem "haml-rails"
   gem 'awesome_print', :require => 'ap'
   gem 'factory_girl_rails'
