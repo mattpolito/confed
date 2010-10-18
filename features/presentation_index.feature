@@ -3,10 +3,16 @@ Feature: Presentation Home page
   As a site viewer
   I want to see presentations available listed to me
 
-  Scenario: Top 10 newest entries on homepage
+  Scenario: Newest entries on homepage
     Given there are 15 presentations
     When I am on the homepage
-    Then I should see 10 presentation listings
+    Then I should see 15 presentation listings
+
+  Scenario: Newest entries on homepage with pagination
+    Given there are 25 presentations
+    When I am on the homepage
+    Then I should see 20 presentation listings
+    And  I should see pagination links
 
   Scenario: Presentation listing
     Given there is a presentation with the following:

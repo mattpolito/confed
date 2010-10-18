@@ -6,7 +6,7 @@ describe PresentationsController do
     let(:presentations) { [mock_model(Presentation)] }
 
     before(:each) do
-      Presentation.stub_chain(:order, :limit).and_return(presentations)
+      Presentation.stub_chain(:order, :paginate).and_return(presentations)
     end
 
     it "should be successful" do
