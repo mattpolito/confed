@@ -20,7 +20,7 @@ describe Admin::PresentationsController do
     end
 
     it "assigns all presentations as @presentations" do
-      Presentation.stub(:all) { [mock_presentation] }
+      Presentation.stub(:paginate) { [mock_presentation] }
       get :index
       assigns(:presentations).should eq([mock_presentation])
     end

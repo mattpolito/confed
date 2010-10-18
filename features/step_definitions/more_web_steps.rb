@@ -16,4 +16,8 @@ end
 Then /^I should see gravatar image$/ do
   page.should have_css('img.gravatar')
 end
+
+Then /^I should see pagination links$/ do
+  page.should have_css('.pagination')
+end
  
