@@ -1,6 +1,7 @@
 %article.presentation{ :id => dom_id(presentation) }
   %h2= link_to presentation.title, presentation_path(presentation), :class => 'title'
-  %p.info== by #{presentation.speaker.name} @ #{presentation.event.name} on #{presentation.took_place_on}
+  %p.info
+    == by #{link_to presentation.speaker.name, presentation.speaker} @ #{presentation.event.name}
   %p.description= truncate(presentation.description, :length => 200)
   %ul.tags
     - presentation.tag_list.each do |tag|
