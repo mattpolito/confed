@@ -24,5 +24,4 @@ Feature: Presentation Home page
     And  I should see "Description"
     And  I should see "Jeffery Lebowski" within "a"
     And  I should see "My Awesome Conference" 
-    And  it should display date it took place
 
