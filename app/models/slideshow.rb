@@ -8,6 +8,7 @@ class Slideshow < ExternalEmbed
     if attrs['provider_name'] != ("Slideshare" || "Scribd")
       errors[:base] << "is not a slideshow"
     end
-    self.content = attrs['html']
+    self.content   = attrs['html']
+    self.thumbnail = attrs['thumbnail_url']
   end
 end
