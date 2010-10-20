@@ -3,6 +3,9 @@
   %p.info
     == by #{link_to presentation.speaker.name, presentation.speaker} @ #{presentation.event.name}
   %p.description= truncate(presentation.description, :length => 200)
-  %ul.tags
-    - presentation.tag_list.each do |tag|
-      %li.tag= tag
+  = link_to presentation do
+    = image_tag presentation.videos.first.thumbnail, :class => 'thumb', :height => 150 
+  - if presentation.tags.present?
+    %ul.tags
+      - presentation.tag_list.each do |tag|
+        %li.tag= tag
