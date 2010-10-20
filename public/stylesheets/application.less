@@ -167,6 +167,10 @@ nav {
 
     }
 
+    p { 
+      padding:0 10px 0 0;
+      width:380px;
+    }
 
     h2 {
       background:#EEE;
@@ -186,7 +190,19 @@ nav {
     .description {
       font-size:12px;
       float:left;
-      width:425px;
+      /*width:425px;*/
+    }
+
+    img.thumb {
+      border:1px solid #eee;
+      float:right;
+      padding:3px;
+      position:relative;
+      top:-12px
+    }
+
+    a img.thumb {
+      &:hover { background:#bae0ff; border:1px solid #a9cbe7;}
     }
   }
 }
