@@ -11,6 +11,7 @@ h2#speaker_title {
   color:#FFF;
   font-size:15px;
   font-weight:bold;
+  font-family:"museo-slab-1","museo-slab-2",serif;
   margin:10px 0;
   padding:5px;
   span {
@@ -53,12 +54,16 @@ h3 {
 }
 
 #container {
+  -moz-box-shadow:0px 0px 10px 0px #b8b8b8;
+  -webkit-box-shadow:0px 0px 10px 0px #b8b8b8;
+  box-shadow:0px 0px 10px 0px #b8b8b8;
   margin:0 auto;
   width:960px;
 }
 
 header {
   background:#CCC;
+  border-bottom:1px solid #a8a8a8;
   padding:10px;
   h1 {
     font-family:"museo-slab-1","museo-slab-2",serif;
@@ -74,8 +79,10 @@ header {
 }
 
 nav {
-  margin:10px 0 0;
+  border-top:1px solid #f8f8f8;
+  border-bottom:1px solid #a8a8a8;
   overflow:hidden;
+  padding:10px 0 0;
   li {
     float:left;
     a {
@@ -139,71 +146,73 @@ nav {
 
 #presentations {
   margin:10px;
-  article.presentation {
-    border-bottom:1px solid #EEE;
-    margin:0 0 20px;
-    overflow:hidden;
-    width:600px;
-    ul {
-      font-size:12px;
-      float:right;
-      text-align:right;
-      width:150px;
-      &.tags {
-        clear:both;
-        float:left;
-        padding:1em 0;
-        text-align:left;
-        width:100%;
-        .tag {
-          background-color:#EEE;
-          display:inline;
-          border:1px solid #E3E3E3;
-          border-radius:20px;
-          -moz-border-radius:20px;
-          padding:2px 7px;
-        }
-      }
+}
 
-    }
-
-    p { 
-      padding:0 10px 0 0;
-      width:380px;
-    }
-
-    h2 {
-      background:#EEE;
-      border:1px solid #E3E3E3;
+article.presentation {
+  border-bottom:1px solid #EEE;
+  margin:0 0 20px;
+  overflow:hidden;
+  width:600px;
+  ul {
+    font-size:12px;
+    float:right;
+    text-align:right;
+    width:150px;
+    &.tags {
       clear:both;
-      font-size:16px;
-      font-weight:bold;
-      font-family:"museo-slab-1","museo-slab-2",serif;
-      margin:0 0 .5em 0;
-      padding:2px 2px 2px .5em;
-      text-shadow:0px 1px 0px #a9cbe7;
-      a {
-        color:#222;
-        text-decoration:none; 
+      float:left;
+      padding:1em 0;
+      text-align:left;
+      width:100%;
+      .tag {
+        background-color:#EEE;
+        display:inline;
+        border:1px solid #E3E3E3;
+        border-radius:20px;
+        -moz-border-radius:20px;
+        padding:2px 7px;
       }
     }
-    .description {
-      font-size:12px;
-      float:left;
-      /*width:425px;*/
-    }
+  }
 
-    img.thumb {
-      border:1px solid #eee;
-      float:right;
-      padding:3px;
-      position:relative;
-      top:-12px
-    }
+  p { 
+    padding:0 10px 0 0;
+    width:380px;
+  }
 
-    a img.thumb {
-      &:hover { background:#bae0ff; border:1px solid #a9cbe7;}
+  h2 {
+    background:#EEE;
+    border:1px solid #E3E3E3;
+    clear:both;
+    font-size:16px;
+    font-weight:bold;
+    font-family:"museo-slab-1","museo-slab-2",serif;
+    margin:0 0 .5em 0;
+    padding:2px 2px 2px .5em;
+    text-shadow:0px 1px 0px #a9cbe7;
+    a {
+      color:#222;
+      text-decoration:none; 
     }
+  }
+  .description {
+    font-size:12px;
+    float:left;
+    /*width:425px;*/
+  }
+
+  img.thumb {
+    border:1px solid #eee;
+    float:right;
+    min-height:150px;
+    min-width:150px;
+    padding:3px;
+    position:relative;
+    top:-12px
+  }
+
+  a img.thumb {
+    &:hover { background:#bae0ff; border:1px solid #a9cbe7;}
   }
 }
 
@@ -225,6 +234,7 @@ nav {
       clear:both;
       font-size:16px;
       font-weight:bold;
+      font-family:"museo-slab-1","museo-slab-2",serif;
       padding:2px;
       a {
         color:#222;
