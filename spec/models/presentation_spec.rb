@@ -56,35 +56,16 @@ describe Presentation do
     end
   end
 
-  describe "requests and stores embed code from uri via an api" do
-    let(:presentation) { Presentation.new(valid_attributes) }
+  describe '#thumbnail' do
+    subject{ Presentation.new } 
 
-    let(:request_uri) do
-      "http://api.embed.ly/v1/api/oembed?urls=http://embeded_content_url_1.com/something,http://embeded_content_url_1.com/something_else"
+    it 'returns path for image' do
+      subject.stub_chain(:videos, :first, :thumbnail).and_return("thumbnail_image")
+      subject.thumbnail == "thumbnail_image"
     end
 
-    let(:embeded_content_params) do
-      [
-        "http://embeded_content_url_1.com/something",
-        "http://embeded_content_url_1.com/something_else"
-      ]
-    end
-
-    let(:api_response) do
-      HTTParty.get request_uri
-    end
-    
-    before do
-      @json_response = File.dirname(__FILE__) + "/../fixtures/presentations/embedly_response.json" 
-
-      FakeWeb.register_uri(:get, request_uri, :body => @json_response )
-    end
-
-    describe "#request_embed_code" do
-      it "returns and array of hash objects" do
-        pending
-        presentation.request_embed_code(embeded_content_params).should == @json_response
-      end
+    it 'returns empty string when thumbnail is not available' do
+      subject.thumbnail.should be_blank
     end
   end
 end

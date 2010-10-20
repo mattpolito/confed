@@ -22,10 +22,9 @@ class Presentation < ActiveRecord::Base
   belongs_to :speaker
   belongs_to :event
   has_many :videos
-  has_many :slideshows
-
-  accepts_nested_attributes_for :slideshows, :reject_if => :all_blank
   accepts_nested_attributes_for :videos,     :reject_if => :all_blank
+  has_many :slideshows
+  accepts_nested_attributes_for :slideshows, :reject_if => :all_blank
 
   # Validations
   validates :title,      :presence => true
@@ -33,6 +32,11 @@ class Presentation < ActiveRecord::Base
   validates :event_id,   :presence => true, :numericality => true
 
   # Logic
+  def thumbnail
+    return "" unless videos.present? && videos.first.thumbnail.present?  
+    videos.first.thumbnail
+  end
+
   private
     def update_tag_cache
       self.tag_cache = self.tag_list.to_s
