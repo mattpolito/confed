@@ -37,6 +37,10 @@ class Presentation < ActiveRecord::Base
     videos.first.thumbnail
   end
 
+  def to_param
+    "#{id}-#{title.parameterize}" 
+  end
+
   private
     def update_tag_cache
       self.tag_cache = self.tag_list.to_s
