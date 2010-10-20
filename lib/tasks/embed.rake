@@ -4,7 +4,7 @@ namespace :embed do
     p "REPROCESSING ALL EXTERNAL EMBEDS"
     ExternalEmbed.all.each do |embed|
       embed.save!
-      ap embed.inspect
+      p embed.inspect
     end
   end
 end
