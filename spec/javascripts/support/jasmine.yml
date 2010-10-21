@@ -11,8 +11,6 @@
 #   - dist/**/*.js
 #
 src_files:
-  - public/javascripts/jquery.js
-  - public/javascripts/rails.js
   - public/javascripts/application.js
   - public/javascripts/**/*.js
 

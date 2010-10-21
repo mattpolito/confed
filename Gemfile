@@ -27,5 +27,5 @@ group :test do
   gem 'launchy'
   gem 'cucumber-rails'
   gem 'fakeweb'
-  gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
+  gem 'jasmine'
 end
