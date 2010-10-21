@@ -19,8 +19,8 @@ class Presentation < ActiveRecord::Base
   end
 
   # Associations
-  belongs_to :speaker
   belongs_to :event
+  has_and_belongs_to_many :speakers
   has_many :videos
   accepts_nested_attributes_for :videos,     :reject_if => :all_blank
   has_many :slideshows
@@ -28,7 +28,6 @@ class Presentation < ActiveRecord::Base
 
   # Validations
   validates :title,      :presence => true
-  validates :speaker_id, :presence => true, :numericality => true
   validates :event_id,   :presence => true, :numericality => true
 
   # Logic

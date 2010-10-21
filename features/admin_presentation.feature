@@ -14,16 +14,16 @@ Feature: Presentation Administration
     When  I fill in the following:
       | Title       | Presentation Title |
       | Description | Description        |
-    And  I select "Adam" from "Speaker"
+    And  I select "Adam" from "presentation_speaker_id_0"
     And  I select "WindyCityRails 2010" from "Event"
     And  I press "Create Presentation"
     Then I should see "Presentation created!" 
 
   Scenario: Presentation list view
     Given I logged in as an admin user
-    And   there are 5 presentations
+    And   there are 2 presentations
     When  I am on the admin presentations page
-    Then  I should see 5 presentation listings
+    Then  I should see 2 presentation listings
 
   Scenario: Presentation list view listing 
     Given I logged in as an admin user

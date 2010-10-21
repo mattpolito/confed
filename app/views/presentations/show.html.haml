@@ -8,7 +8,8 @@
   - if @presentation.slideshows
     - @presentation.slideshows.each do |slideshow|
       .slideshow= raw slideshow.content
-  .speaker
-    .name= @presentation.speaker.name
+  .speakers
+    - @presentation.speakers.each do |speaker|
+      .name= speaker
   .event
     .name= @presentation.event.name

@@ -6,7 +6,7 @@ Given /^there is a presentation with the following:$/ do |table|
       Factory.attributes_for(:presentation, attributes)
     )
     @presentation.event   = Factory(:event)
-    @presentation.speaker = Factory(:speaker)
+    @presentation.speakers << Factory(:speaker)
     @presentation.save!
   end
 end
@@ -54,7 +54,7 @@ end
 Given /^there (are|is) (\d+) presentation(s)?$/ do |arg1, number, arg3|
   number.to_i.times do
     Factory(:presentation, 
-            :speaker => Factory(:speaker),
+            :speakers => [Factory(:speaker)],
             :event   => Factory(:event)
     )
   end

@@ -12,7 +12,7 @@ describe Speaker do
   it { should have_db_column(:website).of_type(:string) }
   it { should have_db_column(:speaker_rate_id).of_type(:string) }
 
-  it { should have_many(:presentations) }
+  it { should have_and_belong_to_many(:presentations) }
 
   [ '1-adam-walters',
     '2-matt-polito' ].each do |id|

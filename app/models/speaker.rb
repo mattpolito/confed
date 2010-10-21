@@ -1,6 +1,6 @@
 class Speaker < ActiveRecord::Base
   # Associations
-  has_many :presentations
+  has_and_belongs_to_many :presentations
 
   # Validations
   validates :name, :presence => true
