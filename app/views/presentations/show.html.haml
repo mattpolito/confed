@@ -1,15 +1,16 @@
-.presentation
-  .title= @presentation.title
-  .tags= @presentation.tag_list
-  .description= @presentation.description
-  - if @presentation.videos
-    - @presentation.videos.each do |video|
-      .video= raw video.content
-  - if @presentation.slideshows
-    - @presentation.slideshows.each do |slideshow|
-      .slideshow= raw slideshow.content
-  .speakers
-    - @presentation.speakers.each do |speaker|
-      .name= link_to speaker, speaker_path(speaker)
-  .event
-    .name= @presentation.event.name
+#presentations
+  %article.presentation
+    %h2= @presentation.title
+    %p.description= @presentation.description
+    - if @presentation.videos
+      - @presentation.videos.each do |video|
+        .video= raw video.content
+    - if @presentation.slideshows
+      - @presentation.slideshows.each do |slideshow|
+        .slideshow= raw slideshow.content
+    .speaker
+      - @presentation.speakers.each do |speaker|
+        .name= link_to speaker, speaker_path(speaker)
+    .event
+      .name= @presentation.event.name
+    .tags= @presentation.tag_list
