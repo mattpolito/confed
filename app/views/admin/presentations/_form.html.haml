@@ -6,8 +6,13 @@
         = f.label :event_id
         = f.collection_select :event_id, events, :id, :name, :prompt => true
       %li
-        = f.label :speaker_id
-        = f.collection_select :speaker_id, speakers, :id, :name, :prompt => true
+        = f.label :speaker_id, "Speaker(s)"
+        = link_to '+ More', '#', :id => 'new_speaker'
+        %ul.speakers
+          - @presentation.speakers.each_index do |id|
+            - speaker = @presentation.speakers[id]
+            %li
+              = select_tag "presentation_speaker_id_#{id}", options_for_select(speakers.inject([[' --Please Select--', false], ['--New Speaker--', 'new']]){|options, s| options << [s.name, s.id]}, speaker.id), :prompt => true,:name => 'presentation[speaker_ids][]', :id => "presentation_speaker_id_#{id}", :class => 'speaker_select'
       %li
         = f.label :title
         = f.text_field :title

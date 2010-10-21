@@ -10,11 +10,11 @@ Feature: Presentation show
       | Description | Description           |
     And   has video content
     When  I am on the presentation page
-    Then  I should see "How I built this app" within ".presentation .title"
-    And   I should see "Description" within ".presentation .description"
+    Then  I should see "How I built this app"
+    And   I should see "Description"
     And   I should see the presentation video
-    And   I should see "Jeffery Lebowski" within ".presentation .speaker .name"
-    And   I should see "My Awesome Conference" within ".presentation .event .name"
+    And   I should see "Jeffery Lebowski"
+    And   I should see "My Awesome Conference"
 
   Scenario: Viewing presentation page with slideshow 
     Given there is a presentation with the following:
@@ -22,11 +22,11 @@ Feature: Presentation show
       | Description | Description           |
     And   has slideshow content
     When  I am on the presentation page
-    Then  I should see "How I built this app" within ".presentation .title"
-    And   I should see "Description" within ".presentation .description"
+    Then  I should see "How I built this app"
+    And   I should see "Description"
     And   I should see the presentation slideshow 
-    And   I should see "Jeffery Lebowski" within ".presentation .speaker .name"
-    And   I should see "My Awesome Conference" within ".presentation .event .name"
+    And   I should see "Jeffery Lebowski"
+    And   I should see "My Awesome Conference"
 
   Scenario: Viewing presentation page with video and slideshow 
     Given there is a presentation with the following:
@@ -35,9 +35,9 @@ Feature: Presentation show
     And   has video content
     And   has slideshow content
     When  I am on the presentation page
-    Then  I should see "How I built this app" within ".presentation .title"
-    And   I should see "Description" within ".presentation .description"
+    Then  I should see "How I built this app"
+    And   I should see "Description"
     And   I should see the presentation video
     And   I should see the presentation slideshow 
-    And   I should see "Jeffery Lebowski" within ".presentation .speaker .name"
-    And   I should see "My Awesome Conference" within ".presentation .event .name"
+    And   I should see "Jeffery Lebowski"
+    And   I should see "My Awesome Conference"

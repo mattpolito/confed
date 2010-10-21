@@ -1,7 +1,10 @@
 %article.presentation{ :id => dom_id(presentation) }
   %h2= link_to presentation.title, presentation_path(presentation), :class => 'title'
   %p.info
-    == by #{link_to presentation.speaker.name, presentation.speaker} @ #{presentation.event.name}
+    by
+    - presentation.speakers.each do |speaker|
+      #{link_to speaker.name, speaker}
+    @ #{presentation.event.name}
   %p.description= truncate(presentation.description, :length => 200)
   = link_to presentation do
     = image_tag presentation.thumbnail, :class => 'thumb', :height => 150 

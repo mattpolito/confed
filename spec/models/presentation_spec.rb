@@ -8,7 +8,7 @@ describe Presentation do
   it { should have_db_column(:event_id).of_type(:integer) }
 
   it { should belong_to(:event) }
-  it { should belong_to(:speaker) }
+  it { should have_and_belong_to_many(:speakers) }
   it { should have_many(:videos) }
   it { should have_many(:slideshows) }
 
@@ -33,7 +33,6 @@ describe Presentation do
     subject { Presentation.new }
 
     it { should have(1).error_on(:title) }
-    it { should have(2).errors_on(:speaker_id) }
     it { should have(2).errors_on(:event_id) }
   end
 

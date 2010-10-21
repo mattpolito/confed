@@ -4,8 +4,8 @@
       %b Title:
       = @presentation.title
     %li
-      %b Speaker:
-      = link_to @presentation.speaker, admin_speaker_path(@presentation.speaker)
+      %b= @presentation.speakers.count > 1 ? "Speakers" : "Speaker"
+      = raw @presentation.speakers.map{|speaker| escaped_link(speaker.name, admin_speaker_path(speaker))}.join(", ")
     %li
       %b Description:
       = @presentation.description

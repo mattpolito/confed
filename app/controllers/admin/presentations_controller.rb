@@ -3,7 +3,7 @@ class Admin::PresentationsController < AdminController
   before_filter :find_speakers, :except => [:index, :show]
 
   def index
-    @presentations = Presentation.paginate :page => params[:page], :per_page => (params[:per_page] || 20)
+    @presentations = Presentation.paginate(:page => params[:page], :per_page => (params[:per_page] || 20))
     respond_to do |format|
       format.html
       format.xml  { render :xml => @speakers }
@@ -20,13 +20,15 @@ class Admin::PresentationsController < AdminController
   end
 
   def new
-    @presentation = Presentation.new    
+    @presentation = Presentation.new
+    @presentation.speakers.build
     @presentation.videos.build
     @presentation.slideshows.build
     @presentation.event_id = cookies[:last_event_id]
     
     respond_to do |format|
       format.html
+      # TODO:  This should be on the admin/speakers controller as it's renderng a new speaker form
       format.js do
         render 'form', :speaker => Speaker.new
       end

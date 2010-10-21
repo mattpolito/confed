@@ -12,4 +12,8 @@ module ApplicationHelper
       raw output
     end
   end
+
+  def escaped_link(text, href, opts={})
+    link_to CGI::escapeHTML(text), href, opts
+  end
 end
