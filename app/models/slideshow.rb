@@ -5,7 +5,7 @@ class Slideshow < ExternalEmbed
   # Logic
   def set_attrs_via_embedly
     attrs = Embedly.get_attrs(url)
-    unless attrs['provider_name'].match(/Slide|Scribd/)
+    unless attrs['provider_name'].match(/Slide|Scribd|Speaker/)
       errors[:base] << "is not a slideshow"
     end
     self.content   = attrs['html']
