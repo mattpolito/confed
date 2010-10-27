@@ -1,5 +1,15 @@
 $(document).ready(function() {
-  // replace all oembed links with actual content
-  // This was erroring out in the Jasmine tests
-  /*$('a.oembed').embedly({maxWidth:400,'method':'replace'});*/
+
+  function addDimensionsToEmbedContainer(container_element) {
+    var embed = container_element.children();
+    container_element.attr('style', 
+      'height:' + embed.attr('height') + 'px; width:' + embed.attr('width') + 'px;'
+    );
+  };
+
+  // add width to .video class
+  addDimensionsToEmbedContainer($('.video'));
+  
+  // add width to .slideshow class
+  addDimensionsToEmbedContainer($('.slideshow'));
 });
