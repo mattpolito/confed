@@ -4,7 +4,7 @@ Feature: Presentation Administration
   I want to add and update presentations
 
   Scenario: Presentation create
-    Given I logged in as an admin user
+    Given I logged in as an "admin" user
     And   a speaker with the following:
       | Name  | Adam         |
       | Email | adam@foo.com |
@@ -20,13 +20,13 @@ Feature: Presentation Administration
     Then I should see "Presentation created!" 
 
   Scenario: Presentation list view
-    Given I logged in as an admin user
+    Given I logged in as an "admin" user
     And   there are 2 presentations
     When  I am on the admin presentations page
     Then  I should see 2 presentation listings
 
   Scenario: Presentation list view listing 
-    Given I logged in as an admin user
+    Given I logged in as an "admin" user
     And   there is a presentation with the following:
       | Title       | How I built this app  |
       | Description | Description           |
@@ -37,7 +37,7 @@ Feature: Presentation Administration
     And   I should see "My Awesome Conference"
 
   Scenario: Presentation edit
-    Given I logged in as an admin user
+    Given I logged in as an "admin" user
     And   there is a presentation with the following:
       | Title       | How I built this app  |
       | Description | Description           |

@@ -6,6 +6,7 @@ describe Admin::PresentationsController do
 
   before do
     User.stub(:find).and_return(user)
+    user.stub(:has_role?).with(:admin).and_return(true)
     sign_in user
   end
 
