@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  # Associations
+  has_and_belongs_to_many :roles
+
+  # Logic
+  def has_role?(role)
+    roles.include?(Role.find_by_name(role)) 
+  end
 end

@@ -5,6 +5,7 @@ describe Admin::SpeakersController do
 
   before do
     User.stub(:find).and_return(user)
+    user.stub(:has_role?).and_return(true)
     sign_in user
   end
 
