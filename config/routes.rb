@@ -1,6 +1,6 @@
 ConferenceEducation::Application.routes.draw do
 
-  devise_for :users do
+  devise_for :users, :controllers => { :registrations => "users/registrations" } do
     get  "login",  :to => "devise/sessions#new"
     post "login",  :to => "devise/sessions#create"
     get  "logout", :to => "devise/sessions#destroy"
