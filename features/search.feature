@@ -9,8 +9,8 @@ Feature: Searching for presentation
       | Title       | MongoDB                     |
       | Description | Web scale document database |
     And there is a presentation with the following:
-      | Title       | Rails 3                         |
-      | Description | Talk about what's new in Rails  |
+      | Title       | Rails 3                        |
+      | Description | Talk about what's new in Rails |
     When I search for "document"
     And press "Search"
     Then I should see "MongoDB"
@@ -26,5 +26,5 @@ Feature: Searching for presentation
       | Location   | Elgin |
     When I search for "Elgin"
     And press "Search"
-    Then I should see "Matt"
-    But I should not see "Adam"
+    Then I should see "Matt" within "#search_results"
+    But I should not see "Adam" within "#search_results"
