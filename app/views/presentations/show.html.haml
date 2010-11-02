@@ -3,7 +3,7 @@
     %h2= @presentation.title
     - if @presentation.videos
       - @presentation.videos.each do |video|
-        - div_for(video) do
+        = div_for(video) do
           = raw video.content
     - if @presentation.slideshows
       - @presentation.slideshows.each do |slideshow|
