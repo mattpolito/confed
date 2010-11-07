@@ -28,3 +28,12 @@ Feature: Searching for presentation
     And press "Search"
     Then I should see "Matt" within "#search_results"
     But I should not see "Adam" within "#search_results"
+
+  Scenario: Fuzzy search results
+    Given I am on the homepage
+    And there is a presentation with the following:
+      | Title       | MongoDB                     |
+      | Description | Web scale document database |
+    When I search for "mongo"
+    And press "Search"
+    Then I should see "MongoDB"
