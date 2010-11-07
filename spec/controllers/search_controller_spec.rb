@@ -10,12 +10,12 @@ describe SearchController do
       end
 
       it "searchs for presentations matching the query" do
-        Presentation.should_receive(:search).with("foo")
+        Presentation.should_receive(:search).with("foo*")
         get :search, :q => "foo"
       end
 
       it "searchs for speakers matching the query" do
-        Speaker.should_receive(:search).with("foo")
+        Speaker.should_receive(:search).with("foo*")
         get :search, :q => "foo"
       end
     end

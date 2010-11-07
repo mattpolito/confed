@@ -4,8 +4,9 @@ class SearchController < ApplicationController
     @search_value = params[:q]
     redirect_to :root and return if @search_value.blank?
 
-    @presentations = Presentation.search(@search_value)
-    @speakers = Speaker.search(@search_value)
+    search = "#{@search_value}*"
+    @presentations = Presentation.search(search)
+    @speakers = Speaker.search(search)
   end
 
 end
