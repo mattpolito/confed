@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.1'
 gem 'pg', '~> 0.9'
 gem 'texticle', '~> 1.0.0'
 gem 'flutie'
@@ -12,6 +12,7 @@ gem 'httparty'
 gem 'gravatarify'
 gem 'will_paginate', '3.0.pre2'
 gem 'cancan'
+gem 'hoptoad_notifier'
 
 group :development, :test do
   gem 'rspec-rails'
