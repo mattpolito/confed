@@ -1,0 +1,16 @@
+development:
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  database: confed_development
+  schema_search_path: public
+  encoding: utf8
+
+test:
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  database: confed_test
+  schema_search_path: public
+  encoding: utf8
+
