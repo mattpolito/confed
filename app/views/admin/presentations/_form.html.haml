@@ -20,6 +20,9 @@
         = f.label :description, :class => 'textarea'
         = f.text_area :description
       %li
+        = f.label :took_place_on
+        = f.datetime_select :took_place_on, :prompt => true
+      %li
         = f.label :tag_list, "Tags (comma seperated)"
         = f.text_field :tag_list
       
