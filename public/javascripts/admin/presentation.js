@@ -62,6 +62,7 @@ $(function(){
 
   // Create new speaker select
   $('#new_speaker').click(function(e){
+    e.preventDefault();
     var speakerList = $('ul.speakers');
     $('ul.speakers li:first').clone().appendTo('ul.speakers')
   });
