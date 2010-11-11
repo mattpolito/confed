@@ -1,14 +1,13 @@
 !!! html5
 %html
   %head
-    %title Conference Education
+    %title= yield(:title) || "Confed"
     = csrf_meta_tag
     %meta{ :charset => 'utf-8' }
     %meta{ :name => 'viewport', :content => 'width=device-width; initial-scale=1.0; maximum-scale=1.0;' }
     //%link{ :rel => 'shortcut icon', :href => '/favicon.ico' }
     //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
     %link{:rel => "stylesheet/less", :href => "/stylesheets/application.less", :type => "text/css"}
-    %link{:href => 'http://fonts.googleapis.com/css?family=Molengo&subset=latin', :rel => 'stylesheet', :type => 'text/css'}
     %script{:type => "text/javascript", :src => "http://use.typekit.com/wnz4hjz.js"}
     :javascript
       try{Typekit.load();}catch(e){}
@@ -31,4 +30,5 @@
 
     = javascript_include_tag :defaults
     = javascript_include_tag 'presentations/show'
+    = javascript_include_tag 'uservoice'
     = render 'shared/reinvigorate' if Rails.env.production?
