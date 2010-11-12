@@ -1,18 +1,17 @@
-#presentations
-  %article.presentation
-    %h2= @presentation.title
-    - if @presentation.videos
-      - @presentation.videos.each do |video|
-        = div_for(video) do
-          = raw video.content
-    - if @presentation.slideshows
-      - @presentation.slideshows.each do |slideshow|
-        .slideshow= raw slideshow.content
-    %p.description= @presentation.description
-    .tags= @presentation.tag_list
-  %aside
-    .speaker
-      - @presentation.speakers.each do |speaker|
-        .name= link_to speaker, speaker_path(speaker)
-    .event
-      .name= @presentation.event.name
+%article.presentation
+  %h2= @presentation.title
+  - if @presentation.videos
+    - @presentation.videos.each do |video|
+      = div_for(video) do
+        = raw video.content
+  - if @presentation.slideshows
+    - @presentation.slideshows.each do |slideshow|
+      .slideshow= raw slideshow.content
+  %p.description= @presentation.description
+  .tags= @presentation.tag_list
+%aside
+  %h3.speakers
+    by
+    = raw @presentation.speakers.map{|speaker| link_to h(speaker.name), speaker_path(speaker)}.to_sentence
+  .event
+    .name= @presentation.event.name

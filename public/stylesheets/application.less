@@ -1,5 +1,8 @@
 @import "reset";
 
+@presentation_width: 600px;
+@container_width: 960px;
+
 body {
   background:url(/images/bg.gif) #EEE;
   font:normal 62.5%/1.5 "Helvetica Neue", Helvetica, sans-serif;
@@ -61,7 +64,7 @@ h3 {
   border-right:1px solid #adadad;
   box-shadow:0px 0px 10px 5px #b8b8b8;
   margin:0 auto;
-  width:960px;
+  width: @container_width;
 }
 
 header {
@@ -129,17 +132,15 @@ nav {
   border-bottom:1px solid #a8a8a8;
   border-top:1px solid #a8a8a8;
   overflow:hidden;
-}
+  padding:10px;
 
-#presentations {
-  margin:10px;
 }
 
 article.presentation {
   border-bottom:1px solid #EEE;
   margin:0 0 20px;
   overflow:hidden;
-  width:600px;
+  width:@presentation_width;
   ul {
     font-size:12px;
     float:right;
@@ -225,7 +226,33 @@ article {
 
 aside {
   float:right;
-  width:100px;
+  width: @container_width - @presentation_width - 40px;
+  margin: 0px 10px;
+
+  /* presentation-show */
+  h3.speakers{
+    background:none repeat scroll 0 0 #EEEEEE;
+    border:1px solid #E3E3E3;
+    clear:both;
+    font-family:"museo-slab-1","museo-slab-2",serif;
+    font-size:14px;
+    font-weight:bold;
+    margin:0 0 0.5em;
+    padding:2px 2px 2px 0.5em;
+    text-shadow:0 1px 0 #A9CBE7;
+    line-height: 24px;
+
+    a{
+      color: #000000;
+      text-shadow:0 0px 0 #A9CBE7;
+      text-decoration: none;
+      border-bottom: 1px dotted #000000;
+      &:hover{
+        color: #FE0052;
+        border-color: #FE0052;
+      }
+    }
+  }
 }
 
 
@@ -315,3 +342,5 @@ footer {
   padding:5px;
   min-height:3em;
 }
+
+
