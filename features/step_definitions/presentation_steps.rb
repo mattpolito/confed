@@ -61,9 +61,7 @@ Given /^there (are|is) (\d+) presentation(s)?$/ do |arg1, number, arg3|
 end
 
 Then /^I should see (\d+) presentation listing(s)?$/ do |number, arg2|
-  within(:css, '#presentations') do
-    page.should have_css('.presentation', :count => number.to_i)
-  end
+  page.should have_css('.presentation', :count => number.to_i)
 end
 
 Then /^it should display date it took place$/ do
