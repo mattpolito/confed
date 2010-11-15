@@ -13,5 +13,4 @@
   %h3.speakers
     by
     = raw @presentation.speakers.map{|speaker| link_to h(speaker.name), speaker_path(speaker)}.to_sentence
-  .event
-    .name= @presentation.event.name
+  .event @ #{@presentation.event}

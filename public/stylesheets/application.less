@@ -3,6 +3,28 @@
 @presentation_width: 600px;
 @container_width: 960px;
 
+.roundedCornerBottomLeft(@radius: 10px){
+    -moz-border-radius-bottomleft: @radius;
+    border-bottom-left-radius: @radius;
+}
+
+.roundedCornerBottomRight(@radius: 10px){
+    -moz-border-radius-bottomright: @radius;
+    border-bottom-right-radius: @radius;
+}
+
+.roundedCornersBottom(@radius: 10px){
+  .roundedCornerBottomRight(@radius);
+  .roundedCornerBottomLeft(@radius);
+}
+
+.boxShadow(@hor: 0px, @vert: 10px, @blur: 5px, @shadow: #b8b8b8) {
+  -webkit-box-shadow: @hor @vert @blur @shadow;
+  -moz-box-shadow: @hor @vert @blur @shadow;
+  box-shadow: @hor @vert @blur @shadow;
+}
+
+
 body {
   background:url(/images/bg.gif) #EEE;
   font:normal 62.5%/1.5 "Helvetica Neue", Helvetica, sans-serif;
@@ -59,10 +81,10 @@ h3 {
 #container {
   -moz-box-shadow:0px 0px 10px 5px #b8b8b8;
   -webkit-box-shadow:0px 0px 10px 5px #b8b8b8;
+  box-shadow:0px 0px 10px 5px #b8b8b8;
   border-bottom:1px solid #adadad;
   border-left:1px solid #adadad;
   border-right:1px solid #adadad;
-  box-shadow:0px 0px 10px 5px #b8b8b8;
   margin:0 auto;
   width: @container_width;
 }
@@ -237,7 +259,7 @@ aside {
     font-family:"museo-slab-1","museo-slab-2",serif;
     font-size:14px;
     font-weight:bold;
-    margin:0 0 0.5em;
+    margin: 0;
     padding:2px 2px 2px 0.5em;
     text-shadow:0 1px 0 #A9CBE7;
     line-height: 24px;
@@ -252,6 +274,18 @@ aside {
         border-color: #FE0052;
       }
     }
+  }
+
+  .event{
+    border:1px solid #E3E3E3;
+    border-top: none;
+    padding:2px 2px 2px 0.5em;
+    line-height: 24px;
+    font-family:"museo-slab-1","museo-slab-2",serif;
+    font-size:14px;
+    font-weight:bold;
+    .roundedCornersBottom(10px);
+    //.boxShadow;
   }
 }
 
