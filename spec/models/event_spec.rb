@@ -31,4 +31,11 @@ describe Event do
       it { should have(1).error_on(:name) }
     end
   end
+
+  describe '#to_s' do
+    subject { Event.new(:name => 'Foo Name') }
+    it 'prints the event name' do
+      subject.to_s.should eql('Foo Name')
+    end
+  end
 end
