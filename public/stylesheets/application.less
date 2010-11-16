@@ -247,44 +247,34 @@ article {
 }
 
 aside {
-  border:1px solid #E3E3E3;
   float:right;
+  font-family:"museo-slab-1","museo-slab-2",serif;
+  font-size:14px;
+  font-weight:bold;
   margin: 0px 0px 0px 10px;
   width: @container_width - @presentation_width - 32px;
-  .roundedCornersBottom(10px);
 
-  /* presentation-show */
-  h3.speakers{
-    background:none repeat scroll 0 0 #EEEEEE;
-    border-bottom:1px solid #E3E3E3;
-    clear:both;
-    font-family:"museo-slab-1","museo-slab-2",serif;
-    font-size:14px;
-    font-weight:bold;
-    margin: 0;
-    padding:2px 2px 2px 0.5em;
-    text-shadow:0 1px 0 #A9CBE7;
-    line-height: 24px;
-
-    a{
-      color: #000000;
-      text-shadow:0 0px 0 #A9CBE7;
-      text-decoration: none;
-      border-bottom: 1px dotted #000000;
-      &:hover{
-        color: #FE0052;
-        border-color: #FE0052;
+  dl{
+    margin-top: -5px;
+    dt{
+      border-bottom: 1px solid #CCC;
+      color:#C0C0C0;
+      font-size: 16px;
+      margin-top: 5px;
+      letter-spacing: 0.3em;
+    }
+    dd {
+      padding: 5px 0px 0px 10px;
+      a{
+        color: #000000;
+        text-shadow:0 0px 0 #A9CBE7;
+        text-decoration: none;
+        &:hover{
+          color: #FE0052;
+          border-color: #FE0052;
+        }
       }
     }
-  }
-
-  .event{
-    border-top: none;
-    padding:2px 2px 2px 0.5em;
-    line-height: 24px;
-    font-family:"museo-slab-1","museo-slab-2",serif;
-    font-size:14px;
-    font-weight:bold;
   }
 }
 
