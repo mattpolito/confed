@@ -13,6 +13,7 @@ gem 'gravatarify'
 gem 'will_paginate', '3.0.pre2'
 gem 'cancan'
 gem 'hoptoad_notifier'
+gem 'rdiscount'
 
 group :development, :test do
   gem 'rspec-rails'
