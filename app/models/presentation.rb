@@ -3,6 +3,7 @@ class Presentation < ActiveRecord::Base
   EMBED_SERVICE_URL = "http://api.embed.ly/v1/api/oembed?maxwidth=250&urls="
 
   # Callbacks
+  before_save :render_description
   before_save :update_tag_cache
 
   # Attributes
@@ -41,6 +42,12 @@ class Presentation < ActiveRecord::Base
   end
 
   private
+    def render_description
+      self.rendered_description = RDiscount.new(
+        description, :smart, :filter_html, :autolink
+      ).to_html
+    end
+
     def update_tag_cache
       self.tag_cache = self.tag_list.to_s
     end

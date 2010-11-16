@@ -67,4 +67,12 @@ describe Presentation do
       subject.thumbnail.should be_blank
     end
   end
+
+  describe 'rendering description from text/markdown to html' do
+    subject { Presentation.create(valid_attributes) }
+
+    it "happens when saved" do
+      subject.rendered_description.should == "<p>description</p>\n"
+    end
+  end
 end
