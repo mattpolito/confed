@@ -16,12 +16,12 @@ Feature: Presentation Home page
 
   Scenario: Presentation listing
     Given there is a presentation with the following:
-      | Title       | How I built this app  |
-      | Description | Description           |
+      | Title       | How I built this app |
+      | Description | Description          |
     When I am on the homepage
     Then I should see 1 presentation listing
-    And  I should see "How I built this app" within "a"
+    And  I should see a link "How I built this app" within "article h2"
     And  I should see "Description"
-    And  I should see "Jeffery Lebowski" within "a"
+    And  I should see a link "Jeffery Lebowski" within "article"
     And  I should see "My Awesome Conference" 
 
