@@ -5,6 +5,14 @@ Then /^I should see an external link "([^"]*)"(?: to "([^"]*)")?$/ do |link_text
   link[:href].should == link_dest if link_dest
 end
 
+Then /^I should see a link "([^"]*)"(?: to "([^"]*)")?(?: within "([^"]*)")?$/ do |link_text, link_dest, selector|
+  with_scope(selector) do 
+    link = find_link(link_text)
+    link.should_not be_nil
+    link[:href].should == link_dest if link_dest
+  end
+end
+
 Then /^I should not see links:$/ do |links|
   page_links = all('a')
   page_links_text = page_links.map(&:text)
