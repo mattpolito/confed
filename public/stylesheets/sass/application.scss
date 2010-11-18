@@ -1,29 +1,7 @@
-@import "reset";
+@import "reset.scss";
 
-@presentation_width: 600px;
-@container_width: 960px;
-
-.roundedCornerBottomLeft(@radius: 10px){
-  -moz-border-radius-bottomleft: @radius;
-  border-bottom-left-radius: @radius;
-}
-
-.roundedCornerBottomRight(@radius: 10px){
-  -moz-border-radius-bottomright: @radius;
-  border-bottom-right-radius: @radius;
-}
-
-.roundedCornersBottom(@radius: 10px){
-  .roundedCornerBottomRight(@radius);
-  .roundedCornerBottomLeft(@radius);
-}
-
-.boxShadow(@hor: 0px, @vert: 10px, @blur: 5px, @shadow: #b8b8b8) {
-  -webkit-box-shadow: @hor @vert @blur @shadow;
-  -moz-box-shadow: @hor @vert @blur @shadow;
-  box-shadow: @hor @vert @blur @shadow;
-}
-
+$container_width: 960px;
+$presentation_width: 600px;
 
 body {
   background:url(/images/bg.gif) #EEE;
@@ -86,7 +64,7 @@ h3 {
   border-left:1px solid #adadad;
   border-right:1px solid #adadad;
   margin:0 auto;
-  width: @container_width;
+  width: $container_width;
 }
 
 header {
@@ -162,7 +140,7 @@ article.presentation {
   border-bottom:1px solid #EEE;
   margin:0 0 20px;
   overflow:hidden;
-  width:@presentation_width;
+  width:$presentation_width;
   ul {
     font-size:12px;
     float:right;
@@ -252,7 +230,7 @@ aside {
   font-size:14px;
   font-weight:bold;
   margin: 0px 0px 0px 10px;
-  width: @container_width - @presentation_width - 32px;
+  width: $container_width - $presentation_width - 32px;
 
   dl{
     margin-top: -5px;

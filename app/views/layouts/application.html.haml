@@ -7,7 +7,7 @@
     %meta{ :name => 'viewport', :content => 'width=device-width; initial-scale=1.0; maximum-scale=1.0;' }
     //%link{ :rel => 'shortcut icon', :href => '/favicon.ico' }
     //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
-    %link{:rel => "stylesheet/less", :href => "/stylesheets/application.less", :type => "text/css"}
+    = stylesheet_link_tag 'reset', 'application'
     %script{:type => "text/javascript", :src => "http://use.typekit.com/wnz4hjz.js"}
     :javascript
       try{Typekit.load();}catch(e){}
