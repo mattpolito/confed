@@ -6,13 +6,11 @@
     %meta{ :name => 'viewport', :content => 'width=device-width; initial-scale=1.0; maximum-scale=1.0;' }
     //%link{ :rel => 'shortcut icon', :href => '/favicon.ico' }
     //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
-    %link{:rel => "stylesheet/less", :href => "/stylesheets/application.less", :type => "text/css"}
-    %link{:rel => "stylesheet/less", :href => "/stylesheets/admin.less", :type => "text/css"}
+    = stylesheet_link_tag :admin
     = stylesheet_link_tag 'facebox'
     %script{:type => "text/javascript", :src => "http://use.typekit.com/wnz4hjz.js"}
     :javascript
       try{Typekit.load();}catch(e){}
-    = javascript_include_tag 'less'
     = csrf_meta_tag
   %body
     #container
