@@ -3,6 +3,17 @@
 $container_width: 960px;
 $presentation_width: 600px;
 
+@mixin roundedCorner($side, $radius: 10px) {
+  border-#{$side}-radius: $radius;
+  -moz-border-radius-#{$side}: $radius;
+}
+
+@mixin box_shadow($hor: 0px, $vert: 10px, $blur: 5px, $shadow: #b8b8b8) {
+  box-shadow: $hor $vert $blur $shadow;
+  -webkit-box-shadow: $hor $vert $blur $shadow;
+  -moz-box-shadow: $hor $vert $blur $shadow;
+}
+
 body {
   background:url(/images/bg.gif) #EEE;
   font:normal 62.5%/1.5 "Helvetica Neue", Helvetica, sans-serif;
