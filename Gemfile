@@ -33,3 +33,7 @@ group :test do
   gem 'fakeweb'
   gem 'jasmine'
 end
+
+group :production do
+  gem 'hassle'
+end
