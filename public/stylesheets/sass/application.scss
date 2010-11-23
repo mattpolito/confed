@@ -3,15 +3,15 @@
 $container_width: 960px;
 $presentation_width: 600px;
 
-@mixin roundedCorner($side, $radius: 10px) {
+@mixin rounded_corner($side, $radius: 10px) {
   border-#{$side}-radius: $radius;
   -moz-border-radius-#{$side}: $radius;
 }
 
-@mixin box_shadow($hor: 0px, $vert: 10px, $blur: 5px, $shadow: #b8b8b8) {
-  box-shadow: $hor $vert $blur $shadow;
-  -webkit-box-shadow: $hor $vert $blur $shadow;
-  -moz-box-shadow: $hor $vert $blur $shadow;
+@mixin border_radius($radius: 10px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+}
 
 @mixin box_shadow($hor: 0px, $vert: 0px, $blur: 10px, $spread: 5px, $color: #b8b8b8) {
   box-shadow: $hor $vert $blur $spread $color;
@@ -39,8 +39,7 @@ h2#speaker_title {
   }
   span#location {
     background:#444;
-    border-radius:2px;
-    -moz-border-radius:2px;
+    @include border_radius(2px);
     float:right;
     font-weight:100;
     letter-spacing:1px;
@@ -62,10 +61,12 @@ h3 {
     margin:10px 0;
     padding:5px;
   }
+
   .notice {
     background:#CFFFCA;
     border:2px solid #6B9957;
   }
+
   .alert {
     background:#FFDEE4;
     border:2px solid #B82929;
@@ -141,8 +142,7 @@ nav {
 }
 #content {
   background:#FFF;
-  border-radius:3px;
-  -moz-border-radius:3px;
+  @include border_radius(3px);
   border-bottom:1px solid #a8a8a8;
   border-top:1px solid #a8a8a8;
   overflow:hidden;
