@@ -20,22 +20,22 @@ $presentation_width: 600px;
 }
 
 body {
-  background:url(/images/bg.gif) #EEE;
-  font:normal 62.5%/1.5 "Helvetica Neue", Helvetica, sans-serif;
-  padding:0 100px;
+  background: url(/images/bg.gif) #EEE;
+  font: normal 62.5%/1.5 Arial, Helvetica, sans-serif;
+  padding: 0 100px;
 }
 
 h2#speaker_title {
-  background:#222;
-  color:#FFF;
-  font-size:15px;
-  font-weight:bold;
-  font-family:"museo-slab-1","museo-slab-2",serif;
-  margin:10px 0;
-  padding:5px;
+  background: #222;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "museo-slab-1","museo-slab-2",serif;
+  margin: 10px 0;
+  padding: 5px;
   span {
-    font-weight:200;
-    margin:0 5px;
+    font-weight: 200;
+    margin: 0 5px;
   }
   span#location {
     background:#444;
@@ -152,6 +152,7 @@ nav {
 
 article.presentation {
   border-bottom:1px solid #EEE;
+  font-size:1.2em;
   margin:0 0 20px;
   overflow:hidden;
   width:$presentation_width;
@@ -240,9 +241,8 @@ article {
 
 aside {
   float:right;
-  font-family:"museo-slab-1","museo-slab-2",serif;
-  font-size:14px;
-  font-weight:bold;
+  font-family:Arial,serif;
+  font-size:1.2em;
   margin: 0px 0px 0px 10px;
   width: $container_width - $presentation_width - 32px;
 
