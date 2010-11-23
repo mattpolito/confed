@@ -14,6 +14,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'cancan'
 gem 'hoptoad_notifier'
 gem 'rdiscount'
+gem 'hassle', :git => 'git://github.com/Papipo/hassle.git'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -32,8 +33,4 @@ group :test do
   gem 'cucumber-rails'
   gem 'fakeweb'
   gem 'jasmine'
-end
-
-group :production do
-  gem 'hassle'
 end
