@@ -83,6 +83,9 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
+    hassle (0.0.1)
+      haml
+      rack
     hoptoad_notifier (2.3.12)
       activesupport
       builder
@@ -189,6 +192,7 @@ DEPENDENCIES
   gravatarify
   haml
   haml-rails
+  hassle
   hoptoad_notifier
   hpricot
   httparty
