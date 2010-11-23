@@ -4,7 +4,6 @@
     - @presentation.videos.each do |video|
       = div_for(video) do
         = raw video.content
-  .tags= @presentation.tag_list
 %aside
   %dl
     %dt Speakers
@@ -13,10 +12,9 @@
     %dt Event
     %dd #{@presentation.event}
     %dt Description
-    %dd= raw @presentation.rendered_description
-    - if @presentation.tags.present?
-      %dt Tags
-      %dd 
+    %dd
+      = raw @presentation.rendered_description
+      - if @presentation.tags.present?
         %ul.tags
           - @presentation.tag_list.each do |tag|
             %li.tag= tag
