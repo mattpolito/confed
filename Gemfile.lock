@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/Papipo/hassle.git
+  revision: 3a12feb7ae8c94acde7bdf1cc8a34bb89ab39f44
+  specs:
+    hassle (0.0.1)
+      haml
+      rack
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -83,9 +91,6 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
-    hassle (0.0.1)
-      haml
-      rack
     hoptoad_notifier (2.3.12)
       activesupport
       builder
@@ -192,7 +197,7 @@ DEPENDENCIES
   gravatarify
   haml
   haml-rails
-  hassle
+  hassle!
   hoptoad_notifier
   hpricot
   httparty
