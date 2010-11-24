@@ -1,18 +1,19 @@
-= link_to 'Go Back & View All Speakers', :back
-%h2#speaker_title #{@speaker.name} <span>#{@speaker.title}</span> <span id="location">#{@speaker.location}</span>
-#speaker_info
-  #avatar= gravatar_tag @speaker  
-  %p#bio= @speaker.bio
-  %p#links
-    - if @speaker.company_url
-      = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'
-    -if @speaker.twitter
-      = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
-    -if @speaker.website
-      = link_to 'Website', @speaker.website, :target => '_blank'
+%article#speaker
+  - if @speaker.presentations.present?
+    = render @speaker.presentations
+  - else
+    No presentations are available for this speaker yet.
 
-%h3 Presentations
-- if @speaker.presentations.present?
-  %ul
-    - @speaker.presentations.each do |presentation|
-      %li #{link_to presentation.title, presentation} (#{presentation.event.name})
+%aside
+  %h2#speaker_title= @speaker.name
+  #speaker_info
+    #avatar= gravatar_tag @speaker  
+    %p#bio= @speaker.bio
+    %p#links
+      - if @speaker.company_url
+        = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'
+      -if @speaker.twitter
+        = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
+      -if @speaker.website
+        = link_to 'Website', @speaker.website, :target => '_blank'
+
