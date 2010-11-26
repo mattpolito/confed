@@ -1,4 +1,4 @@
 %nav
   %li= link_to "Presentations", presentations_path, :class => "#{active_class('^\/$') || active_class('presentations')}"
-  %li= link_to "Speakers", speakers_path, :class => "#{active_class('speakers')}"
+  /%li= link_to "Speakers", speakers_path, :class => "#{active_class('speakers')}"
   %li#search= render :partial => 'shared/search_form'
