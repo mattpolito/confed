@@ -1,4 +1,5 @@
 @import "reset.scss";
+@import "pagination";
 
 $container_width: 960px;
 $presentation_width: 600px;
@@ -336,32 +337,9 @@ aside {
   }
 }
 
-/* pagination */
-.pagination {
-  background:#EEE;
-  border:1px solid #E3E3E3;
-  clear:both;
-  font-size:1.2em;
-  padding:1em;
-
-  a, 
-  em,
-  .previous_page,
-  .next_page {
-    background:white;
-    border:1px solid #E3E3E3;
-    color:black;
-    padding:4px 7px;
-    text-decoration:none;
   }
 
-  a:hover,
-  em { 
-    background:#bae0ff;
-    border:solid 1px #a9cbe7;
   }
-
-  .disabled { background:#EEE; }
 }
 
 footer {
