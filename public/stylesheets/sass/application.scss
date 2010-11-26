@@ -75,9 +75,11 @@ h3 {
 
 #container {
   @include box_shadow;
-  border-bottom:1px solid #adadad;
-  border-left:1px solid #adadad;
-  border-right:1px solid #adadad;
+  border: {
+    bottom:1px solid #adadad;
+    left:1px solid #adadad;
+    right:1px solid #adadad;
+  }
   margin:0 auto;
   width: $container_width;
 }
@@ -87,11 +89,16 @@ header {
   border-bottom:1px solid #a8a8a8;
   padding:10px;
   h1 {
-    font-family:"museo-slab-1","museo-slab-2",serif;
-    font-size:75px;
-    font-weight:900;
-    text-align:center;
-    text-shadow: 0px -1px 0px #374683;
+    font: {
+      family:"museo-slab-1","museo-slab-2",serif;
+      size:75px;
+      weight:900;
+    }
+    text: {
+      align:center;
+      shadow: 0px -1px 0px #374683;
+    }
+
     a {
       text-decoration: none;  
       color:#ebebeb;
@@ -143,8 +150,10 @@ nav {
 #content {
   background:#FFF;
   @include border_radius(3px);
-  border-bottom:1px solid #a8a8a8;
-  border-top:1px solid #a8a8a8;
+  border: {
+    bottom:1px solid #a8a8a8;
+    top:1px solid #a8a8a8;
+  }
   overflow:hidden;
   padding:10px;
 
@@ -166,9 +175,11 @@ article.presentation {
     background:#EEE;
     border:1px solid #E3E3E3;
     clear:both;
-    font-size:16px;
-    font-weight:bold;
-    font-family:"museo-slab-1","museo-slab-2",serif;
+    font: {
+      size:16px;
+      weight:bold;
+      family:"museo-slab-1","museo-slab-2",serif;
+    }
     margin:0 0 .5em 0;
     padding:2px 2px 2px .5em;
     text-shadow:0px 1px 0px #a9cbe7;
@@ -205,8 +216,10 @@ article.presentation {
   .video, .slideshow {
     border:1px solid #eee;
     clear:both;
-    margin-left:auto;
-    margin-right:auto;
+    margin: {
+      left:auto;
+      right:auto;
+    }
     padding:3px;
   }
 }
@@ -235,8 +248,10 @@ article {
 
 aside {
   float:right;
-  font-family:Arial,serif;
-  font-size:1.2em;
+  font: {
+    family:Arial,serif;
+    size:1.2em;
+  }
   margin: 0px 0px 0px 10px;
   width: $container_width - $presentation_width - 32px;
 
@@ -253,8 +268,10 @@ aside {
       padding: 5px 0px 0px 10px;
       a{
         color: #000000;
-        text-shadow:0 0px 0 #A9CBE7;
-        text-decoration: none;
+        text: {
+          shadow:0 0px 0 #A9CBE7;
+          decoration: none;
+        }
         &:hover{
           color: #FE0052;
           border-color: #FE0052;
@@ -263,7 +280,6 @@ aside {
     }
   }
 }
-
 
 #speakers {
   margin:10px;
@@ -281,9 +297,11 @@ aside {
     h2 {
       background:#EEE;
       clear:both;
-      font-size:16px;
-      font-weight:bold;
-      font-family:"museo-slab-1","museo-slab-2",serif;
+      font: {
+        size:16px;
+        weight:bold;
+        family:"museo-slab-1","museo-slab-2",serif;
+      }
       padding:2px;
       a {
         color:#222;
@@ -350,5 +368,3 @@ footer {
   padding:5px;
   min-height:3em;
 }
-
-
