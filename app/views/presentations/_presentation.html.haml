@@ -12,4 +12,4 @@
   - if presentation.tags.present?
     %ul.tags
       - presentation.tag_list.each do |tag|
-        %li.tag= tag
+        %li.tag= link_to tag, tagged_path(tag)

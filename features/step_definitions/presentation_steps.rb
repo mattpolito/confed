@@ -60,6 +60,10 @@ Given /^there (are|is) (\d+) presentation(s)?$/ do |arg1, number, arg3|
   end
 end
 
+Given /^the presentation has the tags?: "([^"]*)"$/ do |tags|
+  @presentation.update_attributes :tag_list => tags
+end
+
 Then /^I should see (\d+) presentation listing(s)?$/ do |number, arg2|
   page.should have_css('.presentation', :count => number.to_i)
 end

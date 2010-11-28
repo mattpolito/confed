@@ -1,4 +1,5 @@
 ConferenceEducation::Application.routes.draw do
+  match "tagged/:tag_name", :as => "tagged", :to => "tagged#show"
 
   devise_for :users, :controllers => { :registrations => "users/registrations" } do
     get  "login",  :to => "devise/sessions#new"
@@ -19,7 +20,6 @@ ConferenceEducation::Application.routes.draw do
   match 'admin' => 'admin#index'
 
   match 'search' => 'search#search'
-
 
   root :to => "presentations#index"
   # The priority is based upon order of creation:
