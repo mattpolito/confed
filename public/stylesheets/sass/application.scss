@@ -141,18 +141,26 @@ nav {
 
 }
 
+h1 {
+  font: {
+    size: 2em;
+    weight: bold;
+    family: "museo-slab-1","museo-slab-2",serif;
+  }
+}
+
 h2 {
   font: {
-    size:16px;
-    weight:bold;
-    family:"museo-slab-1","museo-slab-2",serif;
+    size: 1.5em;
+    weight: bold;
+    family: "museo-slab-1","museo-slab-2",serif;
   }
 }
 
 h3 {
   border-bottom:1px solid #EEE;
   font: {
-    size:18px;
+    size: 1.2em;
     weight:200;
   }
   margin:10px;
