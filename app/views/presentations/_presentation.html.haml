@@ -10,6 +10,6 @@
   = link_to presentation, :class => "image_link" do
     = image_tag presentation.thumbnail, :class => 'thumb', :width => 200
   - if presentation.tags.present?
-    %ul.tags
+    .tags
       - presentation.tag_list.each do |tag|
-        %li.tag= link_to tag, tagged_path(tag)
+        = link_to tag, tagged_path(tag)

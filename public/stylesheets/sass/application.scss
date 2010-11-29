@@ -224,12 +224,20 @@ article.presentation {
   padding:1em 0;
   text-align:left;
   width:100%;
-  .tag {
-    background-color:#EEE;
+
+  a {
+    background-color:#eee;
+    color: black;
     display:inline;
     border:1px solid #E3E3E3;
     @include border_radius(5px);
     padding:2px 7px;
+    text-decoration: none;
+
+    &:hover { 
+      background: #bae0ff; 
+      border: 1px solid #a9cbe7;
+    }
   }
 }
 
