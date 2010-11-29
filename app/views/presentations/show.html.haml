@@ -15,6 +15,6 @@
     %dd
       = raw @presentation.rendered_description
       - if @presentation.tags.present?
-        %ul.tags
+        .tags
           - @presentation.tag_list.each do |tag|
-            %li.tag= tag
+            = link_to tag, tagged_path(tag)
