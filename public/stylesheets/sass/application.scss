@@ -267,12 +267,13 @@ aside {
 
   dl{
     margin-top: -5px;
-    dt{
-      border-bottom: 1px solid #CCC;
-      color:#C0C0C0;
-      font-size: 16px;
-      margin-top: 5px;
-      letter-spacing: 0.3em;
+    dt {
+      border-bottom:1px solid #EEE;
+      font: {
+        size: 1.2em;
+        weight:200;
+      }
+      margin:10px;
     }
     dd {
       padding: 5px 0px 0px 10px;
@@ -281,10 +282,6 @@ aside {
         text: {
           shadow:0 0px 0 #A9CBE7;
           decoration: none;
-        }
-        &:hover{
-          color: #FE0052;
-          border-color: #FE0052;
         }
       }
     }
