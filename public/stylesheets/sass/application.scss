@@ -71,18 +71,19 @@ header {
   padding:10px;
   h1 {
     font: {
-      family:"museo-slab-1","museo-slab-2",serif;
-      size:75px;
-      weight:900;
+      family: "museo-slab-1", "museo-slab-2", serif;
+      size: 75px;
+      weight: 900;
     }
     text: {
-      align:center;
+      align: center;
       shadow: 0px -1px 0px #374683;
     }
 
-    a {
+    a, a:hover, a:link, a:visited {
+      border-bottom: 0;
+      color: #ebebeb;
       text-decoration: none;  
-      color:#ebebeb;
     }
   }
 }
@@ -166,6 +167,20 @@ h3 {
   margin:10px;
 }
 
+a {
+  outline: none;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 1px solid black;
+  }
+
+  &:link, &:visited {
+    color: black;
+  }
+}
+
+
 article.presentation {
   border-bottom:1px solid #EEE;
   font-size:1.2em;
@@ -183,11 +198,15 @@ article.presentation {
     border:1px solid #E3E3E3;
     clear:both;
     margin:0 0 .5em 0;
-    padding:2px 2px 2px .5em;
+    padding: 4px 2px 2px 10px;
     text-shadow:0px 1px 0px #a9cbe7;
     a {
       color:#222;
       text-decoration:none; 
+      
+      &:hover {
+        border-bottom: 0;
+      }
     }
   }
   
@@ -256,31 +275,40 @@ article {
   width:500px;
 }
 
-aside {
-  float:right;
-  font: {
-    family:Arial,serif;
-    size:1.2em;
-  }
-  margin: 0px 0px 0px 10px;
-  width: $container_width - $presentation_width - 32px;
+aside > dl {
+  margin-top: .6em;
+}
 
-  dl{
-    margin-top: -5px;
+aside {
+  float: right;
+  font: {
+    family: Arial,serif;
+    size: 1.2em;
+  }
+  margin-left: 20px;
+  width: $container_width - $presentation_width - 40;
+
+  dl {
     dt {
-      border-bottom:1px solid #EEE;
+      border-bottom: 1px solid #EEE;
       font: {
         size: 1.2em;
-        weight:200;
+        weight: 200;
       }
-      margin:10px;
+      padding-bottom: 5px;
     }
+
     dd {
-      padding: 5px 0px 0px 10px;
-      a{
+      padding: {
+        left: 10px;
+        top: 10px;
+        bottom: 10px;
+      }
+
+      a {
         color: #000000;
         text: {
-          shadow:0 0px 0 #A9CBE7;
+          shadow: 0 0px 0 #A9CBE7;
           decoration: none;
         }
       }
