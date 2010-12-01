@@ -375,3 +375,8 @@ footer {
   padding:5px;
   min-height:3em;
 }
+
+.preloader {
+  background: url(/images/spinner.gif) center center no-repeat #ffffff;
+  display: inline-block;
+}
