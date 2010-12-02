@@ -221,6 +221,10 @@ article.presentation {
   a.image_link {
     display:block;
     float:right;
+
+    &:hover {
+      border: 0;
+    }
   }
 
   img.thumb {
