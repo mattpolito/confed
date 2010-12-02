@@ -3,7 +3,7 @@ class Admin::PresentationsController < AdminController
   before_filter :find_speakers, :except => [:index, :show]
 
   def index
-    @presentations = Presentation.paginate(:page => params[:page], :per_page => (params[:per_page] || 20))
+    @presentations = Presentation.paginate(:page => params[:page], :per_page => (params[:per_page] || 10))
     respond_to do |format|
       format.html
       format.xml  { render :xml => @speakers }
