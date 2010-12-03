@@ -16,4 +16,12 @@ module ApplicationHelper
   def escaped_link(text, href, opts={})
     link_to CGI::escapeHTML(text), href, opts
   end
+
+  def title(message)
+    if message
+      content_for :title do
+        message
+      end
+    end
+  end
 end
