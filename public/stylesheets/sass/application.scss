@@ -5,19 +5,19 @@ $container_width: 960px;
 $presentation_width: 600px;
 
 @mixin rounded_corner($side, $radius: 10px) {
-  border-#{$side}-radius: $radius;
   -moz-border-radius-#{$side}: $radius;
+  border-#{$side}-radius: $radius;
 }
 
 @mixin border_radius($radius: 10px) {
-  border-radius: $radius;
   -moz-border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin box_shadow($hor: 0px, $vert: 0px, $blur: 10px, $spread: 5px, $color: #b8b8b8) {
-  box-shadow: $hor $vert $blur $spread $color;
   -webkit-box-shadow: $hor $vert $blur $spread $color;
   -moz-box-shadow: $hor $vert $blur $spread $color;
+  box-shadow: $hor $vert $blur $spread $color;
 }
 
 body {
