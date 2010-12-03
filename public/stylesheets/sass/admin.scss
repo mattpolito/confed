@@ -46,12 +46,9 @@ table {
 
 ul.actions {
   background:#FFF;
-  -moz-border-radius-topleft: 15px;
-  -webkit-border-top-left-radius: 15px;
-  -moz-border-radius-bottomleft: 15px;
-  -webkit-border-bottom-left-radius: 15px;
+  @include border_radius(15px);
   display:none;
-  margin:-13px 0 0 -28px;
+  margin:-13px 0 0 -40px;
   padding:4px 0 4px 5px;
   position:absolute;
   li {
