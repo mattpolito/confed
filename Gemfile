@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
 gem 'pg', '~> 0.9'
-gem 'texticle', '~> 1.0.0'
+gem 'texticle', :git => 'git://github.com/tenderlove/texticle.git' 
 gem 'flutie'
 gem 'simple_form'
 gem 'haml'
