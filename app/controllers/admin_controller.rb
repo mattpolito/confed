@@ -8,8 +8,11 @@ class AdminController < ApplicationController
 
   private
     def authenticate_admin!
-      unless current_user && current_user.has_role?(:admin)
-        redirect_to root_path, :error => "You do not have rights to access this section"
+      if current_user.blank?
+        authenticate_user!
+      elsif current_user && !current_user.has_role?(:admin)
+        flash[:error] = "You do not have rights to access this section"
+        redirect_to root_path
       end
     end
 end
