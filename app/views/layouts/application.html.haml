@@ -18,7 +18,7 @@
     = javascript_include_tag 'presentations/show'
     = javascript_include_tag 'uservoice'
     = render 'shared/reinvigorate' if Rails.env.production?
-    %script{:type => "text/javascript", :src => "http://use.typekit.com/wnz4hjz.js"}
+    = javascript_include_tag 'http://use.typekit.com/wnz4hjz.js'
     :javascript
       try{Typekit.load();}catch(e){}
   %body
