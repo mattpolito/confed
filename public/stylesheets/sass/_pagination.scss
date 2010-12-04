@@ -15,6 +15,9 @@
     color:black;
     padding:4px 7px;
     text-decoration:none;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
   }
 
   a:hover,
