@@ -5,12 +5,16 @@ $container_width: 960px;
 $presentation_width: 600px;
 
 @mixin rounded_corner($side, $radius: 10px) {
+  -webkit-border-radius-#{$side}: $radius;
   -moz-border-radius-#{$side}: $radius;
-  border-#{$side}-radius: $radius;
+  -o-border-radius-#{$side}: $radius;
+  border-radius-#{$side}: $radius;
 }
 
 @mixin border_radius($radius: 10px) {
+  -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
+  -o-border-radius: $radius;
   border-radius: $radius;
 }
 
@@ -219,24 +223,34 @@ article.presentation {
   }
 
   a.image_link {
-    display:block;
-    float:right;
+    display: block;
+    float: right;
 
     &:hover {
-      border: 0;
+      border: 0px;
     }
   }
 
   img.thumb {
-    border:1px solid #eee;
+    border: 1px solid #eee;
     @include box_shadow(0, 0, 0, 1px, 1px);
-    max-width:200px;
-    min-width:150px;
+    max-width: 200px;
+    min-width: 150px;
     padding:3px;
   }
 
   a img.thumb {
-    &:hover { background:#bae0ff; border:1px solid #a9cbe7;}
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  a:hover img.thumb {
+    background: #bae0ff; 
+    border: 1px solid #a9cbe7;
+    -moz-transform: scale(1.5) rotate(-10deg);
+    -webkit-transform: scale(1.5) rotate(-10deg);
+    transform: scale(1.5) rotate(-10deg);
   }
 
   .video, .slideshow {
@@ -258,13 +272,16 @@ article.presentation {
   width:100%;
 
   a {
-    background-color:#eee;
+    background-color: #eee;
     color: black;
-    display:inline;
-    border:1px solid #E3E3E3;
+    display: inline;
+    border: 1px solid #E3E3E3;
     @include border_radius(5px);
-    padding:2px 7px;
+    padding: 2px 7px;
     text-decoration: none;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 
     &:hover { 
       background: #bae0ff; 
