@@ -1,7 +1,7 @@
 /* pagination */
 .pagination {
   background:#EEE;
-  border:1px solid #E3E3E3;
+  border:1px solid rgba(227, 227, 227, 1);
   clear:both;
   font-size:1.2em;
   padding:1em;
@@ -11,7 +11,7 @@
   .previous_page,
   .next_page {
     background:white;
-    border:1px solid #E3E3E3;
+    border:1px solid rgba(227, 227, 227, 1);
     color:black;
     padding:4px 7px;
     text-decoration:none;
