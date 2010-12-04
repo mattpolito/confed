@@ -81,7 +81,7 @@ header {
     }
     text: {
       align: center;
-      shadow: 0px -1px 0px #374683;
+      shadow: 0px -1px 0px rgba(55, 70, 131, 1);
     }
 
     a, a:hover, a:link, a:visited {
@@ -199,7 +199,7 @@ article.presentation {
 
   h2 {
     background:#EEE;
-    border:1px solid #E3E3E3;
+    border:1px solid rgba(227, 227, 227, 1);
     clear:both;
     margin:0 0 .5em 0;
     padding: 4px 2px 2px 10px;
@@ -246,7 +246,7 @@ article.presentation {
   }
 
   a:hover img.thumb {
-    background: #bae0ff; 
+    background: rgba(186, 224, 255, 1); 
     border: 1px solid #a9cbe7;
     -moz-transform: scale(1.5) rotate(-10deg);
     -webkit-transform: scale(1.5) rotate(-10deg);
@@ -275,7 +275,7 @@ article.presentation {
     background-color: #eee;
     color: black;
     display: inline;
-    border: 1px solid #E3E3E3;
+    border: 1px solid rgba(227, 227, 227, 1);
     @include border_radius(5px);
     padding: 2px 7px;
     text-decoration: none;
@@ -284,7 +284,7 @@ article.presentation {
     transition: all 0.3s ease;
 
     &:hover { 
-      background: #bae0ff; 
+      background: rgba(186, 224, 255, 1); 
       border: 1px solid #a9cbe7;
     }
   }
