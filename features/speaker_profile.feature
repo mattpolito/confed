@@ -17,8 +17,8 @@ Feature: Speaker Profile
       | Speaker Rate Id | 111-adam                                 |
     When I am on the speaker information page
     Then I should see "Adam"
-    Then I should see "Software Craftsman"
-    Then I should see "Chicago, IL"
+    #Then I should see "Software Craftsman"
+    #Then I should see "Chicago, IL"
     Then I should see "Too much to put in a test"
     Then I should see an external link "Foo Inc." to "http://foo.com"
     Then I should see an external link "Website" to "http://blog.com"
