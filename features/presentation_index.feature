@@ -6,13 +6,14 @@ Feature: Presentation Home page
   Scenario: Newest entries on homepage
     Given there are 15 presentations
     When I am on the homepage
-    Then I should see 15 presentation listings
+    Then I should see 10 presentation listings
+    And  I should see 2 pagination links
 
   Scenario: Newest entries on homepage with pagination
     Given there are 25 presentations
     When I am on the homepage
-    Then I should see 20 presentation listings
-    And  I should see pagination links
+    Then I should see 10 presentation listings
+    And  I should see 3 pagination links
 
   Scenario: Presentation listing
     Given there is a presentation with the following:
