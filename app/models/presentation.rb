@@ -27,6 +27,9 @@ class Presentation < ActiveRecord::Base
   has_many :slideshows
   accepts_nested_attributes_for :slideshows, :reject_if => :all_blank
 
+  # Scopes
+  default_scope order('created_at DESC')
+
   # Validations
   validates :title,      :presence => true
   validates :event_id,   :presence => true, :numericality => true

@@ -1,3 +1,9 @@
+- content_for :atom_feed do 
+  - @presentation.speakers.each do |speaker|
+    = auto_discovery_link_tag(:atom, speaker_url(speaker, :format => :atom))
+    
+  -#= auto_discovery_link_tag(:atom, event_url(@presentation.event, :format => :atom))
+
 %article.presentation
   %h2= @presentation.title
   - if @presentation.videos
