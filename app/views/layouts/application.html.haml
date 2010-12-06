@@ -21,6 +21,7 @@
     = javascript_include_tag 'http://use.typekit.com/wnz4hjz.js'
     :javascript
       try{Typekit.load();}catch(e){}
+    = yield(:atom_feed)
   %body
     #container
       %header

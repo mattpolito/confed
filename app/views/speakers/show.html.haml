@@ -1,3 +1,6 @@
+- content_for :atom_feed do 
+  = auto_discovery_link_tag(:atom, speaker_url(@speaker, :format => :atom))
+
 %article#speaker
   - if @speaker.presentations.present?
     = render @speaker.presentations

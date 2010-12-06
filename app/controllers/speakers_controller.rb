@@ -8,7 +8,14 @@ class SpeakersController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @speaker }
+      format.atom do
+        @presentations = Presentation.all
+        render 'shared/feed', :locals => {
+          :feed_title => "#{@speaker.name}'s Presentations - Confed",
+          :feed_updated_at => @speaker.presentations.first.created_at,
+          :presentations => @speaker.presentations
+        }
+      end
     end
   end
 end
