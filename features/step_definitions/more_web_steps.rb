@@ -28,4 +28,11 @@ end
 Then /^I should see pagination links$/ do
   page.should have_css('.pagination')
 end
- 
+
+Then /^I should see (\d+) pagination link(s)?$/ do |number, arg2|
+  page.should have_css('.pagination')
+  number.to_i.times do |i|
+    page.should have_css(".pagination a[href$='page=#{i.to_i + 1}']") unless i == 0
+  end
+  page.should_not have_css(".pagination a[href$='page=#{number.to_i + 1}']")
+end
