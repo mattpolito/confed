@@ -1,0 +1,11 @@
+- content_for :atom_feed do 
+  = auto_discovery_link_tag(:atom, event_url(@event, :format => :atom))
+
+%article#event
+  - if @event.presentations.present?
+    = render @event.presentations
+  - else
+    No presentations are available for this event yet.
+
+%aside#event
+  %h2= @event.name

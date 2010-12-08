@@ -3,7 +3,7 @@
     = auto_discovery_link_tag(:atom, speaker_url(speaker, :format => :atom))
   - @presentation.tag_list.each do |tag|
     = auto_discovery_link_tag(:atom, tagged_url(tag, :format => :atom))
-  -#= auto_discovery_link_tag(:atom, event_url(@presentation.event, :format => :atom))
+  = auto_discovery_link_tag(:atom, event_url(@presentation.event, :format => :atom))
 
 %article.presentation
   %h2= @presentation.title

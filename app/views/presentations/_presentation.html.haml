@@ -5,7 +5,7 @@
       by
       - presentation.speakers.each do |speaker|
         #{link_to speaker.name, speaker}
-        @ #{presentation.event.name}
+        @ #{link_to presentation.event.name, presentation.event}
     =raw truncate(presentation.rendered_description, :length => 200)
   = link_to presentation, :class => "image_link" do
     = image_tag presentation.thumbnail, :class => 'thumb', :width => 200
