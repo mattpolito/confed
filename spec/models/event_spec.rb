@@ -38,4 +38,12 @@ describe Event do
       subject.to_s.should eql('Foo Name')
     end
   end
+
+  describe '#to_param' do
+    subject { Event.new(:name => 'Foo Name') }
+    it 'returns a user readable param name' do
+      subject.stub(:id).and_return(1)
+      subject.to_param.should == "1-foo-name"
+    end
+  end
 end
