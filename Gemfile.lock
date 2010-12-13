@@ -7,6 +7,12 @@ GIT
       rack
 
 GIT
+  remote: git://github.com/nhessler/acts-as-taggable-on.git
+  revision: 8d3a0c08aaf5ce667540f6a1830fe31cffd6bc06
+  specs:
+    acts-as-taggable-on (2.0.6)
+
+GIT
   remote: git://github.com/tenderlove/texticle.git
   revision: 1c0c88b28d1ee467ca2cef1263d4c8d34d9ecfdb
   specs:
@@ -42,7 +48,6 @@ GEM
       activemodel (= 3.0.1)
       activesupport (= 3.0.1)
     activesupport (3.0.1)
-    acts-as-taggable-on (2.0.6)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     awesome_print (0.3.1)
@@ -193,7 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on
+  acts-as-taggable-on!
   awesome_print
   cancan
   capybara
