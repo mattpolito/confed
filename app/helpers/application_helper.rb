@@ -24,4 +24,14 @@ module ApplicationHelper
       end
     end
   end
+
+  def avatar_url(user)
+    if user.twitter.present?
+      Twitter.profile_image(user.twitter, :size => 'bigger')
+    else
+      default_url = CGI.escape("#{root_url}images/default_avatar.png")
+      gravatar_id = Digest::MD5.hexdigest(user.email.try(:downcase))
+      "http://gravatar.com/avatar/#{gravatar_id}.png?s=73&d=#{default_url}"
+    end
+  end
 end
