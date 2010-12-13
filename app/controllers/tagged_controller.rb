@@ -1,6 +1,7 @@
 class TaggedController < ApplicationController
   def show
-    @presentations = Presentation.tagged_with(params[:tag_name])
+    @presentations = Presentation.find_all_by_tag_permalink(params[:tag_permalink])
+    @tag = ActsAsTaggableOn::Tag.find_by_permalink(params[:tag_permalink])
 
     respond_to do |format|
       format.html

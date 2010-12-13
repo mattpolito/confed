@@ -1,5 +1,5 @@
 - title "Tagged: #{params[:tag_name]}"
 
-%h1 Tagged: #{params[:tag_name]}
+%h1 Tagged: #{@tag.name}
 
 = render :partial => 'presentations/presentation', :collection => @presentations
