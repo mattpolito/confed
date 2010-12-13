@@ -1,5 +1,5 @@
 ConferenceEducation::Application.routes.draw do
-  match "tagged/:tag_name", :as => "tagged", :to => "tagged#show"
+  match "tagged/:tag_permalink", :as => "tagged", :to => "tagged#show"
 
   devise_for :users, :controllers => { :registrations => "users/registrations" } do
     get  "login",  :to => "devise/sessions#new"

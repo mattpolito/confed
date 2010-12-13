@@ -5,13 +5,13 @@ describe TaggedController do
 
   describe "GET 'show'" do
     it "succeeds" do
-      get :show, :tag_name => 'yabba'
+      get :show, :tag_permalink => 'yabba'
       response.should be_success
     end
 
     it "sets variable to be used for the view" do
-      Presentation.stub(:tagged_with).and_return([presentation])
-      get :show, :tag_name => 'yabba'
+      Presentation.stub(:find_all_by_tag_permalink).and_return([presentation])
+      get :show, :tag_permalink => 'yabba'
       assigns[:presentations].should == [presentation]
     end
   end

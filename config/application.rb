@@ -50,3 +50,6 @@ module ConferenceEducation
     end
   end
 end
+
+require 'tag_permalink'
+ActsAsTaggableOn::Tag.send(:include, TagPermalink)
