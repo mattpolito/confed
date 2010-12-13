@@ -9,7 +9,7 @@
 
 %aside#speaker
   %h2= @speaker.name
-  .avatar= gravatar_tag @speaker
+  = image_tag avatar_url(@speaker), :class => 'avatar'
   .links
     - if @speaker.company_url
       = link_to @speaker.company_name, @speaker.company_url, :target => '_blank'

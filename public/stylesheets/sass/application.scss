@@ -3,6 +3,8 @@
 
 $container_width: 960px;
 $presentation_width: 600px;
+$avatar_width: 73px;
+$avatar_height: 73px;
 
 @mixin rounded_corner($side, $radius: 10px) {
   -webkit-border-radius-#{$side}: $radius;
@@ -370,9 +372,9 @@ aside {
 
 .avatar {
   border:1px solid #eee;
-  height:80px;
+  height: $avatar_height;
   padding:3px;
-  width:80px;
+  width: $avatar_width;
 }
   
 
