@@ -26,7 +26,6 @@ Feature: Speaker Profile
     Then I should not see "adam@foo.com"
     Then I should not see "111-adam"
 
-  # This test feels unnecessary/overkill...but i already wrote it :-/
   Scenario: Hide missing external links
     Given a speaker with the following:
       | Name     | Adam               |
