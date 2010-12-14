@@ -44,7 +44,7 @@ Feature: Speaker Profile
     When I follow "BDD in Ruby"
     Then I should be on the presentation page
 
-  Scenario: Has a gravatar image
+  Scenario: Has an avatar image
     Given a speaker
     When  I am on the speaker information page
-    Then  I should see gravatar image
+    Then  I should see avatar image
