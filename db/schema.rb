@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101208034637) do
+ActiveRecord::Schema.define(:version => 20101214115358) do
 
   create_table "events", :force => true do |t|
     t.string   "name",       :null => false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20101208034637) do
     t.datetime "ended_on"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "website"
   end
 
   create_table "external_embeds", :force => true do |t|

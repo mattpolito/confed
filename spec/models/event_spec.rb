@@ -4,6 +4,7 @@ describe Event do
   it { should have_db_column(:name).of_type(:string) }
   it { should have_db_column(:started_on).of_type(:datetime) }
   it { should have_db_column(:ended_on).of_type(:datetime) }
+  it { should have_db_column(:website).of_type(:string) }
 
   it { should have_many(:presentations) }
   it { should have_many(:speakers).through(:presentations) }
@@ -12,7 +13,8 @@ describe Event do
     {
       :name       => 'Event',
       :started_on => '2010-09-17 00:00:00 UTC',
-      :ended_on   => '2010-09-17 00:00:00 UTC'
+      :ended_on   => '2010-09-17 00:00:00 UTC',
+      :website    => 'http://event.com'
     }
   end
 
