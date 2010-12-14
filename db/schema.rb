@@ -10,15 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101214115358) do
+ActiveRecord::Schema.define(:version => 20101214120437) do
 
   create_table "events", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name",            :null => false
     t.datetime "started_on"
     t.datetime "ended_on"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "website"
+    t.string   "speaker_rate_id"
   end
 
   create_table "external_embeds", :force => true do |t|
