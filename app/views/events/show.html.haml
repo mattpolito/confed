@@ -8,4 +8,5 @@
     No presentations are available for this event yet.
 
 %aside#event
-  %h2= @event.name
+  %h2= link_to_if @event.website, @event.name, @event.website, :target => '_blank'
+  %h4.display_date= displayed_date_for(@event)
