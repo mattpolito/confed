@@ -5,6 +5,7 @@ describe Event do
   it { should have_db_column(:started_on).of_type(:datetime) }
   it { should have_db_column(:ended_on).of_type(:datetime) }
   it { should have_db_column(:website).of_type(:string) }
+  it { should have_db_column(:speaker_rate_id).of_type(:string) }
 
   it { should have_many(:presentations) }
   it { should have_many(:speakers).through(:presentations) }
