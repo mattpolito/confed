@@ -23,5 +23,5 @@
       = raw @presentation.rendered_description
       - if @presentation.tags.present?
         .tags
-          - @presentation.tag_list.each do |tag|
-            = link_to tag, tagged_path(tag)
+          - @presentation.tags.each do |tag|
+            = link_to_tag(tag)

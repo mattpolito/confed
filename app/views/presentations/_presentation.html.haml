@@ -12,4 +12,4 @@
   - if presentation.tags.present?
     .tags
       - presentation.tags.each do |tag|
-        = link_to tag, tagged_path(tag.permalink)
+        = link_to_tag(tag)
