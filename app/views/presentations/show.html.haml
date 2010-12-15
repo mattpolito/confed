@@ -17,7 +17,7 @@
     - @presentation.speakers.each do |speaker|
       %dd= link_to speaker.name, speaker_path(speaker)
     %dt Event
-    %dd #{@presentation.event}
+    %dd #{link_to @presentation.event.name, @presentation.event}
     %dt Description
     %dd
       = raw @presentation.rendered_description
