@@ -16,6 +16,10 @@ Given /^there (are|is) (\d+) speaker(s)?$/ do |arg1, number, arg3|
   end
 end
 
+Given /^I am hitting an external service for an avatar$/ do
+  Twitter.stub(:profile_image).and_return('/images/default_avatar.png')
+end
+
 Then /^I should see (\d+) speaker listing(s)?$/ do |number, arg2|
   within(:css, '#speakers') do
     page.should have_css('.speaker', :count => number.to_i)
