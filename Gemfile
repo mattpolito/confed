@@ -16,6 +16,7 @@ gem 'hoptoad_notifier'
 gem 'rdiscount'
 gem 'hassle', :git => 'git://github.com/Papipo/hassle.git'
 gem 'twitter'
+gem 'friendly_id'
 
 group :development, :test do
   gem 'rspec-rails'

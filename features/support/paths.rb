@@ -11,7 +11,7 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
     when /the presentation page/
-      presentation_path(@presentation)
+      event_presentation_path(@presentation.event, @presentation)
     when /the speaker information page/
       speaker_path(@speaker)
     when /the speakers index page/

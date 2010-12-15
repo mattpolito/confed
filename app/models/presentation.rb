@@ -11,6 +11,7 @@ class Presentation < ActiveRecord::Base
 
   # Extensions
   acts_as_taggable
+  has_friendly_id :title, :use_slug => true
   
   # Full Text Searching
   index do
@@ -28,7 +29,7 @@ class Presentation < ActiveRecord::Base
   accepts_nested_attributes_for :slideshows, :reject_if => :all_blank
 
   # Scopes
-  default_scope order('created_at DESC')
+  default_scope :order => "#{quoted_table_name}.id DESC"
 
   # Validations
   validates :title,      :presence => true
@@ -40,9 +41,6 @@ class Presentation < ActiveRecord::Base
     videos.first.thumbnail
   end
 
-  def to_param
-    "#{id}-#{title.parameterize}" 
-  end
 
   private
     def render_description

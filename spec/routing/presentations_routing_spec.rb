@@ -7,7 +7,11 @@ describe PresentationsController do
     end
 
     it "recognizes and generates #show" do
-      { :get => "/presentations/1" }.should route_to(:controller => "presentations", :action => "show", :id => "1")
+      { :get => "events/event-name/presentations/presentation-name" }.
+        should route_to(:controller => "presentations", 
+                        :action => "show", 
+                        :id => 'presentation-name',
+                        :event_id => 'event-name')
     end
 
   end

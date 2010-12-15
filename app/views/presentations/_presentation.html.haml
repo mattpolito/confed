@@ -1,5 +1,5 @@
 %article.presentation{ :id => dom_id(presentation) }
-  %h2= link_to presentation.title, presentation_path(presentation), :class => 'title'
+  %h2= link_to presentation.title, [presentation.event, presentation], :class => 'title'
   .info
     %p 
       by
@@ -7,7 +7,7 @@
         #{link_to speaker.name, speaker}
         @ #{link_to presentation.event.name, presentation.event}
     =raw truncate(presentation.rendered_description, :length => 200)
-  = link_to presentation, :class => "image_link" do
+  = link_to [presentation.event, presentation], :class => "image_link" do
     = image_tag presentation.thumbnail, :class => 'thumb', :width => 200
   - if presentation.tags.present?
     .tags
