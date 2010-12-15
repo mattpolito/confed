@@ -29,6 +29,7 @@ Feature: Searching for presentation
     Then I should see "Matt" within "#search_results"
     But I should not see "Adam" within "#search_results"
 
+  @wip
   Scenario: Fuzzy search results
     Given I am on the homepage
     And there is a presentation with the following:
