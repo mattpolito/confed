@@ -46,6 +46,7 @@ GEM
     arel (1.0.1)
       activesupport (~> 3.0.0)
     awesome_print (0.3.1)
+    babosa (0.2.0)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
     cancan (1.4.1)
@@ -93,6 +94,8 @@ GEM
     ffi (0.6.3)
       rake (>= 0.8.7)
     flutie (1.1.4)
+    friendly_id (3.1.8)
+      babosa (~> 0.2.0)
     gherkin (2.3.2)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
@@ -222,6 +225,7 @@ DEPENDENCIES
   factory_girl_rails
   fakeweb
   flutie
+  friendly_id
   gravatarify
   haml
   haml-rails

@@ -28,12 +28,12 @@ describe PresentationsController do
     end
 
     it "should be successful" do
-      get :show, :id => "37"
+      get :show, :id => "37", :event_id => "event-name"
       response.should be_success
     end
 
     it "should find presentation and assign for the view" do
-      get :show, :id => "37"
+      get :show, :id => "37", :event_id => "event-name"
       assigns[:presentation].should == presentation
     end
   end

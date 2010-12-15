@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101214120437) do
+ActiveRecord::Schema.define(:version => 20101215000039) do
 
   create_table "events", :force => true do |t|
     t.string   "name",            :null => false
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(:version => 20101214120437) do
     t.datetime "updated_at"
     t.string   "website"
     t.string   "speaker_rate_id"
+    t.string   "cached_slug"
   end
+
+  add_index "events", ["cached_slug"], :name => "index_events_on_cached_slug", :unique => true
 
   create_table "external_embeds", :force => true do |t|
     t.string   "url"
@@ -44,8 +47,10 @@ ActiveRecord::Schema.define(:version => 20101214120437) do
     t.string   "tag_cache"
     t.integer  "event_id"
     t.text     "rendered_description"
+    t.string   "cached_slug"
   end
 
+  add_index "presentations", ["cached_slug"], :name => "index_presentations_on_cached_slug", :unique => true
   add_index "presentations", ["speaker_id"], :name => "index_presentations_on_speaker_id"
 
   create_table "presentations_speakers", :id => false, :force => true do |t|
@@ -66,6 +71,18 @@ ActiveRecord::Schema.define(:version => 20101214120437) do
     t.integer "role_id"
   end
 
+  create_table "slugs", :force => true do |t|
+    t.string   "name"
+    t.integer  "sluggable_id"
+    t.integer  "sequence",                     :default => 1, :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
+  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
   create_table "speakers", :force => true do |t|
     t.string   "name"
     t.string   "title"
@@ -79,7 +96,10 @@ ActiveRecord::Schema.define(:version => 20101214120437) do
     t.string   "speaker_rate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cached_slug"
   end
+
+  add_index "speakers", ["cached_slug"], :name => "index_speakers_on_cached_slug", :unique => true
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
