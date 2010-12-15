@@ -85,7 +85,6 @@ describe Admin::PresentationsController do
     end
 
     def do_post(args={'foo' => 'bar'})
-
       post :create, :presentation => args.merge(external_embed_params)  
     end
  
@@ -108,8 +107,6 @@ describe Admin::PresentationsController do
       end
 
       it 'assigns the event in a cookie' do
-        Presentation.stub(:new) { mock_presentation(:save => true) }
-        do_post
         cookies['last_event_id'].should == '1'
       end
     end
