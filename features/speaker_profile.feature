@@ -15,6 +15,7 @@ Feature: Speaker Profile
       | Twitter         | adamfoo                                  |
       | Website         | http://blog.com                          |
       | Speaker Rate Id | 111-adam                                 |
+    And  I am hitting an external service for an avatar
     When I am on the speaker information page
     Then I should see "Adam"
     #Then I should see "Software Craftsman"
