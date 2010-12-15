@@ -35,4 +35,8 @@ module ApplicationHelper
       "http://gravatar.com/avatar/#{gravatar_id}.png?s=73&d=#{default_url}"
     end
   end
+
+  def link_to_tag(tag)
+    link_to tag, tagged_path(tag.permalink)
+  end
 end
