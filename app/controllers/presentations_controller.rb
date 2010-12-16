@@ -23,7 +23,6 @@ class PresentationsController < ApplicationController
   end
 
   def show
-    @presentation = Presentation.find(params[:id])
+    @presentation = Presentation.find(params[:id], :scope => params[:event_id])
   end
-
 end

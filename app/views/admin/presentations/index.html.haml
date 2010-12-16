@@ -18,9 +18,9 @@
       %tr.presentation
         %td
           %ul.actions
-            %li= link_to 'Edit', edit_admin_presentation_path(presentation), :class => "edit"
+            %li= link_to 'Edit', edit_admin_event_presentation_path(presentation.event, presentation), :class => "edit"
             %li=# link_to 'Destroy', admin_presentation_path(presentation), :confirm => 'Are you sure?', :method => :delete
-        %td= link_to presentation.title, admin_presentation_path(presentation)
+        %td= link_to presentation.title, admin_event_presentation_path(presentation.event, presentation)
         %td= raw presentation.speakers.map{|speaker| escaped_link(speaker.name, admin_speaker_path(speaker)) }.join(", ")
         %td= presentation.video ? "X" : nil
         %td= presentation.event.name
