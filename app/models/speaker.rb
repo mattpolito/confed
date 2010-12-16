@@ -1,6 +1,6 @@
 class Speaker < ActiveRecord::Base
   # Extensions
-  has_friendly_id :name, :use_slug => true
+  has_friendly_id :name, :use_slug => true, :approximate_ascii => true
   
   # Full Text Searching
   index do
