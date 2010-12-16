@@ -17,7 +17,7 @@ module NavigationHelpers
     when /the speakers index page/
       speakers_path
     when /the admin edit presentation page/
-      edit_admin_presentation_path(@presentation)
+      edit_admin_event_presentation_path(@presentation.event, @presentation)
     when /the event show page/
       event_path(@event)
 

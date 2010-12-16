@@ -11,7 +11,7 @@ class Presentation < ActiveRecord::Base
 
   # Extensions
   acts_as_taggable
-  has_friendly_id :title, :use_slug => true
+  has_friendly_id :title, :use_slug => true, :scope => :event
   
   # Full Text Searching
   index do
@@ -40,7 +40,6 @@ class Presentation < ActiveRecord::Base
     return "" unless videos.present? && videos.first.thumbnail.present?  
     videos.first.thumbnail
   end
-
 
   private
     def render_description

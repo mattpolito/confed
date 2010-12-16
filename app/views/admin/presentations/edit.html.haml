@@ -1,6 +1,6 @@
 %h2 Editing #{@presentation.title}
 
-= form_for [:admin, @presentation] do |f|
+= form_for @presentation, :url => admin_event_presentation_path(@presentation.event, @presentation) do |f|
   = render 'form', :f => f, 
     :presentation => @presentation, 
     :speakers     => @speakers, 

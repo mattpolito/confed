@@ -14,9 +14,11 @@ ConferenceEducation::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :presentations
+    resources :presentations, :only => [:index, :new, :create]
     resources :speakers
-    resources :events
+    resources :events do 
+      resources :presentations, :except => [:index, :new, :create]
+    end
     match 'speaker_rate/:action/:id' => 'speaker_rate', :as => 'speaker_rate_speaker'
   end
 

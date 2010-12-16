@@ -24,7 +24,9 @@ describe PresentationsController do
     let(:presentation) { mock_model(Presentation) }
 
     before(:each) do
-      Presentation.should_receive(:find).with("37").and_return(presentation)
+      Presentation.stub(:find).
+        with("37", :scope => "event-name").
+        and_return(presentation)
     end
 
     it "should be successful" do

@@ -1,47 +1,46 @@
-= form_for [:admin, @presentation] do |f|
-  %fieldset
-    = render "shared/error_messages", :target => presentation
-    %ul
+%fieldset
+  = render "shared/error_messages", :target => presentation
+  %ul
+    %li
+      = f.label :event_id
+      = f.collection_select :event_id, events, :id, :name, :prompt => true
+    %li
+      = f.label :speaker_id, "Speaker(s)"
+      = link_to '+ More', '#', :id => 'new_speaker'
+      %ul.speakers
+        - @presentation.speakers.each_index do |id|
+          - speaker = @presentation.speakers[id]
+          %li
+            = select_tag "presentation_speaker_id_#{id}", options_for_select(speakers.inject([[' --Please Select--', false], ['--New Speaker--', 'new']]){|options, s| options << [s.name, s.id]}, speaker.id), :prompt => true,:name => 'presentation[speaker_ids][]', :id => "presentation_speaker_id_#{id}", :class => 'speaker_select'
+    %li
+      = f.label :title
+      = f.text_field :title
+    %li
+      = f.label :description, :class => 'textarea'
+      = f.text_area :description
+    %li
+      = f.label :took_place_on
+      = f.datetime_select :took_place_on, :prompt => true
+    %li
+      = f.label :tag_list, "Tags (comma seperated)"
+      = f.text_field :tag_list
+    
+    = f.fields_for :videos do |v|
       %li
-        = f.label :event_id
-        = f.collection_select :event_id, events, :id, :name, :prompt => true
-      %li
-        = f.label :speaker_id, "Speaker(s)"
-        = link_to '+ More', '#', :id => 'new_speaker'
-        %ul.speakers
-          - @presentation.speakers.each_index do |id|
-            - speaker = @presentation.speakers[id]
-            %li
-              = select_tag "presentation_speaker_id_#{id}", options_for_select(speakers.inject([[' --Please Select--', false], ['--New Speaker--', 'new']]){|options, s| options << [s.name, s.id]}, speaker.id), :prompt => true,:name => 'presentation[speaker_ids][]', :id => "presentation_speaker_id_#{id}", :class => 'speaker_select'
-      %li
-        = f.label :title
-        = f.text_field :title
-      %li
-        = f.label :description, :class => 'textarea'
-        = f.text_area :description
-      %li
-        = f.label :took_place_on
-        = f.datetime_select :took_place_on, :prompt => true
-      %li
-        = f.label :tag_list, "Tags (comma seperated)"
-        = f.text_field :tag_list
-      
-      = f.fields_for :videos do |v|
-        %li
-          = v.label :url, "Video URI"
-          = v.text_field :url
-          = v.hidden_field :content
+        = v.label :url, "Video URI"
+        = v.text_field :url
+        = v.hidden_field :content
 
-      = f.fields_for :slideshows do |s|
-        %li
-          = s.label :url, "Slideshow URI"
-          = s.text_field :url
-          = s.hidden_field :content
-    %p.actions
-      = f.submit
-      = link_to 'Show', [@presentation.event, @presentation]
-      \|
-      = link_to 'Cancel & Go Back', :back
+    = f.fields_for :slideshows do |s|
+      %li
+        = s.label :url, "Slideshow URI"
+        = s.text_field :url
+        = s.hidden_field :content
+  %p.actions
+    = f.submit
+    = link_to 'Show', [@presentation.event, @presentation]
+    \|
+    = link_to 'Cancel & Go Back', :back
 
 #speaker_form{ :style => 'display:none;' }
   = render 'admin/speakers/form', :speaker => Speaker.new

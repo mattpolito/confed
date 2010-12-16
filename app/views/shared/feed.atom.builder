@@ -3,7 +3,7 @@ atom_feed do |feed|
   feed.updated feed_updated_at
 
   presentations.each do |post|
-    feed.entry(post) do |entry|
+    feed.entry([post.event, post]) do |entry|
       entry.title "#{post.title} - #{post.event.name}"
       entry.content post.description, :type => 'html'
       entry.author do |author|

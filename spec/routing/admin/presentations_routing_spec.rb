@@ -11,11 +11,19 @@ describe Admin::PresentationsController do
     end
 
     it "recognizes and generates #show" do
-      { :get => "/admin/presentations/1" }.should route_to(:controller => "admin/presentations", :action => "show", :id => "1")
+      { :get => "/admin/events/event-name/presentations/1" }.
+        should route_to(:controller => "admin/presentations", 
+                        :action => "show", 
+                        :id => "1",
+                        :event_id => "event-name")
     end
 
     it "recognizes and generates #edit" do
-      { :get => "/admin/presentations/1/edit" }.should route_to(:controller => "admin/presentations", :action => "edit", :id => "1")
+      { :get => "/admin/events/event-name/presentations/1/edit" }.
+        should route_to(:controller => "admin/presentations", 
+                        :action => "edit", 
+                        :id => "1",
+                        :event_id => "event-name")
     end
 
     it "recognizes and generates #create" do
@@ -23,11 +31,19 @@ describe Admin::PresentationsController do
     end
 
     it "recognizes and generates #update" do
-      { :put => "/admin/presentations/1" }.should route_to(:controller => "admin/presentations", :action => "update", :id => "1")
+      { :put => "/admin/events/event-name/presentations/1" }.
+        should route_to(:controller => "admin/presentations", 
+                        :action => "update", 
+                        :id => "1",
+                        :event_id => "event-name")
     end
 
     it "recognizes and generates #destroy" do
-      { :delete => "/admin/presentations/1" }.should route_to(:controller => "admin/presentations", :action => "destroy", :id => "1")
+      { :delete => "/admin/events/event-name/presentations/1" }.
+        should route_to(:controller => "admin/presentations", 
+                        :action => "destroy", 
+                        :id => "1",
+                        :event_id => "event-name")
     end
   end
 end
