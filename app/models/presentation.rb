@@ -11,7 +11,9 @@ class Presentation < ActiveRecord::Base
 
   # Extensions
   acts_as_taggable
-  has_friendly_id :title, :use_slug => true, :scope => :event
+  has_friendly_id :title, :use_slug => true, 
+                          :scope => :event, 
+                          :approximate_ascii => true
   
   # Full Text Searching
   index do
