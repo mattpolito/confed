@@ -16,6 +16,6 @@
       %b Video:
       = @presentation.video
 
-= link_to 'Edit', edit_admin_presentation_path(@presentation)
+= link_to 'Edit', edit_admin_event_presentation_path(@presentation.event, @presentation)
 \|
 = link_to 'Back', admin_presentations_path
