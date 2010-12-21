@@ -1,3 +1,6 @@
+- content_for :javascript_includes do
+  = javascript_include_tag 'admin/presentations/form'
+
 %fieldset
   = render "shared/error_messages", :target => presentation
   %ul
@@ -46,5 +49,3 @@
   = render 'admin/speakers/form', :speaker => Speaker.new
 #event_form{ :style => 'display:none;' }
   = render 'admin/events/form', :event => Event.new
-
-
