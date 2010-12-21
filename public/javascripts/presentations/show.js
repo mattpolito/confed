@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
 
   function addDimensionsToEmbedContainer(container_element) {
     var embed = container_element.children();
