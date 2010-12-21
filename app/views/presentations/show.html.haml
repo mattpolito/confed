@@ -1,3 +1,6 @@
+- content_for :javascript_includes do
+  = javascript_include_tag 'presentations/show'
+
 - content_for :atom_feed do 
   - @presentation.speakers.each do |speaker|
     = auto_discovery_link_tag(:atom, speaker_url(speaker, :format => :atom))

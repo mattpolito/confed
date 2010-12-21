@@ -32,8 +32,7 @@ module ConferenceEducation
 
     # JavaScript files you want as :defaults (application.js is always included).
     config.action_view.javascript_expansions[:defaults] = [
-      "rails", "plugins/selectboxes/jquery.selectboxes",
-      "admin/presentation"
+      "rails"
     ]
 
     # Configure the default encoding used in templates for Ruby 1.9.
