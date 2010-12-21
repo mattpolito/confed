@@ -49,3 +49,8 @@ Feature: Speaker Profile
     Given a speaker
     When  I am on the speaker information page
     Then  I should see avatar image
+
+  Scenario: Has page title
+    Given a speaker
+    When  I am on the speaker information page
+    Then  I should see page title as "Jeffery Lebowski - Confed"

@@ -41,3 +41,10 @@ Feature: Presentation show
     # And   I should see the presentation slideshow 
     And   I should see a link "Jeffery Lebowski"
     And   I should see "My Awesome Conference"
+
+  Scenario: Has page title
+    Given there is a presentation with the following:
+      | Title       | How I built this app |
+      | Description | Description          |
+    When  I am on the presentation page
+    Then  I should see page title as "How I built this app - My Awesome Conference - Confed"

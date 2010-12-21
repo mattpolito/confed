@@ -5,7 +5,7 @@ Feature: Event Profile
 
   @wip
   Scenario: Viewing an event with all information provided
-    Given an event with the following:
+    Given there is an event with the following:
       | Name            | WindyCityRails            |
       | Website         | http://windycityrails.org |
       | Started On      | 2010-09-11                |
@@ -15,3 +15,13 @@ Feature: Event Profile
     Then I should see "WindyCityRails"
     Then I should see "09.11.2010 - 09.11.2010"
     Then I should see an external link "WindyCityRails" to "http://windycityrails.org"
+
+  Scenario: Has page title
+    Given there is an event with the following:
+      | Name            | WindyCityRails            |
+      | Website         | http://windycityrails.org |
+      | Started On      | 2010-09-11                |
+      | Ended On        | 2010-09-11                |
+      | Speaker Rate Id | 111-windycityrails        |
+    When I am on the event show page
+    Then  I should see page title as "WindyCityRails - Confed"
