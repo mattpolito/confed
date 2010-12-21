@@ -1,14 +1,14 @@
-Feature: Presentation Administration
-  In order to get presentations onto the site
+Feature: Admin Presentation show
+  In order to get all details about presentation
   As an administrator
-  I want to add and update presentations
+  I want to see all a page with all related presentation information 
 
   Scenario: Presentation create
     Given I logged in as an "admin" user
     And   a speaker with the following:
       | Name  | Adam         |
       | Email | adam@foo.com |
-    And   an event with the following:
+    And   there is an event with the following:
       | Name  | WindyCityRails 2010 |
     And   I am on the new admin presentation page
     When  I fill in the following:

@@ -18,9 +18,11 @@ module ApplicationHelper
   end
 
   def title(message)
-    if message
-      content_for :title do
-        message
+    content_for :title do
+      if message
+        "#{message} - Confed"
+      else
+        nil
       end
     end
   end

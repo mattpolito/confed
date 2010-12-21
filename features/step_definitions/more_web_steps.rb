@@ -36,3 +36,8 @@ Then /^I should see (\d+) pagination link(s)?$/ do |number, arg2|
   end
   page.should_not have_css(".pagination a[href$='page=#{number.to_i + 1}']")
 end
+    
+Then /^I should see page title as "(.*)"$/ do |title|
+  assert_equal title, page.find(:css, 'title').text
+end
+
