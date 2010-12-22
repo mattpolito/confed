@@ -39,11 +39,8 @@
         = s.label :url, "Slideshow URI"
         = s.text_field :url
         = s.hidden_field :content
-  %p.actions
+
     = f.submit
-    = link_to 'Show', [@presentation.event, @presentation]
-    \|
-    = link_to 'Cancel & Go Back', :back
 
 #speaker_form{ :style => 'display:none;' }
   = render 'admin/speakers/form', :speaker => Speaker.new
