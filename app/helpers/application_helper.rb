@@ -18,13 +18,11 @@ module ApplicationHelper
   end
 
   def title(message)
-    content_for :title do
-      if message
-        "#{message} - Confed"
-      else
-        nil
-      end
-    end
+    content_for(:title) { message }
+  end
+
+  def page_title
+    content_for(:title).present? ? "#{content_for(:title)} - Confed" : "Confed" 
   end
 
   def avatar_url(user)
