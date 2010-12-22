@@ -46,7 +46,7 @@ class Admin::PresentationsController < AdminController
     if @presentation.save
       cookies[:last_event_id] = @presentation.event_id
       flash[:success] = "Presentation created!"
-      redirect_to admin_presentations_path
+      redirect_to new_admin_presentation_path
     else
       render :new
     end

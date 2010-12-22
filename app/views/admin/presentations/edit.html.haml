@@ -5,3 +5,8 @@
     :presentation => @presentation, 
     :speakers     => @speakers, 
     :events       => @events
+
+%p.actions
+  = link_to 'Show', [@presentation.event, @presentation]
+  \|
+  = link_to 'Cancel & Go Back', :back

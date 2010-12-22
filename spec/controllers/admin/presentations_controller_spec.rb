@@ -62,13 +62,6 @@ describe Admin::PresentationsController do
       get :new
       response.should render_template(:new)
     end
-
-    it 'assigns the previously used event from a cookie' do
-      pending("need to remember how to set cookies in a request")
-      cookies[:event_id] = 2
-      get :new
-      response
-    end
   end
 
 # describe "GET edit" do
@@ -102,8 +95,8 @@ describe Admin::PresentationsController do
         flash[:success].should == "Presentation created!"
       end
  
-      it "redirects to the presentation index" do
-        response.should redirect_to(admin_presentations_url)
+      it "redirects to new presentation" do
+        response.should redirect_to(new_admin_presentation_url)
       end
 
       it 'assigns the event in a cookie' do

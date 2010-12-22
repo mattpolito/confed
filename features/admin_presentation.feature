@@ -3,22 +3,6 @@ Feature: Admin Presentation show
   As an administrator
   I want to see all a page with all related presentation information 
 
-  Scenario: Presentation create
-    Given I logged in as an "admin" user
-    And   a speaker with the following:
-      | Name  | Adam         |
-      | Email | adam@foo.com |
-    And   there is an event with the following:
-      | Name  | WindyCityRails 2010 |
-    And   I am on the new admin presentation page
-    When  I fill in the following:
-      | Title       | Presentation Title |
-      | Description | Description        |
-    And  I select "Adam" from "presentation_speaker_id_0"
-    And  I select "WindyCityRails 2010" from "Event"
-    And  I press "Create Presentation"
-    Then I should see "Presentation created!" 
-
   Scenario: Presentation list view
     Given I logged in as an "admin" user
     And   there are 2 presentations
