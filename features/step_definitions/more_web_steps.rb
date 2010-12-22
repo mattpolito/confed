@@ -1,3 +1,7 @@
+Then /^"([^"]*)" should be selected for "([^"]*)"$/ do |value, field|
+  assert page.has_xpath?("//option[@selected = 'selected' and contains(string(), value)]") 
+end
+
 Then /^I should see an external link "([^"]*)"(?: to "([^"]*)")?$/ do |link_text, link_dest|
   link = find_link(link_text)
   link.should_not be_nil
