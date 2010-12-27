@@ -46,6 +46,14 @@ Feature: Speaker Profile
     When I follow "BDD in Ruby"
     Then I should be on the presentation page
 
+  Scenario: No released presentations are available
+    Given a speaker
+    And the speaker has a presentation with the following:
+      | Title    | BDD in Ruby |
+      | Released | false       |
+    When I am on the speaker information page
+    Then I should see "No presentations are currently available for this speaker"
+
   Scenario: Has an avatar image
     Given a speaker
     When  I am on the speaker information page
