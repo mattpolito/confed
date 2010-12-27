@@ -7,6 +7,7 @@ Feature: Browse by tag
     Given there is a presentation with the following:
       | Title       | How I built this app |
       | Description | Description          |
+      | Released    | true                 |
     And   the presentation has the tag: "follow me"
     When  I am on the presentations page
     And   I follow "follow me"
