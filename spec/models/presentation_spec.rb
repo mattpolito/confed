@@ -37,6 +37,7 @@ describe Presentation do
     it { should have(1).error_on(:title) }
     it { should have(2).errors_on(:event_id) }
     it { should_not be_released }
+    it { should be_unreleased }
   end
 
   describe "tagging" do
