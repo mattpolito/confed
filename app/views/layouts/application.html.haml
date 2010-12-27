@@ -7,6 +7,7 @@
     %meta{ :name => 'viewport', :content => 'width=device-width; initial-scale=1.0; maximum-scale=1.0;' }
     //%link{ :rel => 'shortcut icon', :href => '/favicon.ico' }
     //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
+    = yield(:atom_feed)
     = stylesheet_link_tag 'application'
     - if Rails.env.production?
       = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
@@ -18,7 +19,12 @@
     = javascript_include_tag 'http://use.typekit.com/wnz4hjz.js'
     :javascript
       try{Typekit.load();}catch(e){}
-    = yield(:atom_feed)
+
+    = yield :javascript_includes
+
+    - if Rails.env.production?
+      = render 'shared/reinvigorate'
+      = render 'shared/google_analytics'
   %body
     #container
       %header
@@ -31,6 +37,3 @@
         %p Copyright &copy; #{Time.now.strftime("%Y")}, All Rights Reserved.
         %p A #{link_to "Matt Polito", "http://twitter.com/mattpolito"}, #{link_to "Adam Walters", "http://twitter.com/ajwalters"} & #{link_to "Stephen Korecky", "http://twitter.com/skoreky"} Joint
 
-    - if Rails.env.production?
-      = render 'shared/reinvigorate'
-      = render 'shared/google_analytics'
