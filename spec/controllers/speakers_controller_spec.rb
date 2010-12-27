@@ -1,13 +1,8 @@
 require 'spec_helper'
 
 describe SpeakersController do
-
-  def mock_speaker(stubs={})
-    @mock_speaker ||= mock_model(Speaker, stubs).as_null_object
-  end
-
   describe "GET index" do
-    let(:speakers) { [mock_speaker] }
+    let(:speakers) { mock_model(Speaker) }
 
     before do
       Speaker.stub_chain(:order, :limit).and_return(speakers)
@@ -25,10 +20,48 @@ describe SpeakersController do
   end
 
   describe "GET show" do
+    let(:speaker) { mock_model(Speaker, :name => 'Matt') }
+    let(:presentations) { [mock_model(Presentation, :created_at => Time.now)] }
+
+    before do
+      Speaker.stub(:find).with("37").and_return(speaker)
+      speaker.stub_chain(:presentations, :released).and_return(presentations)
+    end
+
     it "assigns the requested speaker as @speaker" do
-      Speaker.stub(:find).with("37") { mock_speaker }
       get :show, :id => "37"
-      assigns(:speaker).should be(mock_speaker)
+      assigns(:speaker).should be(speaker)
+    end
+
+    it "assigns the speakers released presentations for the view" do
+      get :show, :id => "37"
+      assigns[:speaker_presentations].should == presentations
+    end
+
+    describe "with HTML" do
+      it "succeeds" do
+        get :show, :id => "37"
+        response.should be_success
+      end
+
+      it "should render the show template" do
+        get :show, :id => "37"
+        response.should render_template(:show)
+      end
+    end
+
+    describe "with ATOM" do
+      it "succeeds" do
+        get :show, :id => "37", :format => :atom
+        response.should be_success
+      end
+    end
+
+    describe "with RSS" do
+      it "succeeds" do
+        get :show, :id => "37", :format => :rss
+        response.should be_redirect
+      end
     end
   end
 

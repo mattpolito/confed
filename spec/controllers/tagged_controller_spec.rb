@@ -10,7 +10,7 @@ describe TaggedController do
     end
 
     it "sets variable to be used for the view" do
-      Presentation.stub(:find_all_by_tag_permalink).and_return([presentation])
+      Presentation.stub_chain(:released, :find_all_by_tag_permalink).and_return([presentation])
       get :show, :tag_permalink => 'yabba'
       assigns[:presentations].should == [presentation]
     end

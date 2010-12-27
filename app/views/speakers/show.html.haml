@@ -4,10 +4,10 @@
 - title "#{@speaker.name}"
 
 %article#speaker
-  - if @speaker.presentations.present?
-    = render @speaker.presentations
+  - if @speaker_presentations.present?
+    = render @speaker_presentations
   - else
-    No presentations are available for this speaker yet.
+    No presentations are currently available for this speaker.
 
 %aside#speaker
   %h2= @speaker.name
