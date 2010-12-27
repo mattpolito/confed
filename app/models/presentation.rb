@@ -44,6 +44,10 @@ class Presentation < ActiveRecord::Base
     videos.first.thumbnail
   end
 
+  def unreleased?
+    !released?
+  end
+
   private
     def render_description
       self.rendered_description = RDiscount.new(
