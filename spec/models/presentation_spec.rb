@@ -6,6 +6,7 @@ describe Presentation do
   it { should have_db_column(:speaker_id).of_type(:integer) }
   it { should have_db_column(:tag_cache).of_type(:string) }
   it { should have_db_column(:event_id).of_type(:integer) }
+  it { should have_db_column(:released).of_type(:boolean) }
 
   it { should belong_to(:event) }
   it { should have_and_belong_to_many(:speakers) }
@@ -17,7 +18,8 @@ describe Presentation do
       :title       => 'title',
       :description => 'description',
       :speaker_id  => 1,
-      :event_id    => 1
+      :event_id    => 1,
+      :released    => false
     }
   end
 
@@ -34,6 +36,7 @@ describe Presentation do
 
     it { should have(1).error_on(:title) }
     it { should have(2).errors_on(:event_id) }
+    it { should_not be_released }
   end
 
   describe "tagging" do
