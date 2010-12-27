@@ -15,9 +15,6 @@
 
     = javascript_include_tag :defaults
     = javascript_include_tag 'uservoice'
-    - if Rails.env.production?
-      = render 'shared/reinvigorate'
-      = render 'shared/google_analytics'
     = javascript_include_tag 'http://use.typekit.com/wnz4hjz.js'
     :javascript
       try{Typekit.load();}catch(e){}
@@ -33,3 +30,7 @@
       %footer
         %p Copyright &copy; #{Time.now.strftime("%Y")}, All Rights Reserved.
         %p A #{link_to "Matt Polito", "http://twitter.com/mattpolito"}, #{link_to "Adam Walters", "http://twitter.com/ajwalters"} & #{link_to "Stephen Korecky", "http://twitter.com/skoreky"} Joint
+
+    - if Rails.env.production?
+      = render 'shared/reinvigorate'
+      = render 'shared/google_analytics'
