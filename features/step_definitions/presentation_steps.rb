@@ -51,11 +51,13 @@ Then /^I should see the event name$/ do
                       :text => "Your mom's house")
 end
 
-Given /^there (are|is) (\d+) presentation(s)?$/ do |arg1, number, arg3|
+Given /^there (are|is) (\d+) (unreleased )?presentation(s)?$/ do |arg1, number, unreleased, arg3|
+  released = unreleased == "unreleased " ? false : true
   number.to_i.times do
     Factory(:presentation, 
             :speakers => [Factory(:speaker)],
-            :event   => Factory(:event)
+            :event   => Factory(:event),
+            :released => released
     )
   end
 end

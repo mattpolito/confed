@@ -33,6 +33,7 @@ class Presentation < ActiveRecord::Base
   # Scopes
   default_scope :order => "#{quoted_table_name}.id DESC"
   scope :released, :conditions => { :released => true }
+  scope :unreleased, :conditions => { :released => false }
 
   # Validations
   validates :title,      :presence => true

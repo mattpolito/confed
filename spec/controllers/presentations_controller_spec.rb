@@ -3,20 +3,45 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe PresentationsController do
 
   describe "GET index" do
-    let(:presentations) { [mock_model(Presentation)] }
+    let(:presentations) { [mock_model(Presentation, :created_at => Time.now)] }
 
-    before(:each) do
-      Presentation.stub(:paginate).and_return(presentations)
+    describe "with HTML" do
+      before(:each) do
+        Presentation.stub_chain(:released, :paginate).and_return(presentations)
+      end
+
+      it "should be successful" do
+        get :index
+        response.should be_success
+      end
+
+      it "should find presentations and assign for the view" do
+        get :index
+        assigns[:presentations].should == presentations
+      end
     end
 
-    it "should be successful" do
-      get :index
-      response.should be_success
-    end
+    describe "with ATOM" do
+      before(:each) do
+        Presentation.stub(:all).and_return(presentations)
+      end
 
-    it "should find presentations and assign for the view" do
-      get :index
-      assigns[:presentations].should == presentations
+      it "should be successful" do
+        get :index, :format => :atom
+        response.should be_success
+      end
+
+      it "should find presentations and assign for the view" do
+        get :index, :format => :atom
+        assigns[:presentations].should == presentations
+      end
+    end
+    
+    describe "with RSS" do
+      it "should be redirect" do
+        get :index, :format => :rss
+        response.should be_redirect
+      end
     end
   end
 
@@ -24,7 +49,7 @@ describe PresentationsController do
     let(:presentation) { mock_model(Presentation) }
 
     before(:each) do
-      Presentation.stub(:find).
+      Presentation.stub_chain(:released, :find).
         with("37", :scope => "event-name").
         and_return(presentation)
     end

@@ -2,7 +2,7 @@ class PresentationsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @presentations = Presentation.paginate(
+        @presentations = Presentation.released.paginate(
           :page => params[:page], :per_page => (params[:per_page] || 10)
         )
       end
@@ -23,6 +23,6 @@ class PresentationsController < ApplicationController
   end
 
   def show
-    @presentation = Presentation.find(params[:id], :scope => params[:event_id])
+    @presentation = Presentation.released.find(params[:id], :scope => params[:event_id])
   end
 end

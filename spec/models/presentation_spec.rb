@@ -40,6 +40,20 @@ describe Presentation do
     it { should be_unreleased }
   end
 
+  describe "scopes" do
+    describe ".released" do
+      it "returns records where #released == true" do
+        Presentation.released.where_values_hash.should == {:released => true}
+      end
+    end
+
+    describe ".unreleased" do
+      it "returns records where #released == false" do
+        Presentation.unreleased.where_values_hash.should == {:released => false}
+      end
+    end
+  end
+
   describe "tagging" do
     subject{ Presentation.new }
 

@@ -3,8 +3,9 @@ Feature: Presentation Home page
   As a site viewer
   I want to see presentations available listed to me
 
-  Scenario: Newest entries on homepage
+  Scenario: Newest released entries on homepage
     Given there are 15 presentations
+    And   there are 5 unreleased presentations
     When I am on the homepage
     Then I should see 10 presentation listings
     And  I should see 2 pagination links
@@ -19,6 +20,7 @@ Feature: Presentation Home page
     Given there is a presentation with the following:
       | Title       | How I built this app |
       | Description | Description          |
+      | Released    | true                 |
     When I am on the homepage
     Then I should see 1 presentation listing
     And  I should see a link "How I built this app" within "article h2"
