@@ -14,6 +14,7 @@ tmp/sent_mails/*
 tmp/restart.txt
 config/database.yml
 *.swp
+*.swo
 .bundle
 logfile
 .yardoc/*
