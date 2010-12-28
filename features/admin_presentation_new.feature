@@ -16,6 +16,7 @@ Feature: Admin Presentation new
       | Description | Description        |
     And  I select "Adam" from "presentation_speaker_id_0"
     And  I select "WindyCityRails 2010" from "Event"
+    And  I check "Released"
     And  I press "Create Presentation"
     Then I should see "Presentation created!" 
     Then I should be on the new admin presentation page
