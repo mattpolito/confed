@@ -39,6 +39,10 @@
         = s.label :url, "Slideshow URI"
         = s.text_field :url
         = s.hidden_field :content
+        
+    %li
+      = f.label :released
+      = f.check_box :released
 
     = f.submit
 
