@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101227134224) do
+ActiveRecord::Schema.define(:version => 20101229034012) do
 
   create_table "events", :force => true do |t|
     t.string   "name",            :null => false
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20101227134224) do
     t.string   "thumbnail"
   end
 
+  add_index "external_embeds", ["presentation_id"], :name => "index_external_embeds_on_presentation_id"
+
   create_table "presentations", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20101227134224) do
   end
 
   add_index "presentations", ["cached_slug"], :name => "index_presentations_on_cached_slug"
+  add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
   add_index "presentations", ["released"], :name => "index_presentations_on_released"
   add_index "presentations", ["speaker_id"], :name => "index_presentations_on_speaker_id"
 
@@ -72,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20101227134224) do
     t.integer "user_id"
     t.integer "role_id"
   end
+
+  add_index "roles_users", ["user_id", "role_id"], :name => "index_roles_users_on_user_id_and_role_id", :unique => true
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
