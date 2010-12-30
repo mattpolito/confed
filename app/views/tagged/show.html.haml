@@ -3,3 +3,5 @@
 %h1 Tagged: #{@tag.name}
 
 = render :partial => 'presentations/presentation', :collection => @presentations
+
+= will_paginate @presentations
