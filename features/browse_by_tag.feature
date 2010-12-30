@@ -8,8 +8,9 @@ Feature: Browse by tag
       | Title       | How I built this app |
       | Description | Description          |
       | Released    | true                 |
-    And   the presentation has the tag: "follow me"
-    When  I am on the presentations page
-    And   I follow "follow me"
-    Then  I should see "Tagged: follow me"
-    And   I should see a link "How I built this app" within "article"
+    And  the presentation has the tag: "follow me"
+    When I am on the presentations page
+    And  I follow "follow me"
+    Then I should see "Feed me some: follow me"
+    And  I should see a link "How I built this app" within "article"
+    And  I should see page title as "Feed me some: follow me - Confed"
