@@ -83,13 +83,19 @@ header {
     }
     text: {
       align: center;
-      shadow: 0px -1px 0px rgba(55, 70, 131, 1);
+      shadow: 2px 2px 5px rgba(55, 70, 131, 1);
     }
 
     a, a:hover, a:link, a:visited {
       border-bottom: 0;
       color: #ebebeb;
       text-decoration: none;  
+    }
+  }
+  h2 {
+    text: {
+      align: center;
+      shadow: 1px 1px 0px rgba(255, 255, 255, 1);
     }
   }
 }
