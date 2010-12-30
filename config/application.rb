@@ -8,6 +8,13 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module ConferenceEducation
   class Application < Rails::Application
+    if Rails.env.production?
+      require 'redirect_to_main_uri_when_not'
+      require 'no_www'
+      config.middleware.insert_before(ActionDispatch::Static, RedirectToMainUriWhenNot)
+      config.middleware.insert_after(RedirectToMainUriWhenNot, NoWWW)
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -47,8 +54,6 @@ module ConferenceEducation
       g.test_framework :rspec, :fixture => true, :views => false
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
-
-    config.middleware.use 'NoWWW' if Rails.env.production?
   end
 end
 
