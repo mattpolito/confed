@@ -3,7 +3,8 @@ class PresentationsController < ApplicationController
     respond_to do |format|
       format.html do
         @presentations = Presentation.released.paginate(
-          :page => params[:page], :per_page => (params[:per_page] || 10)
+          :page => params[:page], :per_page => (params[:per_page] || 10),
+          :include => [:speakers, :videos, :event, :tags]
         )
       end
       format.rss do
