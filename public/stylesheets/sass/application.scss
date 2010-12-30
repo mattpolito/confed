@@ -94,10 +94,13 @@ header {
     }
   }
   h2 {
+    color: rgba(0, 0, 0, 0.6);
+    position: relative;
     text: {
       align: center;
-      shadow: 1px 1px 0px rgba(255, 255, 255, 1);
+      shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
     }
+    top: -1em;
   }
 }
 
