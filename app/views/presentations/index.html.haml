@@ -1,7 +1,5 @@
 - content_for :atom_feed do 
   = auto_discovery_link_tag(:atom, "/presentations.atom")
-- content_for :javascript_includes do
-  = javascript_include_tag 'jquery.preloader.js'
 
 = render @presentations
 
