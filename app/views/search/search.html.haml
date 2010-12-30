@@ -1,9 +1,12 @@
+- title "Search results for #{@search_value}:"
+
 #search_results
   %h1= "Search results for #{@search_value}:"
 
+  - if @presentations.present?
+    #presentations
+      = render :partial => 'presentations/presentation', :collection => @presentations
 
-  #presentations
-    = render :partial => 'presentations/presentation', :collection => @presentations
-
-  #speakers
-    = render :partial => 'speakers/speaker', :collection => @speakers
+  - if @speakers.present?
+    #speakers
+      = render :partial => 'speakers/speaker', :collection => @speakers
