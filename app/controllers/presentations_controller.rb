@@ -13,7 +13,7 @@ class PresentationsController < ApplicationController
         )
       end
       format.atom do
-        @presentations = Presentation.all
+        @presentations = Presentation.released
         render 'shared/feed', :locals => {
           :feed_title => 'Most Recently Added Presentations - Confed',
           :feed_updated_at => @presentations.first.created_at,

@@ -3,11 +3,12 @@ atom_feed do |feed|
   feed.updated feed_updated_at
 
   presentations.each do |post|
-    feed.entry([post.event, post]) do |entry|
+    feed.entry(post, 
+      :id => post.id, 
+      :url => event_presentation_url(post.event, post)
+    ) do |entry|
       entry.title "#{post.title} - #{post.event.name}"
-      entry.published post.created_at
-      entry.updated post.updated_at
-      entry.content post.description, :type => 'html'
+      entry.content post.rendered_description, :type => 'html'
       entry.author do |author|
         author.name post.speakers.first.name
       end

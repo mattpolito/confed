@@ -23,7 +23,7 @@ describe PresentationsController do
 
     describe "with ATOM" do
       before(:each) do
-        Presentation.stub(:all).and_return(presentations)
+        Presentation.stub(:released).and_return(presentations)
       end
 
       it "should be successful" do
