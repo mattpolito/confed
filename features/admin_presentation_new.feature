@@ -9,7 +9,8 @@ Feature: Admin Presentation new
       | Name  | Adam         |
       | Email | adam@foo.com |
     And   there is an event with the following:
-      | Name  | WindyCityRails 2010 |
+      | Name    | WindyCityRails 2010       |
+      | Website | http://windycityrails.com |
     And   I am on the new admin presentation page
     When  I fill in the following:
       | Title       | Presentation Title |
