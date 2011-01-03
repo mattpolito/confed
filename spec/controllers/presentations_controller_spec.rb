@@ -42,6 +42,12 @@ describe PresentationsController do
         get :index, :format => :rss
         response.should be_redirect
       end
+
+      it "returns a moved permanently response code" do
+        get :index, :format => :rss
+        response.status.should == 301
+        response.status_message.should == "Moved Permanently"
+      end
     end
   end
 

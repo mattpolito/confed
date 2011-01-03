@@ -4,6 +4,11 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.rss do
+        redirect_to(
+          event_url(@event, :format => :atom), :status => :moved_permanently
+        )
+      end
       format.atom do
         render 'shared/feed', :locals => {
           :feed_title => "#{@event.name}'s Presentations - Confed",
