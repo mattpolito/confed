@@ -8,6 +8,12 @@ class TaggedController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.rss do
+        redirect_to(
+          tagged_path(params[:tag_permalink], :format => :atom),
+            :status => :moved_permanently
+        )
+      end
       format.atom do
         render 'shared/feed', :locals => {
           :feed_title => "Presentations tagged with #{params[:tag_name]} - Confed",
