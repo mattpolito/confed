@@ -19,6 +19,11 @@ describe PresentationsController do
         get :index
         assigns[:presentations].should == presentations
       end
+
+      it "renders the correct template" do
+        get :index
+        response.should render_template(:index)
+      end
     end
 
     describe "with ATOM" do
@@ -68,6 +73,11 @@ describe PresentationsController do
     it "should find presentation and assign for the view" do
       get :show, :id => "37", :event_id => "event-name"
       assigns[:presentation].should == presentation
+    end
+
+    it "renders the correct template" do
+      get :show, :id => "37", :event_id => "event-name"
+      response.should render_template(:show)
     end
   end
 

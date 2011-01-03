@@ -17,6 +17,11 @@ describe SpeakersController do
       get :index
       assigns[:speakers].should == speakers
     end
+
+    it "renders the correct template" do
+      get :index
+      response.should render_template(:index)
+    end
   end
 
   describe "GET show" do
