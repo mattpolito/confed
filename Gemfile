@@ -17,6 +17,7 @@ gem 'rdiscount'
 gem 'hassle', :git => 'git://github.com/Papipo/hassle.git'
 gem 'twitter'
 gem 'friendly_id'
+gem 'dalli'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -36,3 +37,4 @@ group :test do
   gem 'fakeweb'
   gem 'jasmine'
 end
+
