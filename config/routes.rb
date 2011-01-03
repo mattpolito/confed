@@ -27,7 +27,8 @@ ConferenceEducation::Application.routes.draw do
   match 'search' => 'search#search'
 
   match 'sitemap.:format' => 'sitemap#show', 
-    :conditions => { :method => :get, :format => :xml }
+    :conditions => { :method => :get },
+    :defaults   => { :format => :xml }
 
   root :to => "presentations#index"
 end
