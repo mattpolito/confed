@@ -3,19 +3,29 @@ require 'spec_helper'
 describe EventsController do
 
   describe "GET show" do
-    let(:event) { mock_model(Event) }
-    
-    it "succeeds" do
+    let(:event) { mock_model(Event, :name => "Event Name") }
+    let(:presentation) { mock_model(Presentation, :created_at => '') }
+
+    before do
       Event.stub(:find).and_return(event)
-      get :show, :id => "37"
     end
 
     it "finds event and assigns for the view" do
-      Event.stub(:find).and_return(event)
       get :show, :id => "37"
       assigns[:event].should == event
     end
     
+    describe "with HTML" do
+      it "succeeds" do
+        get :show, :id => "37"
+        response.should be_success
+      end
+
+      it "renders the correct template" do
+        get :show, :id => "37"
+        response.should render_template(:show)
+      end
+    end
     
     describe "with RSS" do
       it "should be redirect" do
