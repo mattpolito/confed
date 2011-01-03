@@ -17,8 +17,8 @@ class SpeakersController < ApplicationController
       format.atom do
         render 'shared/feed', :locals => {
           :feed_title => "#{@speaker.name}'s Presentations - Confed",
-          :feed_updated_at => @speaker_presentations.first.created_at,
-          :presentations => @speaker_presenations
+          :feed_updated_at => @speaker_presentations.first.try(:created_at),
+          :presentations => @speaker_presentations
         }
       end
     end
