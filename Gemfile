@@ -26,7 +26,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'hpricot'
   gem 'ruby_parser'
-  gem 'ruby-debug'
+  gem 'ruby-debug19'
 end
 
 group :test do
