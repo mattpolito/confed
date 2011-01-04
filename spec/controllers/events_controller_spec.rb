@@ -2,6 +2,29 @@ require 'spec_helper'
 
 describe EventsController do
 
+  describe "GET index" do
+    let(:event) { mock_model(Event, :name => "Event Name") }
+
+    before do
+      Event.stub(:all).and_return([event])
+    end
+
+    it "succeeds" do
+      get :index
+      response.should be_success
+    end
+
+    it "finds events and assigns for the view" do
+      get :index
+      assigns[:events].should == [event]
+    end
+    
+    it "renders the correct template" do
+      get :index
+      response.should render_template(:index)
+    end
+  end
+  
   describe "GET show" do
     let(:event) { mock_model(Event, :name => "Event Name") }
     let(:presentation) { mock_model(Presentation, :created_at => '') }

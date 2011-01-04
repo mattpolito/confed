@@ -9,7 +9,7 @@ ConferenceEducation::Application.routes.draw do
   
   resources :presentations, :only => [:index]
   resources :speakers, :only => [:index, :show]
-  resources :events, :only => [:show] do
+  resources :events, :only => [:index, :show] do
     resources :presentations, :only => [:show]
   end
 
