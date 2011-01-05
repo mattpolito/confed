@@ -9,3 +9,14 @@ end
 Given /^ an event$/ do
   @event = Factory(:event)
 end
+
+Given /^there (are|is) (\d+) (unreleased )?event(s)?$/ do |arg1, number, unreleased, arg3|
+  released = unreleased == "unreleased " ? false : true
+  number.to_i.times do
+    Factory(:event)
+  end
+end
+
+Then /^I should see (\d+) event listing(s)?$/ do |number, arg2|
+  page.should have_css('.event', :count => number.to_i)
+end

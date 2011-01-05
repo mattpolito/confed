@@ -1,6 +1,8 @@
 - content_for :atom_feed do 
   = auto_discovery_link_tag(:atom, "/presentations.atom")
 
-= render @presentations
+%fieldset 
+  %legend Latest Presentations:
+  = render @presentations
 
 = will_paginate @presentations
