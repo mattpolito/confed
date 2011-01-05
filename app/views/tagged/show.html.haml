@@ -1,6 +1,7 @@
 - title "Feed me some: #{@tag.name}"
 
-%h1.tagged Feed me some: #{@tag.name}
+%fieldset
+  %legend Feed me some: #{@tag.name}
 
 = render :partial => 'presentations/presentation', :collection => @presentations
 

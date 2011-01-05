@@ -158,12 +158,13 @@ nav {
 
 }
 
-h1 {
+h1, legend {
   font: {
     size: 2em;
     weight: bold;
     family: "museo-slab-1","museo-slab-2",serif;
   }
+  text-shadow: 1px 1px 0px rgba(170, 170, 170, 0.9);
 }
 
 h1.tagged { margin-bottom: .5em; }
@@ -196,6 +197,15 @@ a {
   &:link, &:visited {
     color: black;
   }
+}
+
+fieldset {
+  border-top: 1px solid rgba(168, 168, 168, 0.9);
+}
+
+legend {
+  margin-left: 1em;
+  padding: 1em;
 }
 
 
