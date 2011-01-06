@@ -206,6 +206,7 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
+    tweet-button (0.1.0)
     twitter (1.0.0)
       faraday (~> 0.5.3)
       faraday_middleware (~> 0.3.0)
@@ -253,5 +254,6 @@ DEPENDENCIES
   shoulda
   simple_form
   texticle (= 1.0.3)
+  tweet-button
   twitter
   will_paginate (= 3.0.pre2)

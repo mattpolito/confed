@@ -18,6 +18,7 @@ gem 'hassle', :git => 'git://github.com/Papipo/hassle.git'
 gem 'twitter'
 gem 'friendly_id'
 gem 'dalli'
+gem 'tweet-button'
 
 group :development, :test do
   gem 'rspec-rails'
