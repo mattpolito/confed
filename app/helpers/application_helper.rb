@@ -1,4 +1,10 @@
 module ApplicationHelper
+  include TweetButton
+
+  TweetButton.default_tweet_button_options = {
+    :via => 'getconfed'
+  }
+
   def active_class(path)
     request.path =~ /#{path}/ ? 'active' : nil
   end

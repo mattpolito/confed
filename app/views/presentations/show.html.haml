@@ -36,3 +36,6 @@
         .tags
           - @presentation.tags.each do |tag|
             = link_to_tag(tag)
+
+    %dd
+      = tweet_button :text => "Watching #{@presentation.title} - #{@presentation.event.name}"
