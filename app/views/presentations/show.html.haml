@@ -1,5 +1,9 @@
 - content_for :javascript_includes do
   = javascript_include_tag 'presentations/show'
+  = javascript_include_tag 'disqus'
+  :javascript
+    var disqus_identifier="#{event_presentation_path(@presentation.event, @presentation)}"
+    var disqus_url="#{event_presentation_url(@presentation.event, @presentation)}"
 
 - content_for :atom_feed do 
   - @presentation.speakers.each do |speaker|
@@ -16,6 +20,8 @@
     - @presentation.videos.each do |video|
       = div_for(video) do
         = raw video.content
+  #disqus_thread
+
 %aside
   %dl
     %dt Speakers
