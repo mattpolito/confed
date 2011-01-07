@@ -1,8 +1,11 @@
-%li.speaker
-  %h2.name= link_to speaker.name, speaker
+%article.speaker{ :id => dom_id(speaker) }
+  %h2= link_to speaker.name, speaker, :class => 'title'
   - if speaker.title
     .title= speaker.title
   - if speaker.company_name
     .company= speaker.company_name
   - if speaker.location
     .location= speaker.location
+  =raw truncate(speaker.bio, :length => 200)
+  = link_to speaker, :class => "image_link" do
+    = image_tag avatar_url(speaker), :class => 'avatar'

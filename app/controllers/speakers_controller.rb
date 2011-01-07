@@ -1,6 +1,8 @@
 class SpeakersController < ApplicationController
   def index
-    @speakers = Speaker.order(:updated_at).limit(10)
+    @speakers = Speaker.order(:updated_at).paginate(
+      :page => params[:page], :per_page => (params[:per_page] || 10)
+    )
   end
 
   def show
