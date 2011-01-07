@@ -3,9 +3,6 @@
     :presentation => @presentation, 
     :speakers     => @speakers, 
     :events       => @events
-#speaker_form{ :style => 'display:none;' }
-  = render 'admin/speakers/form', :speaker => Speaker.new
-#event_form{ :style => 'display:none;' }
-  = render 'admin/events/form', :event => Event.new
+= render 'additional_modal_forms'
 #new_speaker{ :style => { :display => 'none' } }
 #new_event{ :style => { :display => 'none' } }
