@@ -1,6 +1,5 @@
 - content_for :javascript_includes do
   = javascript_include_tag 'admin/presentations/form'
-
 %fieldset
   = render "shared/error_messages", :target => presentation
   %ul
@@ -39,14 +38,9 @@
         = s.label :url, "Slideshow URI"
         = s.text_field :url
         = s.hidden_field :content
-        
     %li
       = f.label :released
       = f.check_box :released
-
+  %p.actions
     = f.submit
-
-#speaker_form{ :style => 'display:none;' }
-  = render 'admin/speakers/form', :speaker => Speaker.new
-#event_form{ :style => 'display:none;' }
-  = render 'admin/events/form', :event => Event.new
+    = link_to 'Cancel & Go Back', admin_presentations_path
