@@ -1,6 +1,7 @@
 %fieldset
   %legend Recently active speakers
 
-  %ul#speakers
-    = render @speakers
-    
+  = render @speakers
+
+  = will_paginate @speakers
+
