@@ -38,4 +38,4 @@
             = link_to_tag(tag)
 
     %dd
-      = tweet_button :text => "Watching #{@presentation.title} - #{@presentation.event.name}"
+      = tweet_button :text => tweet_text_for(@presentation) 
