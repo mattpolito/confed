@@ -26,8 +26,8 @@ Feature: Searching for presentation
       | Location   | Elgin |
     When I search for "Elgin"
     And press "Search"
-    Then I should see "Matt" within "#search_results"
-    But I should not see "Adam" within "#search_results"
+    Then I should see "Matt" within "fieldset"
+    But I should not see "Adam" within "fieldset"
 
   @wip
   Scenario: Fuzzy search results
