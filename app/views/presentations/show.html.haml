@@ -30,7 +30,7 @@
     %dt Event
     %dd #{link_to @presentation.event.name, @presentation.event}
     %dt Description
-    %dd
+    %dd.description
       = raw @presentation.rendered_description
       - if @presentation.tags.present?
         .tags
