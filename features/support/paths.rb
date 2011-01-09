@@ -22,6 +22,9 @@ module NavigationHelpers
       edit_admin_event_presentation_path(@presentation.event, @presentation)
     when /the event show page/
       event_path(@event)
+    when /the new user registration page/
+      @user_count = User.count
+      new_user_registration_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
