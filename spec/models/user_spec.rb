@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  class User
-    alias_method :have_role?, :has_role?
-  end
-
   it { should have_db_column(:email).of_type(:string).with_options(:null => false) }
   it { should have_db_column(:encrypted_password).of_type(:string) }
   it { should have_db_column(:password_salt).of_type(:string) }
@@ -15,7 +11,7 @@ describe User do
     subject { User.new }
 
     it "returns true when passed role is attached to user" do
-      subject.roles << Factory(:admin_role)
+      subject.roles << Role.admin
       subject.should have_role(:admin)
     end
 

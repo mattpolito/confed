@@ -14,4 +14,6 @@ class User < ActiveRecord::Base
   def has_role?(role)
     roles.include?(Role.find_by_name(role)) 
   end
+  alias_method :have_role?, :has_role?
+
 end
