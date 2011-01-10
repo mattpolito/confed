@@ -25,7 +25,7 @@ Feature: Speakers Index
     And   I should see a link "Adam"
     And   I should see "Software Craftsman"
     And   I should see "Foo Inc."
-    And   I should not see "Too much to put in a test"
+    And   I should see "Too much to put in a test"
     And   I should not see "adam@foo.com"
     And   I should not see "adamfoo"
 

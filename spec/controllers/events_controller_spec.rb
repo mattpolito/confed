@@ -6,7 +6,7 @@ describe EventsController do
     let(:event) { mock_model(Event, :name => "Event Name") }
 
     before do
-      Event.stub(:all).and_return([event])
+      Event.stub(:paginate).and_return([event])
     end
 
     it "succeeds" do
@@ -30,7 +30,7 @@ describe EventsController do
     let(:presentation) { mock_model(Presentation, :created_at => '') }
 
     before do
-      Event.stub(:find).and_return(event)
+      Event.stub_chain(:includes, :find).and_return(event)
     end
 
     it "finds event and assigns for the view" do
