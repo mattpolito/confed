@@ -65,7 +65,7 @@ describe EventsController do
 
     describe "with ATOM" do
       before do
-        event.stub(:presentations).and_return([presentation])
+        event.stub_chain(:presentations, :released).and_return([presentation])
       end
 
       it "succeeds" do
