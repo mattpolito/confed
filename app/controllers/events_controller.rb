@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id]) 
+    @event = Event.includes(:presentations).find(params[:id])
 
     respond_to do |format|
       format.html
@@ -18,7 +18,7 @@ class EventsController < ApplicationController
       format.atom do
         render 'shared/feed', :locals => {
           :feed_title => "#{@event.name}'s Presentations - Confed",
-          :feed_updated_at => @event.presentations.first.created_at,
+          :feed_updated_at => @event.presentations.first.try(:created_at),
           :presentations => @event.presentations
         }
       end
