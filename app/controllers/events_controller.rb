@@ -18,8 +18,8 @@ class EventsController < ApplicationController
       format.atom do
         render 'shared/feed', :locals => {
           :feed_title => "#{@event.name}'s Presentations - Confed",
-          :feed_updated_at => @event.presentations.first.try(:created_at),
-          :presentations => @event.presentations
+          :feed_updated_at => @event.presentations.released.first.try(:created_at),
+          :presentations => @event.presentations.released
         }
       end
     end
