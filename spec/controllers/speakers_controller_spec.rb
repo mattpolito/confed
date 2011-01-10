@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe SpeakersController do
-  describe "GET index" do
-    let(:speakers) { mock_model(Speaker) }
+  let(:speaker) { mock_model(Speaker, :name => 'Matt') }
 
+  describe "GET index" do
     before do
-      Speaker.stub_chain(:order, :limit).and_return(speakers)
+      Speaker.stub(:paginate).and_return([speaker])
     end
 
     it "succeeds" do
@@ -15,7 +15,7 @@ describe SpeakersController do
 
     it "finds speakers and assigns for the view" do
       get :index
-      assigns[:speakers].should == speakers
+      assigns[:speakers].should == [speaker]
     end
 
     it "renders the correct template" do
@@ -25,7 +25,6 @@ describe SpeakersController do
   end
 
   describe "GET show" do
-    let(:speaker) { mock_model(Speaker, :name => 'Matt') }
     let(:presentations) { [mock_model(Presentation, :created_at => Time.now)] }
 
     before do

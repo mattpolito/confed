@@ -21,7 +21,7 @@ Given /^I am hitting an external service for an avatar$/ do
 end
 
 Then /^I should see (\d+) speaker listing(s)?$/ do |number, arg2|
-  within(:css, '#speakers') do
+  within(:css, 'fieldset') do
     page.should have_css('.speaker', :count => number.to_i)
   end
 end
