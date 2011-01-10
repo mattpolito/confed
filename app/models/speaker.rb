@@ -17,9 +17,18 @@ class Speaker < ActiveRecord::Base
   validates :name, :presence => true
   validates :speaker_rate_id, :format      => {:with => /\d+-[a-z-]+$/}, 
                               :allow_blank => true
+  validate :only_twitter_handle, :allow_blank => true
 
   # Logic
   def to_s
     name
   end
+
+  private
+    def only_twitter_handle
+      return if twitter.nil?
+      if twitter.match(/((http(s)?\:\/\/)?(www\.)?twitter\.com\/)/)
+        self.errors[:twitter] = "must only be a handle, not URI"
+      end
+    end
 end
