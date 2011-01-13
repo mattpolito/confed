@@ -19,6 +19,7 @@ gem 'twitter'
 gem 'friendly_id'
 gem 'dalli'
 gem 'tweet-button'
+gem 'compass'
 
 group :development, :test do
   gem 'rspec-rails'
