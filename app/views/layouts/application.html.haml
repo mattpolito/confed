@@ -8,11 +8,11 @@
     //%link{ :rel => 'shortcut icon', :href => '/favicon.ico' }
     //%link{ :rel => 'apple-touch-icon', :href => '/apple-touch-icon.png' }
     = yield(:atom_feed)
-    = stylesheet_link_tag 'screen'
-    = stylesheet_link_tag 'print'
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'print.css', :media => 'print'
     /[if IE]
-      = stylesheet_link_tag 'ie'
-    
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+      
     - if Rails.env.production?
       = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     - else
