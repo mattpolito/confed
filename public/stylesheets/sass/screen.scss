@@ -1,7 +1,8 @@
-@import "reset.scss";
+@import "compass/reset";
+@import "compass";
+@import "reset";
 @import "pagination";
 @import "pictos.scss";
-@import "compass";
 
 $container_width: 960px;
 $presentation_width: 600px;
