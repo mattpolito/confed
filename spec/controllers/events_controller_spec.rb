@@ -31,6 +31,7 @@ describe EventsController do
 
     before do
       Event.stub_chain(:includes, :find).and_return(event)
+      event.stub_chain(:presentations, :released).and_return([presentation])
     end
 
     it "finds event and assigns for the view" do
@@ -64,10 +65,6 @@ describe EventsController do
     end
 
     describe "with ATOM" do
-      before do
-        event.stub_chain(:presentations, :released).and_return([presentation])
-      end
-
       it "succeeds" do
         get :show, :id => "37", :format => :atom
         response.should be_success

@@ -4,8 +4,8 @@
 - title "#{@event.name}"
 
 %article#event
-  - if @event.presentations.present?
-    = render @event.presentations
+  - if @presentations.present?
+    = render @presentations
   - else
     No presentations are available for this event yet.
 
