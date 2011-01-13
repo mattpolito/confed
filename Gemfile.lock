@@ -97,7 +97,6 @@ GEM
       faraday (~> 0.5.3)
     ffi (0.6.3)
       rake (>= 0.8.7)
-    flutie (1.1.4)
     friendly_id (3.1.8)
       babosa (~> 0.2.0)
     gherkin (2.3.2)
@@ -237,7 +236,6 @@ DEPENDENCIES
   devise
   factory_girl_rails
   fakeweb
-  flutie
   friendly_id
   gravatarify
   haml
