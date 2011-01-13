@@ -24,7 +24,7 @@
 
 %aside
   %dl
-    %dt Speakers
+    %dt= @presentation.speakers.size > 1 ? 'Speakers' : 'Speaker'
     - @presentation.speakers.each do |speaker|
       %dd= link_to speaker.name, speaker_path(speaker)
     %dt Event
