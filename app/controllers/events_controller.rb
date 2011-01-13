@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.includes(:presentations).find(params[:id])
+    @presentations = @event.presentations.released
 
     respond_to do |format|
       format.html
