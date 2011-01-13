@@ -111,7 +111,7 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     hashie (0.4.0)
-    hoptoad_notifier (2.3.12)
+    hoptoad_notifier (2.4.2)
       activesupport
       builder
     hpricot (0.8.3)
@@ -243,7 +243,7 @@ DEPENDENCIES
   haml
   haml-rails
   hassle!
-  hoptoad_notifier
+  hoptoad_notifier (~> 2.4.2)
   hpricot
   httparty
   jasmine
