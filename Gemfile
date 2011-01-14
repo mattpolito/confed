@@ -20,6 +20,7 @@ gem 'dalli'
 gem 'tweet-button'
 gem 'compass'
 gem 'bitly'
+gem 'settingslogic'
 
 group :development, :test do
   gem 'rspec-rails'

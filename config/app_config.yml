@@ -1,0 +1,13 @@
+defaults: &defaults
+  bitly:
+    user: getconfed
+    api_key: R_372daf4c1d897ad639f2c96062c49fd0
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
