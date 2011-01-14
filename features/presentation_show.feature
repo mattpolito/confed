@@ -5,7 +5,8 @@ Feature: Presentation show
   And I want to see a presentation video embedded onto a page
 
   Scenario: Viewing page with video
-    Given there is a presentation with the following:
+    Given I am hitting an external service for url shortening
+    And  there is a presentation with the following:
       | Title       | How I built this app |
       | Description | Description          |
       | Released    | true                 |
@@ -18,7 +19,8 @@ Feature: Presentation show
     And   I should see "My Awesome Conference"
 
   Scenario: Viewing page with slideshow 
-    Given there is a presentation with the following:
+    Given I am hitting an external service for url shortening
+    And   there is a presentation with the following:
       | Title       | How I built this app |
       | Description | Description          |
       | Released    | true                 |
@@ -31,7 +33,8 @@ Feature: Presentation show
     And   I should see "My Awesome Conference"
 
   Scenario: Viewing page with video and slideshow 
-    Given there is a presentation with the following:
+    Given I am hitting an external service for url shortening
+    And   there is a presentation with the following:
       | Title       | How I built this app |
       | Description | Description          |
       | Released    | true                 |
@@ -46,7 +49,8 @@ Feature: Presentation show
     And   I should see "My Awesome Conference"
 
   Scenario: Has page title
-    Given there is a presentation with the following:
+    Given I am hitting an external service for url shortening
+    And   there is a presentation with the following:
       | Title       | How I built this app |
       | Description | Description          |
       | Released    | true                 |

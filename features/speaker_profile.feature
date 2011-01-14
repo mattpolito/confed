@@ -39,12 +39,13 @@ Feature: Speaker Profile
 
   Scenario: Link to presentations
     Given a speaker
-    And the speaker has a presentation with the following:
+    And   the speaker has a presentation with the following:
       | Title    | BDD in Ruby |
       | Released | true        |
-    And I am on the speaker information page
-    When I follow "BDD in Ruby"
-    Then I should be on the presentation page
+    And   I am hitting an external service for url shortening
+    And   I am on the speaker information page
+    When  I follow "BDD in Ruby"
+    Then  I should be on the presentation page
 
   Scenario: No released presentations are available
     Given a speaker
