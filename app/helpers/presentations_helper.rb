@@ -1,9 +1,11 @@
 module PresentationsHelper
   def bitly_url(url)
     #TODO extract api key into some kind of config yaml
-    #TODO catch the bitly error and return request.url and log to hoptoad
     bitly = Bitly.new('getconfed', 'R_372daf4c1d897ad639f2c96062c49fd0')
     bitly.shorten(url).try(:short_url)
+  rescue BitlyError => e
+    logger.error "[Bitly]: #{e}"
+    url
   end
 
   def tweet_text_for(presentation)
