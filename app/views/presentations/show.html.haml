@@ -38,4 +38,5 @@
             = link_to_tag(tag)
 
     %dd
-      = tweet_button :text => tweet_text_for(@presentation) 
+      = tweet_button :text => tweet_text_for(@presentation),
+                     :url => bitly_url(request.url)

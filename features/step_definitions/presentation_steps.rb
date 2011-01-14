@@ -38,6 +38,12 @@ Given /^the speaker has a presentation with the following:$/ do |table|
   end
 end
 
+Given /^I am hitting an external service for url shortening$/ do
+  bitly = mock(Bitly)
+  Bitly.stub(:new).and_return(bitly)
+  bitly.stub(:shorten).and_return(mock(Bitly, :short_url => 'http://bit.ly/xhr0'))
+end
+
 Then /^I should see the presentation video$/ do
   page.should have_css('.presentation .video')
 end

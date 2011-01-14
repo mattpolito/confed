@@ -19,6 +19,7 @@ gem 'friendly_id'
 gem 'dalli'
 gem 'tweet-button'
 gem 'compass'
+gem 'bitly'
 
 group :development, :test do
   gem 'rspec-rails'
