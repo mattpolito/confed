@@ -8,10 +8,10 @@
       %th
       %th Title
       %th Speaker
-      %th Video
       %th Event Name
       %th Took Place On
       %th Tags
+      %th Complete
 
   %tbody
     - @presentations.each do |presentation|
@@ -22,9 +22,9 @@
             %li=# link_to 'Destroy', admin_presentation_path(presentation), :confirm => 'Are you sure?', :method => :delete
         %td= link_to presentation.title, admin_event_presentation_path(presentation.event, presentation)
         %td= raw presentation.speakers.map{|speaker| escaped_link(speaker.name, admin_speaker_path(speaker)) }.join(", ")
-        %td= presentation.video ? "X" : nil
         %td= presentation.event.name
         %td= presentation.took_place_on
         %td= presentation.tag_list
+        %td= number_to_percentage presentation.percent_complete, :precision => 0
 
 = will_paginate @presentations
