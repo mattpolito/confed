@@ -1,6 +1,9 @@
 class Speaker < ActiveRecord::Base
   # Extensions
   has_friendly_id :name, :use_slug => true, :approximate_ascii => true
+
+  # Callbacks
+  before_save :render_bio
   
   # Full Text Searching
   index do
@@ -30,5 +33,11 @@ class Speaker < ActiveRecord::Base
       if twitter.match(/((http(s)?\:\/\/)?(www\.)?twitter\.com\/)/)
         self.errors[:twitter] = "must only be a handle, not URI"
       end
+    end
+
+    def render_bio
+      self.rendered_bio = RDiscount.new(
+        bio, :smart, :filter_html, :autolink
+      ).to_html
     end
 end

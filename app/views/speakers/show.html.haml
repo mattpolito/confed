@@ -19,5 +19,5 @@
       = link_to 'Twitter', "http://twitter.com/#{@speaker.twitter}", :target => '_blank'
     - if @speaker.website
       = link_to 'Website', @speaker.website, :target => '_blank'
-  #bio= @speaker.bio
+  #bio=raw @speaker.rendered_bio
 
