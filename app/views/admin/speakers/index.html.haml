@@ -9,7 +9,7 @@
       %th Name
       %th Title
       %th Location
-      %th Bio
+      %th Complete
   %tbody
     - @speakers.each do |speaker|
       %tr.main_info
@@ -20,4 +20,4 @@
         %td= link_to speaker.name, admin_speaker_path(speaker)
         %td= speaker.title
         %td= speaker.location
-        %td= speaker.bio
+        %td= number_to_percentage speaker.percent_complete, :precision => 0

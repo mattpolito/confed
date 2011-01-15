@@ -9,6 +9,7 @@
       %th Name
       %th Started On
       %th Ended On
+      %th Complete
 
   %tbody
     - @events.each do |event|
@@ -20,3 +21,4 @@
         %td= link_to event.name, [:admin, event]
         %td= event.started_on
         %td= event.ended_on
+        %td= number_to_percentage event.percent_complete, :precision => 0

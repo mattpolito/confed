@@ -14,6 +14,13 @@ class Presentation < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true, 
                           :scope => :event, 
                           :approximate_ascii => true
+  define_completeness_scoring do
+    check :title, lambda { |per| per.title.present? }, :high
+    check :description, lambda { |per| per.description.present? }, :medium
+    check :took_place_on, lambda { |per| per.took_place_on.present? }, :low
+    check :videos, lambda { |per| per.videos.present? }, :high
+    check :slideshows, lambda { |per| per.slideshows.present? }, :medium
+  end
   
   # Full Text Searching
   index do

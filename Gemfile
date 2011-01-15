@@ -21,6 +21,7 @@ gem 'tweet-button'
 gem 'compass'
 gem 'bitly'
 gem 'settingslogic'
+gem 'completeness-fu'
 
 group :development, :test do
   gem 'rspec-rails'
