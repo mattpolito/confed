@@ -78,4 +78,11 @@ describe Speaker do
     end
   end
 
+  describe 'rendering bio from text/markdown to html' do
+    subject { Speaker.create(valid_attributes) }
+
+    it "happens when saved" do
+      subject.rendered_bio.should == "<p>Bio</p>\n"
+    end
+  end
 end

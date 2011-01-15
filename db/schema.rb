@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101229034012) do
+ActiveRecord::Schema.define(:version => 20110114235704) do
 
   create_table "events", :force => true do |t|
     t.string   "name",            :null => false
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20101229034012) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cached_slug"
+    t.text     "rendered_bio"
   end
 
   add_index "speakers", ["cached_slug"], :name => "index_speakers_on_cached_slug", :unique => true
