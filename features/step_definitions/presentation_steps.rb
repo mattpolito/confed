@@ -79,29 +79,3 @@ end
 Then /^it should display date it took place$/ do
   page.should have_css('.presentation .took_place_on')
 end
-
-Given /^I logged in as an "([^\"]*)" user$/ do |role|
-  email    = 'testing@man.net'
-  login    = 'Testing man'
-  password = 'secretpass'
-
-  Given %{I have one user "#{email}" with password "#{password}" and login "#{login}"}
-  And   %{I have the role of "#{role}"}
-  And   %{I go to the login page}
-  And   %{I fill in "user_email" with "#{email}"}
-  And   %{I fill in "user_password" with "#{password}"}
-  And   %{I press "Sign in"}
-
-end
-
-Given /^I have one\s+user "([^\"]*)" with password "([^\"]*)" and login "([^\"]*)"$/ do |email, password, login|
-  @user = User.new(:email    => email,
-                   :login    => login,
-                   :password => password,
-                   :password_confirmation => password)
-  @user.save!
-end
-
-Given /^I have the role of "([^\"]*)"$/ do |role|
-  @user.roles << Role.find_or_create_by_name(role)
-end

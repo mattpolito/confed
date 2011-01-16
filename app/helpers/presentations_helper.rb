@@ -5,6 +5,14 @@ module PresentationsHelper
     else
       presentation.short_url
     end
+
+  def bitly_url(url)
+    return 'http://bit.ly/foo' if Rails.env.test?
+    bitly = Bitly.new(AppConfig.bitly.user, AppConfig.bitly.api_key)
+    bitly.shorten(url).try(:short_url)
+  rescue BitlyError => e
+    logger.error "[Bitly]: #{e}"
+    url
   end
 
   def tweet_text_for(presentation)
