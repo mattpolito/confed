@@ -79,10 +79,20 @@ describe Speaker do
   end
 
   describe 'rendering bio from text/markdown to html' do
-    subject { Speaker.create(valid_attributes) }
+    describe "when bio is present" do
+      subject { Speaker.create(valid_attributes) }
 
-    it "happens when saved" do
-      subject.rendered_bio.should == "<p>Bio</p>\n"
+      it "happens when saved" do
+        subject.rendered_bio.should == "<p>Bio</p>\n"
+      end
+    end
+
+    describe "when bio is not present" do
+      subject { Speaker.create(valid_attributes.delete(:bio)) }
+
+      it "doesn't get processed" do
+        subject.rendered_bio.should be_blank
+      end
     end
   end
 end

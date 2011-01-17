@@ -87,10 +87,20 @@ describe Presentation do
   end
 
   describe 'rendering description from text/markdown to html' do
-    subject { Presentation.create(valid_attributes) }
+    describe "when description is present" do
+      subject { Presentation.create(valid_attributes) }
 
-    it "happens when saved" do
-      subject.rendered_description.should == "<p>description</p>\n"
+      it "happens when saved" do
+        subject.rendered_description.should == "<p>description</p>\n"
+      end
+    end
+
+    describe "when description is not present" do
+      subject { Presentation.create(valid_attributes.delete(:description)) }
+
+      it "doesn't get processed" do
+        subject.rendered_description.should be_blank 
+      end
     end
   end
 end
