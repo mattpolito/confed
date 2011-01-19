@@ -24,6 +24,7 @@ class PresentationsController < ApplicationController
   end
 
   def show
-    @presentation = Presentation.released.find(params[:id], :scope => params[:event_id])
+    event = Event.find(params[:event_id])
+    @presentation = event.presentations.released.find(params[:id])
   end
 end

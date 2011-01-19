@@ -58,10 +58,11 @@ describe PresentationsController do
 
   describe "GET show" do
     let(:presentation) { mock_model(Presentation) }
+    let(:event) { mock_model(Event) }
 
     before(:each) do
-      Presentation.stub_chain(:released, :find).
-        with("37", :scope => "event-name").
+      Event.stub(:find).and_return(event)
+      event.stub_chain(:presentations, :released, :find).with("37").
         and_return(presentation)
     end
 

@@ -1,6 +1,7 @@
 class Admin::PresentationsController < AdminController
   before_filter :find_events, :only => [:new, :edit]
   before_filter :find_speakers, :only => [:new, :edit]
+  before_filter :find_presentation, :only => [:show, :edit, :update]
 
   def index
     @presentations = Presentation.paginate(:page => params[:page], :per_page => (params[:per_page] || 20))
@@ -11,8 +12,6 @@ class Admin::PresentationsController < AdminController
   end
 
   def show
-    @presentation = Presentation.find(params[:id], :scope => params[:event_id])
-
     respond_to do |format|
       format.html
       format.xml  { render :xml => @presentation }
@@ -34,8 +33,7 @@ class Admin::PresentationsController < AdminController
   end
 
   def edit
-    @presentation = Presentation.find(params[:id], :scope => params[:event_id])
-    @Presentation.build_extras
+    @presentation.build_extras
   end
 
   def create
@@ -50,7 +48,6 @@ class Admin::PresentationsController < AdminController
   end
 
   def update
-    @presentation = Presentation.find(params[:id], :scope => params[:event_id])
     external_embed = params[:presentation].delete(:external_embed)
 
     if @presentation.update_attributes(params[:presentation])
@@ -63,6 +60,11 @@ class Admin::PresentationsController < AdminController
   private
     def find_events
       @events = Event.all :order => 'name'
+    end
+
+    def find_presentation
+      event = Event.find(params[:event_id])
+      @presentation = event.presentations.find(params[:id])
     end
 
     def find_speakers
