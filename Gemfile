@@ -23,6 +23,11 @@ gem 'bitly'
 gem 'settingslogic'
 gem 'completeness-fu'
 
+group :development do
+  gem 'metric_fu'
+  gem 'heroku'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem "haml-rails"
