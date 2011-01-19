@@ -21,9 +21,7 @@ class Admin::PresentationsController < AdminController
 
   def new
     @presentation = Presentation.new
-    @presentation.speakers.build
-    @presentation.videos.build
-    @presentation.slideshows.build
+    @presentation.build_extras
     @presentation.event_id = cookies[:last_event_id]
     
     respond_to do |format|
@@ -37,8 +35,7 @@ class Admin::PresentationsController < AdminController
 
   def edit
     @presentation = Presentation.find(params[:id], :scope => params[:event_id])
-    @presentation.videos.build unless @presentation.videos.present?
-    @presentation.slideshows.build unless @presentation.slideshows.present?
+    @Presentation.build_extras
   end
 
   def create

@@ -47,6 +47,12 @@ class Presentation < ActiveRecord::Base
   validates :event_id,   :presence => true, :numericality => true
 
   # Logic
+  def build_extras
+    speakers.build unless speakers.present?
+    videos.build unless videos.present?
+    slideshows.build unless slideshows.present?
+  end
+
   def thumbnail
     return "" unless videos.present? && videos.first.thumbnail.present?  
     videos.first.thumbnail
