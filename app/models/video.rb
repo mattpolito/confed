@@ -1,6 +1,6 @@
 class Video < ExternalEmbed
   # Callbacks
-  before_validation :set_attrs_via_embedly, :unless => Proc.new { |v| v.url.blank? }
+  before_validation :set_attrs_via_embedly, :if => Proc.new { |v| v.url? }
  
   # Logic
   def set_attrs_via_embedly

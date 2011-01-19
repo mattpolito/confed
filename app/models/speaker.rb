@@ -49,7 +49,7 @@ class Speaker < ActiveRecord::Base
     end
 
     def render_bio
-      return if bio.blank?
+      return unless bio?
       self.rendered_bio = RDiscount.new(
         bio, :smart, :filter_html, :autolink
       ).to_html
