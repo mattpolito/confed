@@ -64,7 +64,7 @@ class Presentation < ActiveRecord::Base
 
   private
     def render_description
-      return if description.blank?
+      return unless description?
       self.rendered_description = RDiscount.new(
         description, :smart, :filter_html, :autolink
       ).to_html

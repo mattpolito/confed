@@ -33,7 +33,7 @@ module ApplicationHelper
 
   def avatar_url(user)
     default_image_path = "#{root_url}images/default_avatar.png"
-    if user.twitter.present?
+    if user.twitter?
       Twitter.profile_image(user.twitter, :size => 'bigger')
     else
       default_url = CGI.escape(default_image_path)
