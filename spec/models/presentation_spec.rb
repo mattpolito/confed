@@ -103,4 +103,23 @@ describe Presentation do
       end
     end
   end
+
+  describe "#set_short_url(url)" do
+    subject { Presentation.create(valid_attributes) }
+    let(:bitly) { mock(Bitly) }
+
+    before do
+      Bitly.stub(:new).and_return(bitly)
+      bitly.stub_chain(:shorten, :short_url).and_return("short_url")
+    end
+
+    it "returns shortened version of url" do
+      subject.set_short_url("long_url").should == "short_url"
+    end
+
+    it "saves shortened url to #short_url" do
+      subject.set_short_url("long_url")
+      subject.short_url.should == "short_url"
+    end
+  end
 end
