@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110114235704) do
+ActiveRecord::Schema.define(:version => 20110120123623) do
 
   create_table "events", :force => true do |t|
     t.string   "name",            :null => false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110114235704) do
     t.text     "rendered_description"
     t.string   "cached_slug"
     t.boolean  "released"
+    t.string   "short_url"
   end
 
   add_index "presentations", ["cached_slug"], :name => "index_presentations_on_cached_slug"

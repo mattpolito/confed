@@ -11,8 +11,9 @@ require 'spec_helper'
 #   end
 # end
 describe PresentationsHelper do
+  let(:presentation) { mock_model(Presentation, :title => "Some Topic") }
+
   describe "#tweet_text_for(presentation)" do
-    let(:presentation) { mock_model(Presentation, :title => "Some Topic") }
     let(:speaker) { mock_model(Speaker) }
     let(:speaker2) { mock_model(Speaker) }
     let(:event) { mock_model(Event, :name => "My Awesome Conference") }
@@ -61,6 +62,32 @@ describe PresentationsHelper do
         speaker.stub(:twitter).and_return("")
         string = helper.tweet_text_for(presentation)
         string.should == "Watching Some Topic - My Awesome Conference"
+      end
+    end
+  end
+
+  describe "#shorten_url_for(url, presentation)" do
+    describe "when presentation already has shortened url" do
+      it "returns Presentation#short_url" do
+        presentation.stub(:short_url).and_return("short_url")
+        presentation.stub(:short_url?).and_return(true)
+        result = helper.shorten_url_for("long_url", presentation)
+        result.should == "short_url"
+      end
+    end
+
+    describe "when presentation has no shortened url" do
+      it "returns Presentation#short_url" do
+        presentation.stub(:set_short_url).and_return("short_url")
+        presentation.stub(:short_url?).and_return(false)
+        result = helper.shorten_url_for("long_url", presentation)
+        result.should == "short_url"
+      end
+
+      it "calls Presentation#set_short_url(url)" do
+        presentation.should_receive(:set_short_url).with("long_url")
+        presentation.stub(:short_url?).and_return(false)
+        result = helper.shorten_url_for("long_url", presentation)
       end
     end
   end

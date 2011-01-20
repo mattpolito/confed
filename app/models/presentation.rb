@@ -53,6 +53,16 @@ class Presentation < ActiveRecord::Base
     slideshows.build unless slideshows.present?
   end
 
+  def set_short_url(url)
+    bitly = Bitly.new(AppConfig.bitly.user, AppConfig.bitly.api_key)
+    short_url = bitly.shorten(url).try(:short_url)
+    self.update_attributes :short_url => short_url
+    short_url
+  rescue BitlyError => e
+    logger.error "[Bitly]: #{e}"
+    url
+  end
+
   def thumbnail
     return "" unless videos.present? && videos.first.thumbnail.present?  
     videos.first.thumbnail

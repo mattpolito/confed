@@ -1,10 +1,10 @@
 module PresentationsHelper
-  def bitly_url(url)
-    bitly = Bitly.new(AppConfig.bitly.user, AppConfig.bitly.api_key)
-    bitly.shorten(url).try(:short_url)
-  rescue BitlyError => e
-    logger.error "[Bitly]: #{e}"
-    url
+  def shorten_url_for(url, presentation)
+    unless presentation.short_url?
+      presentation.set_short_url(url)
+    else
+      presentation.short_url
+    end
   end
 
   def tweet_text_for(presentation)
