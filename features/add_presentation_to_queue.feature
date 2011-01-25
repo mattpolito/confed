@@ -6,8 +6,8 @@ Feature: Add presentation to queue
       | Title       | How I built this app |
       | Description | Description          |
       | Released    | true                 |
-    And   has video content
+    And has video content
     When  I am on the presentation page
-    And I follow "Watch Later"
-    Then I should have 1 presentation in my queue
-    And I should see "Video Saved"
+    And I press "Watch Later"
+    Then I should have 1 saved presentation
+    And I should see "Presentation Saved"

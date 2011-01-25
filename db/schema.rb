@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(:version => 20110208190237) do
 
   add_index "roles_users", ["user_id", "role_id"], :name => "index_roles_users_on_user_id_and_role_id", :unique => true
 
+  create_table "saved_presentations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "presentation_id"
+    t.boolean  "watched"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "slugs", :force => true do |t|
     t.string   "name"
     t.integer  "sluggable_id"

@@ -45,3 +45,5 @@
     %dd
       = tweet_button :text => tweet_text_for(@presentation),
                      :url => shorten_url_for(request.url, @presentation)
+    %dd
+      = button_to 'Watch Later', save_presentation_path(:user_id => current_user.id, :id => @presentation.id) if user_signed_in?

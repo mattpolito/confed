@@ -13,6 +13,12 @@ ConferenceEducation::Application.routes.draw do
     resources :presentations, :only => [:show]
   end
 
+  # block out users routes we don't want/need for users
+  #resources :users do
+    #resources :presentations, :controller => 'saved_presentations', :as => 'saved_presentations'
+  #end
+  post 'users/:user_id/presentations/:id' => 'saved_presentations#create', :as => 'save_presentation'
+
   namespace :admin do
     resources :presentations, :only => [:index, :new, :create]
     resources :speakers
