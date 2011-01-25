@@ -5,6 +5,7 @@ module PresentationsHelper
     else
       presentation.short_url
     end
+  end
 
   def bitly_url(url)
     return 'http://bit.ly/foo' if Rails.env.test?

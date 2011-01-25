@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110120123623) do
+ActiveRecord::Schema.define(:version => 20110125023512) do
 
   create_table "events", :force => true do |t|
     t.string   "name",            :null => false
@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(:version => 20110120123623) do
   end
 
   add_index "roles_users", ["user_id", "role_id"], :name => "index_roles_users_on_user_id_and_role_id", :unique => true
+
+  create_table "saved_presentations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "presentation_id"
+    t.boolean  "watched"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
