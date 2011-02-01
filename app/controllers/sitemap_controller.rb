@@ -2,9 +2,8 @@ class SitemapController < ApplicationController
   def show
     respond_to do |format|
       format.xml do 
-        @presentations = Presentation.released
         @speakers = Speaker.all
-        @events = Event.all
+        @events = Event.order("updated_at DESC")
         @tags = ActsAsTaggableOn::Tag.all
       end
     end
