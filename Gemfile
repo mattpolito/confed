@@ -26,6 +26,7 @@ gem 'completeness-fu'
 group :development do
   gem 'metric_fu'
   gem 'heroku'
+  gem 'taps'
 end
 
 group :development, :test do
