@@ -1,7 +1,4 @@
 class Presentation < ActiveRecord::Base
-  # Constants
-  EMBED_SERVICE_URL = "http://api.embed.ly/v1/api/oembed?maxwidth=250&urls="
-
   # Callbacks
   before_save :render_description
   before_save :update_tag_cache
