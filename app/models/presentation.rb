@@ -27,7 +27,7 @@ class Presentation < ActiveRecord::Base
     speaker_cache 'B'
     event_cache   'C'
     tag_cache     'D'
-    description   'E'
+    description
   end
 
   # Associations
