@@ -29,12 +29,13 @@ describe SpeakersController do
 
     before do
       Speaker.stub(:find).with("37").and_return(speaker)
-      speaker.stub_chain(:presentations, :released).and_return(presentations)
+      speaker.stub_chain(:presentations, :released, :order).
+        and_return(presentations)
     end
 
     it "assigns the requested speaker as @speaker" do
       get :show, :id => "37"
-      assigns(:speaker).should be(speaker)
+      assigns[:speaker].should be(speaker)
     end
 
     it "assigns the speakers released presentations for the view" do

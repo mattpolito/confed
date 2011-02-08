@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.includes(:presentations).find(params[:id])
-    @presentations = @event.presentations.released
+    @presentations = @event.presentations.released.order("took_place_on DESC")
 
     respond_to do |format|
       format.html
@@ -19,8 +19,8 @@ class EventsController < ApplicationController
       format.atom do
         render 'shared/feed', :locals => {
           :feed_title => "#{@event.name}'s Presentations - Confed",
-          :feed_updated_at => @event.presentations.released.first.try(:created_at),
-          :presentations => @event.presentations.released
+          :feed_updated_at => @presentations.first.try(:created_at),
+          :presentations => @presentations
         }
       end
     end

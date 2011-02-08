@@ -39,7 +39,6 @@ class Presentation < ActiveRecord::Base
   accepts_nested_attributes_for :slideshows, :reject_if => :all_blank
 
   # Scopes
-  #default_scope :order => "#{quoted_table_name}.id DESC"
   scope :released, :conditions => { :released => true }
   scope :unreleased, :conditions => { :released => false }
 
