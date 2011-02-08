@@ -2,7 +2,7 @@ class PresentationsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @presentations = Presentation.released.paginate(
+        @presentations = Presentation.released.order("created_at DESC").paginate(
           :page => params[:page], :per_page => (params[:per_page] || 10),
           :include => [:speakers, :videos, :event, :tags]
         )
@@ -13,7 +13,7 @@ class PresentationsController < ApplicationController
         )
       end
       format.atom do
-        @presentations = Presentation.released
+        @presentations = Presentation.released.order("created_at DESC")
         render 'shared/feed', :locals => {
           :feed_title => 'Most Recently Added Presentations - Confed',
           :feed_updated_at => @presentations.first.created_at,
@@ -25,6 +25,7 @@ class PresentationsController < ApplicationController
 
   def show
     event = Event.find(params[:event_id])
-    @presentation = event.presentations.released.find(params[:id])
+    @presentation = event.presentations.released.
+      order("created_at DESC").find(params[:id])
   end
 end

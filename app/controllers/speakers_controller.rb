@@ -8,7 +8,7 @@ class SpeakersController < ApplicationController
 
   def show
     @speaker = Speaker.find(params[:id])
-    @speaker_presentations = @speaker.presentations.released
+    @speaker_presentations = @speaker.presentations.released.order("took_place_on DESC")
 
     respond_to do |format|
       format.html # show.html.erb

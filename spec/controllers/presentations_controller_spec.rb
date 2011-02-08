@@ -7,7 +7,7 @@ describe PresentationsController do
 
     describe "with HTML" do
       before(:each) do
-        Presentation.stub_chain(:released, :paginate).and_return(presentations)
+        Presentation.stub_chain(:released, :order, :paginate).and_return(presentations)
       end
 
       it "should be successful" do
@@ -28,7 +28,7 @@ describe PresentationsController do
 
     describe "with ATOM" do
       before(:each) do
-        Presentation.stub(:released).and_return(presentations)
+        Presentation.stub_chain(:released, :order).and_return(presentations)
       end
 
       it "should be successful" do
@@ -62,7 +62,7 @@ describe PresentationsController do
 
     before(:each) do
       Event.stub(:find).and_return(event)
-      event.stub_chain(:presentations, :released, :find).with("37").
+      event.stub_chain(:presentations, :released, :order, :find).with("37").
         and_return(presentation)
     end
 
