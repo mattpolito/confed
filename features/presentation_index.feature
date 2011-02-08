@@ -25,6 +25,6 @@ Feature: Presentation Home page
     Then I should see 1 presentation listing
     And  I should see a link "How I built this app" within "article h2"
     And  I should see "Description"
-    And  I should see a link "Jeffery Lebowski" within "article"
+    And  I should see a link "Jeffrey Lebowski" within "article"
     And  I should see a link "My Awesome Conference" within "article"
 

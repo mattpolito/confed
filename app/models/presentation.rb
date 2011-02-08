@@ -1,16 +1,18 @@
 class Presentation < ActiveRecord::Base
   # Callbacks
   before_save :render_description
-  before_save :update_tag_cache
+  before_save :update_search_cache
 
   # Attributes
   attr_protected :tag_cache
 
   # Extensions
   acts_as_taggable
+
   has_friendly_id :title, :use_slug => true, 
                           :scope => :event, 
                           :approximate_ascii => true
+  
   define_completeness_scoring do
     check :title, lambda { |per| per.title.present? }, :high
     check :description, lambda { |per| per.description.present? }, :medium
@@ -21,9 +23,11 @@ class Presentation < ActiveRecord::Base
   
   # Full Text Searching
   index do
-    tag_cache   'A'
-    title       'B'
-    description 'C'
+    title         'A'
+    speaker_cache 'B'
+    event_cache   'C'
+    tag_cache     'D'
+    description   'E'
   end
 
   # Associations
@@ -35,7 +39,7 @@ class Presentation < ActiveRecord::Base
   accepts_nested_attributes_for :slideshows, :reject_if => :all_blank
 
   # Scopes
-  default_scope :order => "#{quoted_table_name}.id DESC"
+  #default_scope :order => "#{quoted_table_name}.id DESC"
   scope :released, :conditions => { :released => true }
   scope :unreleased, :conditions => { :released => false }
 
@@ -70,6 +74,14 @@ class Presentation < ActiveRecord::Base
   end
 
   private
+    def build_speaker_cache
+      cache_array = []
+      speakers.each do |speaker|
+        cache_array << speaker.name
+      end
+      cache_array.reverse.join(', ').downcase
+    end
+
     def render_description
       return unless description?
       self.rendered_description = RDiscount.new(
@@ -77,7 +89,9 @@ class Presentation < ActiveRecord::Base
       ).to_html
     end
 
-    def update_tag_cache
+    def update_search_cache
       self.tag_cache = self.tag_list.to_s
+      self.event_cache = event.name
+      self.speaker_cache = build_speaker_cache
     end
 end

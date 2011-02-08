@@ -1,4 +1,4 @@
 Factory.define :speaker do |f|
-  f.name 'Jeffery Lebowski'
-  f.speaker_rate_id '1-adam-walters'
+  f.name 'Jeffrey Lebowski'
+  f.speaker_rate_id '1-jeffrey-lebowski'
 end

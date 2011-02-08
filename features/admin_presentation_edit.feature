@@ -12,7 +12,7 @@ Feature: Admin Presentation edit
       | Released    | true                 |
     When  I am on the admin edit presentation page
     Then  "My Awesome Conference" should be selected for "presentation_event_id"
-    Then  "Jeffery Lebowski" should be selected for "presentation_speaker_id_0"
+    Then  "Jeffrey Lebowski" should be selected for "presentation_speaker_id_0"
     Then  the "Title" field should contain "How I built this app"
     Then  the "Description" field should contain "Description"
     Then  the "Tags" field should contain "cucumber, ruby"

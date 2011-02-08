@@ -63,4 +63,4 @@ Feature: Speaker Profile
   Scenario: Has page title
     Given a speaker
     When  I am on the speaker information page
-    Then  I should see page title as "Jeffery Lebowski - Confed"
+    Then  I should see page title as "Jeffrey Lebowski - Confed"
