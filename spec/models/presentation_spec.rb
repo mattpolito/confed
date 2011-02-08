@@ -5,8 +5,11 @@ describe Presentation do
   it { should have_db_column(:description).of_type(:text) }
   it { should have_db_column(:speaker_id).of_type(:integer) }
   it { should have_db_column(:tag_cache).of_type(:string) }
+  it { should have_db_column(:speaker_cache).of_type(:string) }
+  it { should have_db_column(:event_cache).of_type(:string) }
   it { should have_db_column(:event_id).of_type(:integer) }
   it { should have_db_column(:released).of_type(:boolean) }
+  it { should_not have_db_column(:event_name) }
 
   it { should belong_to(:event) }
   it { should have_and_belong_to_many(:speakers) }
@@ -55,7 +58,7 @@ describe Presentation do
   end
 
   describe "tagging" do
-    subject{ Presentation.new }
+    subject { Factory.build(:presentation) }
 
     it{ should be_a_kind_of(ActsAsTaggableOn::Taggable::Core) }
     it{ should respond_to('tag_list') }
@@ -73,8 +76,41 @@ describe Presentation do
     end
   end
 
+  describe "cache_columns" do
+    subject { Factory.build(:presentation) }
+
+    describe "for event name" do
+      it 'updates the event_cache column with event name' do
+        subject.event.name.should == "My Awesome Conference"
+        subject.event_cache.should be_nil
+        subject.save!
+        subject.event_cache.should == "My Awesome Conference"
+      end
+    end
+
+    describe "for speaker name" do
+      describe "with one speaker" do
+        it 'updates the speaker_cache column with speaker name' do
+          subject.speaker_cache.should be_nil
+          subject.save!
+          subject.speaker_cache.should == "jeffrey lebowski"
+        end
+      end
+
+      describe "with many speakers" do
+        subject { Factory.build(:presentation_with_speakers) }
+
+        it 'updates the speaker_cache column with speakers names' do
+          subject.speaker_cache.should be_nil
+          subject.save!
+          subject.speaker_cache.should == "jeffrey lebowski, donny kerabatsos"
+        end
+      end
+    end
+  end
+
   describe '#thumbnail' do
-    subject{ Presentation.new } 
+    subject { Presentation.new } 
 
     it 'returns path for image' do
       subject.stub_chain(:videos, :first, :thumbnail).and_return("thumbnail_image")
@@ -88,15 +124,15 @@ describe Presentation do
 
   describe 'rendering description from text/markdown to html' do
     describe "when description is present" do
-      subject { Presentation.create(valid_attributes) }
+      subject { Factory(:presentation) }
 
       it "happens when saved" do
-        subject.rendered_description.should == "<p>description</p>\n"
+        subject.rendered_description.should == "<p>Description</p>\n"
       end
     end
 
     describe "when description is not present" do
-      subject { Presentation.create(valid_attributes.delete(:description)) }
+      subject { Factory(:presentation, :description => nil) }
 
       it "doesn't get processed" do
         subject.rendered_description.should be_blank 
@@ -105,7 +141,7 @@ describe Presentation do
   end
 
   describe "#set_short_url(url)" do
-    subject { Presentation.create(valid_attributes) }
+    subject { Factory(:presentation) }
     let(:bitly) { mock(Bitly) }
 
     before do

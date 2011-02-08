@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110125023512) do
+ActiveRecord::Schema.define(:version => 20110208182810) do
 
   create_table "events", :force => true do |t|
     t.string   "name",            :null => false
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20110125023512) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "video"
-    t.string   "event_name"
     t.datetime "took_place_on"
     t.integer  "speaker_id"
     t.string   "tag_cache"
@@ -52,11 +51,15 @@ ActiveRecord::Schema.define(:version => 20110125023512) do
     t.string   "cached_slug"
     t.boolean  "released"
     t.string   "short_url"
+    t.string   "event_cache"
+    t.string   "speaker_cache"
   end
 
   add_index "presentations", ["cached_slug"], :name => "index_presentations_on_cached_slug"
+  add_index "presentations", ["event_cache"], :name => "index_presentations_on_event_cache"
   add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
   add_index "presentations", ["released"], :name => "index_presentations_on_released"
+  add_index "presentations", ["speaker_cache"], :name => "index_presentations_on_speaker_cache"
   add_index "presentations", ["speaker_id"], :name => "index_presentations_on_speaker_id"
 
   create_table "presentations_speakers", :id => false, :force => true do |t|

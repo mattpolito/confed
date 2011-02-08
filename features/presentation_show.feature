@@ -15,7 +15,7 @@ Feature: Presentation show
     Then  I should see "How I built this app"
     And   I should see "Description"
     And   I should see the presentation video
-    And   I should see a link "Jeffery Lebowski"
+    And   I should see a link "Jeffrey Lebowski"
     And   I should see "My Awesome Conference"
 
   Scenario: Viewing page with slideshow 
@@ -29,7 +29,7 @@ Feature: Presentation show
     Then  I should see "How I built this app"
     And   I should see "Description"
     # And   I should see the presentation slideshow 
-    And   I should see a link "Jeffery Lebowski"
+    And   I should see a link "Jeffrey Lebowski"
     And   I should see "My Awesome Conference"
 
   Scenario: Viewing page with video and slideshow 
@@ -45,7 +45,7 @@ Feature: Presentation show
     And   I should see "Description"
     And   I should see the presentation video
     # And   I should see the presentation slideshow 
-    And   I should see a link "Jeffery Lebowski"
+    And   I should see a link "Jeffrey Lebowski"
     And   I should see "My Awesome Conference"
 
   Scenario: Has page title
