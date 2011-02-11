@@ -1,7 +1,9 @@
 - content_for :atom_feed do 
   = auto_discovery_link_tag(:atom, speaker_url(@speaker, :format => :atom))
 
-- title "#{@speaker.name}"
+- meta_content_for(:title) { @speaker.name }
+
+- meta_content_for(:description) { "#{@speaker.name} - #{@speaker.bio}" }
 
 %article#speaker
   - if @speaker_presentations.present?

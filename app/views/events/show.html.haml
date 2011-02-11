@@ -1,7 +1,10 @@
 - content_for :atom_feed do 
   = auto_discovery_link_tag(:atom, event_url(@event, :format => :atom))
 
-- title "#{@event.name}"
+- meta_content_for(:title) { @event.name }
+
+- meta_content_for(:description) do
+  #{@event.name} - #{displayed_date_for(@event)}
 
 %article#event
   - if @presentations.present?
