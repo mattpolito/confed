@@ -23,12 +23,36 @@ module ApplicationHelper
     link_to CGI::escapeHTML(text), href, opts
   end
 
-  def title(message)
-    content_for(:title) { message }
+  def meta_content_for(section)
+    key = ("meta_" + section.to_s).to_sym
+    content_for(key) { Proc.new.call }
   end
 
-  def page_title
-    content_for(:title).present? ? "#{content_for(:title)} - Confed" : "Confed" 
+  def displayed_meta_description
+    if content_for(:meta_description).present?
+      truncate(
+        content_for(:meta_description), 
+          :length => 155, :separator => ' '
+      ).strip
+    else
+      AppConfig.default_meta_description
+    end
+  end
+
+  def displayed_meta_keywords
+    if content_for(:meta_keywords).present?
+      content_for(:meta_keywords).strip
+    else
+      AppConfig.default_meta_keywords
+    end
+  end
+
+  def displayed_page_title
+    if content_for(:meta_title).present? 
+      "#{content_for(:meta_title).strip} - Confed"
+    else
+      AppConfig.default_page_title
+    end
   end
 
   def avatar_url(user)
