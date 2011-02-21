@@ -7,17 +7,13 @@ ConferenceEducation::Application.routes.draw do
     get  "logout", :to => "devise/sessions#destroy"
   end
   
+  post "events/:event_id/presentations/:presentation_id/watch-later", :to => "saved_presentations#create", :as => "save_presentation"
+
   resources :presentations, :only => [:index]
   resources :speakers, :only => [:index, :show]
   resources :events, :only => [:index, :show] do
     resources :presentations, :only => [:show]
   end
-
-  # block out users routes we don't want/need for users
-  #resources :users do
-    #resources :presentations, :controller => 'saved_presentations', :as => 'saved_presentations'
-  #end
-  post 'users/:user_id/presentations/:id' => 'saved_presentations#create', :as => 'save_presentation'
 
   namespace :admin do
     resources :presentations, :only => [:index, :new, :create]
