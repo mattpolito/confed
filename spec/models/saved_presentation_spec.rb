@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe SavedPresentation do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:presentation) }
+  it { should belong_to(:user) }
 end
