@@ -22,6 +22,7 @@ gem 'compass'
 gem 'bitly'
 gem 'settingslogic'
 gem 'completeness-fu'
+gem 'meta_where'
 
 group :development do
   gem 'metric_fu'

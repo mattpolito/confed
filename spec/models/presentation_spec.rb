@@ -44,15 +44,21 @@ describe Presentation do
   end
 
   describe "scopes" do
+    before do
+      [true, false].each do |state|
+        Factory(:presentation, :released => state)
+      end
+    end
+
     describe ".released" do
       it "returns records where #released == true" do
-        Presentation.released.where_values_hash.should == {:released => true}
+        Presentation.released.size.should == 1
       end
     end
 
     describe ".unreleased" do
       it "returns records where #released == false" do
-        Presentation.unreleased.where_values_hash.should == {:released => false}
+        Presentation.unreleased.size.should == 1
       end
     end
   end
