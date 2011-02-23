@@ -53,7 +53,7 @@ describe Admin::PresentationsController do
     end
 
     it "assigns speakers for the view" do
-      Speaker.stub(:all).and_return([speaker])
+      Speaker.stub(:order).and_return([speaker])
       get :new
       assigns[:speakers].should == [speaker]
     end

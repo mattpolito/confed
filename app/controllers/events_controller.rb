@@ -7,7 +7,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.includes(:presentations).find(params[:id])
-    @presentations = @event.presentations.released.order("took_place_on DESC")
+    @presentations = @event.presentations.released.order(:took_place_on.desc)
 
     respond_to do |format|
       format.html

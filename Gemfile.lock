@@ -171,6 +171,10 @@ GEM
     main (4.4.0)
       arrayfields (>= 4.7.4)
       fattr (>= 2.1.0)
+    meta_where (0.9.6)
+      activerecord (~> 3.0.0)
+      activesupport (~> 3.0.0)
+      arel (~> 1.0.1)
     metric_fu (2.0.1)
       Saikuro (>= 1.1.0)
       activesupport (>= 2.0.0)
@@ -333,6 +337,7 @@ DEPENDENCIES
   httparty
   jasmine
   launchy
+  meta_where
   metric_fu
   pg (~> 0.9)
   rails (= 3.0.1)

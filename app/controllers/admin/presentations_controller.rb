@@ -68,7 +68,7 @@ class Admin::PresentationsController < AdminController
     end
 
     def find_speakers
-      @speakers = Speaker.all :order => 'name'
+      @speakers = Speaker.order(:name)
     end
 end
 
