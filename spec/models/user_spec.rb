@@ -6,7 +6,7 @@ describe User do
   it { should have_db_column(:password_salt).of_type(:string) }
 
   it { should have_and_belong_to_many(:roles) }
-  it { should have_many(:saved_presentations) }
+  it { should have_many(:watch_list) }
 
   describe "#has_role?" do
     subject { User.new }

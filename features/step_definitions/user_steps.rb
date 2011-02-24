@@ -1,7 +1,3 @@
-Given /^I have the role of "([^\"]*)"$/ do |role|
-  @user.roles << Role.find_or_create_by_name(role)
-end
-
 Given /^I am not authenticated$/ do
     visit('/users/sign_out') # ensure that at least
 end
@@ -10,6 +6,32 @@ Given /^I have one\s+user "([^\"]*)" with password "([^\"]*)"$/ do |email, passw
   @user = User.create(:email => email,
     :password => password,
     :password_confirmation => password)
+end
+
+Given /^I logged in as a(?:n?)(?: "([^\"]*)")? user$/ do |role|
+  email    = 'testing@man.net'
+  login    = 'Testing man'
+  password = 'secretpass'
+
+  Given %{I have one user "#{email}" with password "#{password}" and login "#{login}"}
+  And   %{I have the role of "#{role}"}
+  And   %{I go to the login page}
+  And   %{I fill in "user_email" with "#{email}"}
+  And   %{I fill in "user_password" with "#{password}"}
+  And   %{I press "Sign in"}
+
+end
+
+Given /^I have one\s+user "([^\"]*)" with password "([^\"]*)" and login "([^\"]*)"$/ do |email, password, login|
+  @user = User.new(:email    => email,
+                   :login    => login,
+                   :password => password,
+                   :password_confirmation => password)
+  @user.save!
+end
+
+Given /^I have the role of "([^\"]*)"$/ do |role|
+  @user.roles << Role.find_or_create_by_name(role)
 end
 
 Given /^I am a new, authenticated user$/ do

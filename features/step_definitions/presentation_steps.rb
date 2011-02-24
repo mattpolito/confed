@@ -79,3 +79,16 @@ end
 Then /^it should display date it took place$/ do
   page.should have_css('.presentation .took_place_on')
 end
+
+
+Given /^I have the following saved presentations:$/ do |table|
+  #new_table = table.transpose
+  table.map_headers!{ |header| header.downcase.gsub(/\s+/, "_") }
+  table.hashes.each do |attributes|
+    attributes.merge!({:event_id => Factory(:event).id})
+    @presentation = Factory(:speaker).presentations.create(
+      Factory.attributes_for(:presentation, attributes)
+    )
+    @user.watch_list.create(:presentation => @presentation)
+  end
+end

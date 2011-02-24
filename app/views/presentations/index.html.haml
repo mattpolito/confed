@@ -1,8 +1,14 @@
 - content_for :atom_feed do 
   = auto_discovery_link_tag(:atom, "/presentations.atom")
 
-%fieldset 
-  %legend Latest Presentations:
-  = render @presentations
+%section#main
+  %fieldset 
+    %legend Latest Presentations:
+    = render @presentations
+
+%aside
+  - unless current_user.blank?
+    = render 'shared/watch_list', 
+      :presentations => current_user.watch_list.presentations
 
 = will_paginate @presentations

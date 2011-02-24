@@ -8,7 +8,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   # Associations
-  has_many :saved_presentations
+  has_many :watch_list, :class_name => "SavedPresentation", :include => :presentation do
+    def presentations
+      self.collect(&:presentation)
+    end
+  end
+
   has_and_belongs_to_many :roles
 
   # Logic

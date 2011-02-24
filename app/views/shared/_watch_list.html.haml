@@ -1,0 +1,7 @@
+%fieldset
+  %legend Watch List
+  - if presentations
+    %ol
+      - presentations.each do |presentation|
+        %li
+          = link_to presentation.title, event_presentation_path(presentation.event, presentation)

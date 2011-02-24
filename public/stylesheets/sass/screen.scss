@@ -136,6 +136,10 @@ nav {
   overflow:hidden;
   padding:10px;
 
+  section#main {
+    float: left;
+    width: $presentation_width;
+  }
 }
 
 h1, legend {
@@ -343,6 +347,10 @@ aside {
       }
     }
   }
+}
+
+aside legend {
+  font-size: 1.7em;
 }
 
 #speakers {
