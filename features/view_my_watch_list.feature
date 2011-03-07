@@ -11,3 +11,5 @@ Feature: View my watch list
       | Rspec Tutorial | BDD and all that shit |
     When  I am on the home page
     Then  I should see "Watch List"
+    And I should see "Rails 3 Update" within watch list
+    And I should see "Rspec Tutorial" within watch list
