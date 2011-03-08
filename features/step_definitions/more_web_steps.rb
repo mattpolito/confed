@@ -45,3 +45,10 @@ Then /^I should see page title as "(.*)"$/ do |title|
   assert_equal title, page.find(:css, 'title').text
 end
 
+Then /^I should see the "([^"]*)" button$/ do |text|
+  page.should have_button(text)
+end
+
+Then /^I should not see the "([^"]*)" button$/ do |text|
+  page.should_not have_button(text)
+end

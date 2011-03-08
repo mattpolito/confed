@@ -8,6 +8,7 @@ ConferenceEducation::Application.routes.draw do
   end
   
   post "events/:event_id/presentations/:presentation_id/watch-later", :to => "saved_presentations#create", :as => "save_presentation"
+  delete "events/:event_id/presentations/:presentation_id/watch-later", :to => "saved_presentations#destroy", :as => "save_presentation"
 
   resources :presentations, :only => [:index]
   resources :speakers, :only => [:index, :show]

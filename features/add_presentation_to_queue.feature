@@ -11,3 +11,5 @@ Feature: Add presentation to queue
     And I press "Watch Later"
     Then I should have 1 saved presentation
     And I should see "Presentation Saved"
+    And I should not see the "Watch Later" button
+    And I should see the "Watched" button

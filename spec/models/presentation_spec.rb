@@ -15,6 +15,7 @@ describe Presentation do
   it { should have_and_belong_to_many(:speakers) }
   it { should have_many(:videos) }
   it { should have_many(:slideshows) }
+  it { should have_many(:saved_presentations) }
 
   let(:valid_attributes) do
     {
@@ -162,6 +163,20 @@ describe Presentation do
     it "saves shortened url to #short_url" do
       subject.set_short_url("long_url")
       subject.short_url.should == "short_url"
+    end
+  end
+
+  describe "#queued_by?(current_user)" do
+    subject { Factory(:presentation) }
+    let(:user) { Factory(:user) }
+
+    it "returns true if current_user has presentation in watch list" do
+      user.watch_list.create(:presentation => subject)
+      subject.queued_by?(user).should be_true
+    end
+
+    it "returns false unless current_user has presentation in watch list" do 
+      subject.queued_by?(user).should be_false
     end
   end
 end

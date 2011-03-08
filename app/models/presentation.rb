@@ -37,6 +37,7 @@ class Presentation < ActiveRecord::Base
   accepts_nested_attributes_for :videos,     :reject_if => :all_blank
   has_many :slideshows
   accepts_nested_attributes_for :slideshows, :reject_if => :all_blank
+  has_many :saved_presentations
 
   # Scopes
   scope :released, :conditions => { :released => true }
@@ -51,6 +52,10 @@ class Presentation < ActiveRecord::Base
     speakers.build unless speakers.present?
     videos.build unless videos.present?
     slideshows.build unless slideshows.present?
+  end
+
+  def queued_by?(user)
+    saved_presentations.exists?(:user_id => user.id)
   end
 
   def set_short_url(url)
