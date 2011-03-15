@@ -19,3 +19,4 @@ config/database.yml
 logfile
 .yardoc/*
 .sass-cache
+config/app_config.yml
