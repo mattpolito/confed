@@ -1,3 +1,7 @@
+Given /^I have the role of "([^\"]*)"$/ do |role|
+  @user.roles << Role.find_or_create_by_name(role)
+end
+
 Given /^I am not authenticated$/ do
     visit('/users/sign_out') # ensure that at least
 end
@@ -53,4 +57,3 @@ end
 Then /^the user should not be an admin$/ do
   @user.should_not have_role(:admin)
 end
-

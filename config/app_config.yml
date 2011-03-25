@@ -1,0 +1,17 @@
+defaults: &defaults
+  bitly:
+    user: getconfed
+    api_key: R_372daf4c1d897ad639f2c96062c49fd0
+
+  default_meta_description: Confed is your educational source for information locked in conference videos
+  default_meta_keywords: conference, video, education, slideshow, knowledge
+  default_page_title: Confed
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
